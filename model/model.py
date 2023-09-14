@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import string
 
-df = pd.read_csv('C:\\Users\\Shivam\\Desktop\\calorieApp_server\\model\\cleaned_data.csv')
+df = pd.read_csv('cleaned_data.csv')
 index_list = df.index.tolist()
 
 client = pymongo.MongoClient('mongodb://localhost:27017')
