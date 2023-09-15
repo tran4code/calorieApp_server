@@ -1,6 +1,5 @@
 bcrypt==4.0.1
 blinker==1.6.2
-bson==0.5.10
 certifi==2023.7.22
 cffi==1.15.1
 click==8.1.7

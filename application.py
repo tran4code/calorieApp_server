@@ -102,7 +102,7 @@ def register():
                 username = request.form.get('username')
                 email = request.form.get('email')
                 password = request.form.get('password')
-                mongo.db.user.insert({'name': username, 'email': email, 'pwd': bcrypt.hashpw(
+                mongo.db.user.insert_one({'name': username, 'email': email, 'pwd': bcrypt.hashpw(
                     password.encode("utf-8"), bcrypt.gensalt())})
             flash(f'Account created for {form.username.data}!', 'success')
             return redirect(url_for('home'))
@@ -131,16 +131,16 @@ def calories():
                 email = session.get('email')
                 food = request.form.get('food')
                 cals = food.split(" ")
-                cals = int(cals[1][1:len(cals[1]) - 1])
+                cals = int(cals[-1][1:len(cals[-1]) - 1])
                 burn = request.form.get('burnout')
 
                 temp = mongo.db.calories.find_one({'email': email}, {
                     'email', 'calories', 'burnout'})
                 if temp is not None:
-                    mongo.db.calories.update({'email': email}, {'$set': {
+                    mongo.db.calories.update_one({'email': email}, {'$set': {
                                              'calories': temp['calories'] + cals, 'burnout': temp['burnout'] + int(burn)}})
                 else:
-                    mongo.db.calories.insert(
+                    mongo.db.calories.insert_one(
                         {'date': now, 'email': email, 'calories': cals, 'burnout': int(burn)})
                 flash(f'Successfully updated the data', 'success')
                 return redirect(url_for('calories'))
@@ -170,13 +170,13 @@ def user_profile():
                 temp = mongo.db.profile.find_one({'email': email}, {
                     'height', 'weight', 'goal', 'target_weight'})
                 if temp is not None:
-                    mongo.db.profile.update({'email': email},
+                    mongo.db.profile.update_one({'email': email},
                                             {'$set': {'weight': temp['weight'],
                                                       'height': temp['height'],
                                                       'goal': temp['goal'],
                                                       'target_weight': temp['target_weight']}})
                 else:
-                    mongo.db.profile.insert({'email': email,
+                    mongo.db.profile.insert_one({'email': email,
                                              'height': height,
                                              'weight': weight,
                                              'goal': goal,
@@ -418,7 +418,7 @@ def yoga():
         if form.validate_on_submit():
             if request.method == 'POST':
                 enroll = "yoga"
-                mongo.db.user.insert({'Email': email, 'Status': enroll})
+                mongo.db.user.insert_one({'Email': email, 'Status': enroll})
             flash(
                 f' You have succesfully enrolled in our {enroll} plan!',
                 'success')
@@ -444,7 +444,7 @@ def swim():
         if form.validate_on_submit():
             if request.method == 'POST':
                 enroll = "swimming"
-                mongo.db.user.insert({'Email': email, 'Status': enroll})
+                mongo.db.user.insert_one({'Email': email, 'Status': enroll})
             flash(
                 f' You have succesfully enrolled in our {enroll} plan!',
                 'success')
@@ -470,7 +470,7 @@ def abbs():
         if form.validate_on_submit():
             if request.method == 'POST':
                 enroll = "abbs"
-                mongo.db.user.insert({'Email': email, 'Status': enroll})
+                mongo.db.user.insert_one({'Email': email, 'Status': enroll})
             flash(
                 f' You have succesfully enrolled in our {enroll} plan!',
                 'success')
@@ -495,7 +495,7 @@ def belly():
         if form.validate_on_submit():
             if request.method == 'POST':
                 enroll = "belly"
-                mongo.db.user.insert({'Email': email, 'Status': enroll})
+                mongo.db.user.insert_one({'Email': email, 'Status': enroll})
             flash(
                 f' You have succesfully enrolled in our {enroll} plan!',
                 'success')
@@ -521,7 +521,7 @@ def core():
         if form.validate_on_submit():
             if request.method == 'POST':
                 enroll = "core"
-                mongo.db.user.insert({'Email': email, 'Status': enroll})
+                mongo.db.user.insert_one({'Email': email, 'Status': enroll})
             flash(
                 f' You have succesfully enrolled in our {enroll} plan!',
                 'success')
@@ -546,7 +546,7 @@ def gym():
         if form.validate_on_submit():
             if request.method == 'POST':
                 enroll = "gym"
-                mongo.db.user.insert({'Email': email, 'Status': enroll})
+                mongo.db.user.insert_one({'Email': email, 'Status': enroll})
             flash(
                 f' You have succesfully enrolled in our {enroll} plan!',
                 'success')
@@ -571,7 +571,7 @@ def walk():
         if form.validate_on_submit():
             if request.method == 'POST':
                 enroll = "walk"
-                mongo.db.user.insert({'Email': email, 'Status': enroll})
+                mongo.db.user.insert_one({'Email': email, 'Status': enroll})
             flash(
                 f' You have succesfully enrolled in our {enroll} plan!',
                 'success')
@@ -596,7 +596,7 @@ def dance():
         if form.validate_on_submit():
             if request.method == 'POST':
                 enroll = "dance"
-                mongo.db.user.insert({'Email': email, 'Status': enroll})
+                mongo.db.user.insert_one({'Email': email, 'Status': enroll})
             flash(
                 f' You have succesfully enrolled in our {enroll} plan!',
                 'success')
@@ -621,7 +621,7 @@ def hrx():
         if form.validate_on_submit():
             if request.method == 'POST':
                 enroll = "hrx"
-                mongo.db.user.insert({'Email': email, 'Status': enroll})
+                mongo.db.user.insert_one({'Email': email, 'Status': enroll})
             flash(
                 f' You have succesfully enrolled in our {enroll} plan!',
                 'success')
