@@ -1,29 +1,47 @@
-name: Format
-on:
-  pull_request: 
-    branches: [main]
-    paths:
-    - '**.py'
+name: Python Code Formatter with Black
+on: [push, pull_request]
 jobs:
-  autoyapf:
+  black:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
         with:
-          ref: ${{ github.head_ref }}
-      - name: autoyapf
-        id: autoyapf
-        uses: mritunjaysharma394/autoyapf@v2
-        with:
-          args: --style pep8 --recursive --in-place .
-      - name: Check for modified files
-        id: git-check
-        run: echo ::set-output name=modified::$(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)
-      - name: Push changes
-        if: steps.git-check.outputs.modified == 'true'
-        run: |
-          git config --global user.name 'PrakruthiSomashekar'
-          git config --global user.email 'prakruthi1796@gmail.com'
-          git remote set-url origin https://x-access-token:${{ secrets.GIT_TOKEN }}@github.com/${{ deekay2310/calorieApp_server }}
-          git commit -am "Automated autoyapf fixes"
-          git push
+          python-version: '3.10'
+      - name: Install dependencies
+        run: pip install black
+      - name: Run Black
+        run: black .
+
+# name: Format
+# on:
+#   pull_request: 
+#     branches: [main]
+#     paths:
+#     - '**.py'
+# jobs:
+#   autoyapf:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@master
+#         with:
+#           ref: ${{ github.head_ref }}
+#       - name: autoyapf
+#         id: autoyapf
+#         uses: mritunjaysharma394/autoyapf@v2
+#         with:
+#           args: --style pep8 --recursive --in-place .
+#       - name: Check for modified files
+#         id: git-check
+#         run: echo ::set-output name=modified::$(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)
+#       - name: Push changes
+#         if: steps.git-check.outputs.modified == 'true'
+#         run: |
+#           git config --global user.name 'PrakruthiSomashekar'
+#           git config --global user.email 'prakruthi1796@gmail.com'
+#           git remote set-url origin https://x-access-token:${{ secrets.GIT_TOKEN }}@github.com/${{ deekay2310/calorieApp_server }}
+#           git commit -am "Automated autoyapf fixes"
+#           git push
+
+
