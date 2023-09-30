@@ -31,5 +31,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: chartboost/ruff-action@v1
+      - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-            RUFF_OUTPUT_FORMAT: json
+          commit_message: 'style fixes by ruff'
