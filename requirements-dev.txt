@@ -1,5 +1,4 @@
 black
-sphinx
 pytest
 pytest-dov
 coverage
