@@ -1,4 +1,4 @@
-name: Running Code Coverage
+name: Python Code Coverage (pytest)
 on:
   push:
     branches:
@@ -27,7 +27,7 @@ jobs:
         python application.py &
         sleep 5
         cd tests
-        coverage run test_module.py
+        coverage run -m pytest test_application.py
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
       with:
