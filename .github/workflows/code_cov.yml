@@ -1,3 +1,4 @@
+# pytest-cov enables "pytest --cov=application ."
 name: Python Unit Testing & Code Coverage (pytest & pytest-cov)
 on:
   push:

@@ -1,9 +1,0 @@
-language: python
-env:
-  - CODECOV_TOKEN='ed8ebcac-7dfe-4635-9044-8e21902aeeaa'
-python:
-  - "3.9.9"
-install:
-  - pip install -r requirements.txt
-script: python3 -m unittest discover
-services: mongodb
