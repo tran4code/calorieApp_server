@@ -1,4 +1,4 @@
-name: Python Code Coverage (pytest)
+name: Python Unit Testing & Code Coverage (pytest & pytest-cov)
 on:
   push:
     branches:
@@ -33,6 +33,7 @@ jobs:
         sleep 5
         cd tests
         coverage run -m pytest test_application.py
+        pytest --cov=application .
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
       with:
