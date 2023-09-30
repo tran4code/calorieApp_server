@@ -1,4 +1,4 @@
-name: Python Code Coverage (pytest)
+name: Running Code Coverage
 on:
   push:
     branches:
