@@ -1,9 +1,9 @@
-# import unittest
+import unittest
 
 
-# class BasicTestCase(unittest.TestCase):
-#     def test_logout(self):
-#         pass
+class BasicTestCase(unittest.TestCase):
+    def test_logout(self):
+        pass
 
 
 #     self.app = app.test_client()
