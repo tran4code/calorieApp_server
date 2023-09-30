@@ -52,7 +52,28 @@ https://drive.google.com/drive/folders/1M5vdCwH11C-MqK8X-Dkf5bPR0SaWA5Yc?usp=sha
 
 ![WhatsApp Image 2021-09-28 at 2 48 00 PM](https://user-images.githubusercontent.com/25662536/135546154-cfae1d2e-439a-4edc-b0bb-57f693ef5a83.jpeg)
 
-BurnOut is an easy to use application that keeps track of a user's daily calories gained and burnt. It can help the user to set goals such as weight loss/gain. Users can edit their profile by entering their height, weight, goal and target-weight. Users can enroll into numerous programs involving fitness such as yoga classes and workout sessions. Users can now connect with their friends by sending a friend-request and share their progress. This document provides a major perspective for the users to understand and take up the project as an Open source software and add on multiple features before releasing to the market. Also, the document aids the developers in understanding the code and acts as a reference point for continuing the project. 
+## BurnOut: Fuel Your Fitness Journey
+
+BurnOut is your ultimate fitness companion, designed to make tracking your daily calorie intake and workouts a breeze. Whether you're aiming to shed some pounds or bulk up, BurnOut has got you covered. Here's what you can expect:
+
+- **Personalized Profiles**: Create your unique profile by entering your height, weight, fitness goals, and target weight. BurnOut tailors your fitness journey just for you.
+
+- **Goal Setting**: Set your fitness goals with ease. Whether it's weight loss or muscle gain, BurnOut provides the roadmap to get you there.
+
+- **Fitness Programs**: Join exciting fitness programs, including yoga classes and energizing workout sessions. BurnOut helps you stay motivated and engaged.
+
+- **Connect with Friends**: Stay accountable by connecting with friends, sending friend requests, and sharing your fitness progress. Together, you can achieve your goals.
+
+and more:
+
+ - User can keep a track of their calorie intake.
+ - User just needs to input the food they've had, calories get calculated automatically.
+ - Displays a record of calories in and calories burnt out day wise in History tab.
+ - Helps user to figure out how much to eat/exercise according to their desired goal(weight loss/gain).
+ - Users can connect with their friends and keep track of each other's progress
+ - Enrollment into numerous yoga and workout sessions.
+ - Accessible to everyone and easy to use.
+
 
 # Table of Contents  
 
@@ -75,19 +96,9 @@ BurnOut is an easy to use application that keeps track of a user's daily calorie
 - [License](#license)
 
 
-# Why use BurnOut?
- - User can keep a track of their calorie intake.
- - User just needs to input the food they've had, calories get calculated automatically.
- - Displays a record of calories in and calories burnt out day wise in History tab.
- - Helps user to figure out how much to eat/exercise according to their desired goal(weight loss/gain).
- - Users can connect with their friends and keep track of each other's progress
- - Enrollment into numerous yoga and workout sessions.
- - Accessible to everyone and easy to use.
-
 # Implementation
 
 Link to the implementation video of the BurnOut application:
-
 
 
 # TechStack Used for the Development of Project
