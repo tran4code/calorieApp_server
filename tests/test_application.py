@@ -1,5 +1,5 @@
 import pytest
-from flask import Flask, session
+from flask import session
 from application import app
 
 
@@ -27,7 +27,7 @@ def test_login(client):
 def test_logout(client):
     with client.session_transaction() as sess:
         sess["email"] = "test@example.com"
-    response = client.get("/logout")
+    client.get("/logout")
     assert session.get("email") is None  # Expect session to be cleared
 
 
