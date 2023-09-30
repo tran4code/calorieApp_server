@@ -7,7 +7,7 @@
 #       - uses: actions/checkout@v2
 #       - uses: cclauss/Find-Python-syntax-errors-action@master
 
-name: Lint Python with Ruff
+name: Python Linter (Ruff)
 on: [push, pull_request]
 jobs:
   ruff:

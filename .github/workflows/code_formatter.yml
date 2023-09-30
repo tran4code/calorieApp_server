@@ -1,4 +1,4 @@
-name: Python Code Formatter with Black
+name: Python PEP-8 Code Formatter (Black)
 on: [push, pull_request]
 jobs:
   black:
@@ -13,6 +13,9 @@ jobs:
         run: pip install black
       - name: Run Black
         run: black .
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'code formatting by black'
 
 # name: Format
 # on:
