@@ -6,7 +6,6 @@
 #         pass
 
 
-
 #     self.app = app.test_client()
 #     ans =self.app.get('/logout')
 #     self.assertEqual(ans.status_code, 200)
