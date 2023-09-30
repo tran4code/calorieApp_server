@@ -43,10 +43,15 @@ mail = Mail(app)
 @app.route("/home")
 def home():
     """
-    home() function displays the homepage of our website.
-    route "/home" will redirect to home() function.
-    input: The function takes session as the input
-    Output: Out function will redirect to the login page
+    Display the homepage of the website.
+
+    This function is responsible for rendering the homepage of the website.
+    If the user is authenticated (session has an email), they are redirected
+    to the dashboard. Otherwise, they are redirected to the login page.
+
+    Returns:
+        A Flask response object that redirects the user to the appropriate page.
+
     """
     if session.get("email"):
         return redirect(url_for("dashboard"))
