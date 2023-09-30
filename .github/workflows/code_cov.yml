@@ -19,7 +19,7 @@ jobs:
         python-version: '3.10'
     - name: Install dependencies
       run: |
-        pip install pytest-cov
+        pip install pytest pytest-cov coverage
         pip install -r requirements.txt
         echo requirements installed
     - name: Run the tests
