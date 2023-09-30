@@ -15,6 +15,6 @@ Options:
 
 from docopt import docopt
 
-if __name__ == '__main__':
-    arguments = docopt(__doc__, version='BurnOut 2.0')
+if __name__ == "__main__":
+    arguments = docopt(__doc__, version="BurnOut 2.0")
     print(arguments)
