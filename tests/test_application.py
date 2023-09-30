@@ -49,7 +49,7 @@ def test_calories(client):
         sess["email"] = "test@example.com"
     response = client.post("/calories", data={"food": "Pizza", "burnout": "100"})
     assert response.status_code == 200
-    # assert response.status_code == 302  # Expect a redirect after submitting 
+    # assert response.status_code == 302  # Expect a redirect after submitting
     # calorie data
 
 
