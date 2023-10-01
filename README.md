@@ -8,9 +8,7 @@ https://drive.google.com/drive/folders/1M5vdCwH11C-MqK8X-Dkf5bPR0SaWA5Yc?usp=sha
 [![DOI](https://www.zenodo.org/badge/419132821.svg)](https://www.zenodo.org/badge/latestdoi/419132821)
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
-
-![Last Commit](https://img.shields.io/github/last-commit/1360119047/calorieApp_server)
-![Total Lines](https://img.shields.io/tokei/lines/github/1360119047/calorieApp_server)
+[![codecov](https://codecov.io/gh/deekay2310/calorieApp_server/branch/main/graph/badge.svg?token=IQW5PLLE22)](https://codecov.io/gh/deekay2310/calorieApp_server)
 
 [//]: # (Github Actions)
 [![github workflow](https://github.com/1360119047/calorieApp_server/actions/workflows/unit_test.yml/badge.svg)](https://github.com/1360119047/calorieApp_server/actions/workflows/unit_test.yml)
@@ -19,7 +17,6 @@ https://drive.google.com/drive/folders/1M5vdCwH11C-MqK8X-Dkf5bPR0SaWA5Yc?usp=sha
 [![github workflow](https://github.com/1360119047/calorieApp_server/actions/workflows/syntax_checker.yml/badge.svg)](https://github.com/1360119047/calorieApp_server/actions/workflows/syntax_checker.yml)
 [![github workflow](https://github.com/1360119047/calorieApp_server/actions/workflows/code_formatter.yml/badge.svg)](https://github.com/1360119047/calorieApp_server/actions/workflows/code_formatter.yml)
 
-[![codecov](https://codecov.io/gh/deekay2310/calorieApp_server/branch/main/graph/badge.svg?token=IQW5PLLE22)](https://codecov.io/gh/deekay2310/calorieApp_server)
 
 <!--Badges-->
 <a href="https://github.com/deekay2310/calorieApp_server/fork" target="blank">
