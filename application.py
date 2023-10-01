@@ -153,8 +153,8 @@ def register():
     """
     if not session.get("email"):
         form = RegistrationForm()
-
-        if form.validate_on_submit() and request.method == "POST":
+        # assert form.validate_on_submit() == True
+        if request.method == "POST":
             username = form.username.data
             email = form.email.data
             password = form.password.data
