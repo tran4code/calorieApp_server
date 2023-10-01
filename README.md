@@ -10,7 +10,7 @@ https://drive.google.com/drive/folders/1M5vdCwH11C-MqK8X-Dkf5bPR0SaWA5Yc?usp=sha
 [![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
 
 ![Last Commit](https://img.shields.io/github/last-commit/1360119047/calorieApp_server)
-![Total Lines](https://img.shields.io/github/lines/1360119047/calorieApp_server)
+![Total Lines](https://img.shields.io/tokei/lines/github/1360119047/calorieApp_server)
 
 [//]: # (Github Actions)
 [![github workflow](https://github.com/1360119047/calorieApp_server/actions/workflows/unit_test.yml/badge.svg)](https://github.com/1360119047/calorieApp_server/actions/workflows/unit_test.yml)
