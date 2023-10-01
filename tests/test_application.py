@@ -1,5 +1,5 @@
 import pytest
-from flask import session, url_for, request
+from flask import session, url_for
 from application import app
 
 
