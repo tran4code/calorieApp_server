@@ -8,8 +8,9 @@ def client():
     app.config["TESTING"] = True
     with app.test_client() as client:
         yield client
+        
 
-
+# pass in the client fixture, client parameter is not arbitrary
 def test_home_redirect(client):
     response = client.get("/")
     assert response.status_code == 302  # Expect a redirect status code
