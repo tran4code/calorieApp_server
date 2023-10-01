@@ -49,9 +49,6 @@ https://drive.google.com/drive/folders/1M5vdCwH11C-MqK8X-Dkf5bPR0SaWA5Yc?usp=sha
 <img src="https://img.shields.io/github/repo-size/deekay2310/calorieApp_server" /></a>
 
 
-
-# BurnOut
-
 <img src="https://user-images.githubusercontent.com/25662536/135546154-cfae1d2e-439a-4edc-b0bb-57f693ef5a83.jpeg" width="500px">
 
 ## BurnOut: Fuel Your Fitness Journey
