@@ -105,22 +105,20 @@ def login():
                     or user["temp"] == form.password.data
                 )
             ):
-                print(form.email.data, 'WHAT IN THE IF STATEMENT')
+                print(form.email.data, "WHAT IN THE IF STATEMENT")
                 flash("You have been logged in!", "success")
                 session["email"] = user["email"]
                 # session['login_type'] = form.type.data
                 return redirect(url_for("dashboard"))
             else:
-                print(form.email.data, 'WHAT IN THE ELSE STATEMENT')
+                print(form.email.data, "WHAT IN THE ELSE STATEMENT")
                 flash(
                     "Login Unsuccessful. Please check username and password", "danger"
                 )
                 return render_template("login.html", title="Login", form=form)
         else:
-            print(form.email.data, 'WHAT IN THE OTHER ELSE STATEMENT')
+            print(form.email.data, "WHAT IN THE OTHER ELSE STATEMENT")
             return render_template("login.html", title="Login", form=form)
-        
-    
 
 
 @app.route("/logout", methods=["GET", "POST"])
