@@ -40,11 +40,11 @@ def logout_user(client):
 
 def user_signed_in(client, user):
     with client.session_transaction() as sess:
-        if 'email' in sess and sess['email'] == user['email']:
+        if "email" in sess and sess["email"] == user["email"]:
             return True
-    
+
     return False
-    
+
 
 def delete_calories_collection():
     try:
@@ -178,7 +178,6 @@ def test_login(client, test_user):
     assert b"Login Unsuccessful. Please check username and password" in response.data
 
 
-
 def test_logout(client):
     with client.session_transaction() as sess:
         sess["email"] = "test@example.com"
@@ -186,9 +185,8 @@ def test_logout(client):
     assert session.get("email") is None  # Expect session to be cleared
 
 
-
 def test_delete_invalid_user(client):
-    response = client.delete('/api/delete_user', json={})
+    response = client.delete("/api/delete_user", json={})
     assert response.status_code == 400
 
 
@@ -196,31 +194,28 @@ def test_calories(client, test_user):
     delete_calories_collection()
 
     # GET request, not signed in
-    response = client.get('/calories', data={"food": "Pizza", "burnout": "100"})
+    response = client.get("/calories", data={"food": "Pizza", "burnout": "100"})
     assert response.status_code == 302  # Expect a redirect after submitting
 
     assert login_user(client, test_user).status_code == 302
     assert user_signed_in(client, test_user)
 
-    
     # signed in
     # New user
-    response = client.post('/calories', data={"food": "Acai (20)", "burnout": "20"})
+    response = client.post("/calories", data={"food": "Acai (20)", "burnout": "20"})
     assert response.status_code == 200
     # mongo.db.calories
 
     # Existing user
-    response = client.post('/calories', data={"food": "Acai (20)", "burnout": "20"})
+    response = client.post("/calories", data={"food": "Acai (20)", "burnout": "20"})
     assert response.status_code == 200
 
     # Invalid submission
-    response = client.post('/calories', data={"burnout": "20"})
+    response = client.post("/calories", data={"burnout": "20"})
     assert response.status_code == 200
 
     # print('-------------------------------------', response.data)
     # assert b'Successfully updated the data' in response.data
-
-
 
 
 # Add more test cases for other routes and functions as needed

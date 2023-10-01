@@ -208,7 +208,7 @@ def calories():
 
     This route handles the display and submission of calorie data using a form (calories.html).
     If the form is submitted successfully, the data is fetched and updated in the database.
-    
+
     Input:
     - POST request with form data including email, date, food, and burnout.
 
