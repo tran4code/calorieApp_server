@@ -146,6 +146,8 @@ return expected values, then we can reasonably assume that other backend code th
 Unit tests are located in `tests/test_application.py`. To run tests and generate a code coverage report: `pytest --cov=application --cov-report=html`.
 Note that coverage HTML is written to directory htmlcov in the same location the command is run. Navigate to htmlcov and open index.html in a browser.
 
+[Code Coverage Report](https://github.com/1360119047/calorieApp_server/suites/16762646015/artifacts/957284445)
+
 # Core Functionalities
  
 ### Register
