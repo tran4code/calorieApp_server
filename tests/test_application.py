@@ -12,12 +12,12 @@ def client():
         yield client
 
 
-# Pass in the client fixture. Parameter name is not arbitrary but 
+# Pass in the client fixture. Parameter name is not arbitrary but
 # corresponds to fixture definition.
 def test_home_redirect(client):
     response = client.get("/")
     assert response.status_code == 302  # Expect a redirect status code
-    # dynamically generate absolute URL (including the domain name and protocol) 
+    # dynamically generate absolute URL (including the domain name and protocol)
     expected_redirect_url = url_for("login", _external=True)
     assert response.headers["Location"] == expected_redirect_url
 
@@ -32,7 +32,6 @@ def test_home_redirect(client):
     assert response.headers["Location"] == expected_redirect_url
 
 
-
 # def test_register(client):
 #     response = client.get("/register")
 #     assert response.status_code == 200
@@ -41,7 +40,7 @@ def test_home_redirect(client):
 #     # Set session email, modifying the session for the current request
 #     with client.session_transaction() as sess:
 #         sess["email"] = "test@example.com"
-    
+
 #     # GET request
 #     response = client.get("/register")
 #     assert response.status_code == 200
@@ -53,7 +52,8 @@ def test_home_redirect(client):
 #     )
 #     assert response.status_code == 302
 #     assert response.headers["Location"] == url_for("home", _external=True)
-    
+
+
 def test_register(client):
     # Simulate a GET request to the registration page
     response = client.get("/register")
@@ -96,18 +96,12 @@ def test_register(client):
     # Check if the registration form is displayed again
     assert b"Register" in response.data  # Assuming "Register" is in the form page
 
+
 def test_login(client):
     response = client.post(
         "/login", data={"email": "test@example.com", "password": "password"}
     )
-    assert (
-        response.status_code == 200
-    )
-
-
-
-
-
+    assert response.status_code == 200
 
 
 # Define a test function for the login route
@@ -179,7 +173,7 @@ def test_history(client):
 
     with client.session_transaction() as sess:
         sess["email"] = "test@example.com"
-    
+
     response = client.get("/history")
     assert response.status_code == 200
 
@@ -187,12 +181,12 @@ def test_history(client):
 def test_ajaxhistory(client):
     response = client.post(
         "/ajaxhistory",
-        data = {
+        data={
             "date": "10/31",
             "email": "test@example.com",
             "burnout": "password",
-            "calories": "2000"
-        }
+            "calories": "2000",
+        },
     )
     assert response.status_code == 401
 
@@ -206,6 +200,7 @@ def test_friends(client):
 #     response = client.get("/send_email")
 #     assert response.status_code == 302
 
+
 def test_ajaxsendrequest(client):
     response = client.get("/ajaxsendrequest")
     assert response.status_code == 405
@@ -214,33 +209,41 @@ def test_ajaxsendrequest(client):
 def test_ajaxcancelrequest(client):
     response = client.get("/ajaxcancelrequest")
     assert response.status_code == 405
-    
+
+
 def test_ajaxapproverequest(client):
     response = client.get("/ajaxapproverequest")
     assert response.status_code == 405
+
 
 def test_dashboard(client):
     response = client.get("/dashboard")
     assert response.status_code == 200
 
+
 def test_yoga(client):
     response = client.get("/yoga")
     assert response.status_code == 302
+
 
 def test_swim(client):
     response = client.get("/dashboard")
     assert response.status_code == 200
 
+
 def test_abbs(client):
     response = client.get("/abbs")
     assert response.status_code == 302
+
 
 def test_belly(client):
     response = client.get("/abbs")
     assert response.status_code == 302
 
+
 def test_gym(client):
     response = client.get("/gym")
     assert response.status_code == 302
+
 
 # def test

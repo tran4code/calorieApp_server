@@ -12,7 +12,7 @@ from flask import (
     flash,
     redirect,
     request,
-    jsonify
+    jsonify,
 )
 from flask_mail import Mail
 from flask_pymongo import PyMongo
@@ -177,7 +177,6 @@ def register():
         return redirect(url_for("home"))
 
 
-
 @app.route("/calories", methods=["GET", "POST"])
 def calories():
     """
@@ -331,24 +330,30 @@ def ajaxhistory():
         )
 
         if res:
-            return jsonify(
-                {
-                    "date": res["date"],
-                    "email": res["email"],
-                    "burnout": res["burnout"],
-                    "calories": res["calories"],
-                }
-            ), 200
+            return (
+                jsonify(
+                    {
+                        "date": res["date"],
+                        "email": res["email"],
+                        "burnout": res["burnout"],
+                        "calories": res["calories"],
+                    }
+                ),
+                200,
+            )
         else:
-            return jsonify(
-                {
-                    "date": "",
-                    "email": "",
-                    "burnout": "",
-                    "calories": "",
-                }
-            ), 200
-        
+            return (
+                jsonify(
+                    {
+                        "date": "",
+                        "email": "",
+                        "burnout": "",
+                        "calories": "",
+                    }
+                ),
+                200,
+            )
+
     else:
         # User is not signed in, return a 401 Unauthorized response
         return jsonify({"message": "Unauthorized"}), 401
