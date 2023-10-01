@@ -118,7 +118,7 @@ def test_register(client):
 
     response = client.get("/register")
     assert response.status_code == 302
-    assert response.headers['Location'] in url_for("home", _external=True)
+    assert response.headers["Location"] in url_for("home", _external=True)
 
     assert delete_user(client, "testuser").status_code == 200
 
