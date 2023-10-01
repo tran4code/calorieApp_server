@@ -124,8 +124,8 @@ Then, make sure that MongoDB is running:
 Clone the repository: `git clone https://github.com/1360119047/calorieApp_server.git`
 
 **Step 3**:  
-Note: it is best practice to use a virtual environment. We have been using venv, which comes bundled with Python.
-To activate the venv virtual environment, navigate to the root of the project directory and run: `source ./venv/Scripts/activate` on macOS. To deactivate, run `deactivate`.
+> [!NOTE] It is best practice to use a virtual environment. We have been using venv, which comes bundled with Python.
+> To activate the venv virtual environment, navigate to the root of the project directory and run: `source ./venv/Scripts/activate` on macOS. To deactivate, run `deactivate`.
 
 Install the required packages by running the following command in the terminal: `pip install -r requirements.txt`.
 There is a separate `requirements-dev.txt` for installing dev dependencies: `pip install -r requirements-dev.txt`.
