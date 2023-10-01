@@ -58,7 +58,9 @@ def test_register(client):
 
     response = client.get("/register")
     assert response.status_code == 302
-    assert response.request.path == "/home"
+    assert response.headers['Location'] == url_for("home", _external=True)
+
+    
 
 
 # def test_register(client):
