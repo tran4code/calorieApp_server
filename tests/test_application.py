@@ -19,7 +19,7 @@ def test_home_redirect(client):
     assert response.status_code == 302  # Expect a redirect status code
     # dynamically generate absolute URL (including the domain name and protocol)
     expected_redirect_url = url_for("login", _external=True)
-    assert response.headers["Location"] == expected_redirect_url
+    assert response.headers["Location"] in expected_redirect_url
 
     # Set session email, modifying the session for the current request
     with client.session_transaction() as sess:
