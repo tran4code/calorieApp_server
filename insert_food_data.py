@@ -11,4 +11,4 @@ for i in range(1, len(lines)):
 
 for i in range(1, len(lines)):
     temp = lines[i].split(",")
-    mongo.db.food.insert({"food": temp[0], "calories": temp[1]})
+    mongo.db.food.insert_one({"food": temp[0], "calories": temp[1]})
