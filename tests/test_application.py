@@ -2,6 +2,27 @@ import pytest
 from flask import session, url_for
 from application import app
 
+# utility functions
+def create_user(client, username):
+    user_data = {
+        'username': username,
+        'email': f'{username}@burnout.com',
+        'password': 'password',
+        'confirm_password': 'password',
+    }
+
+    response = client.post("/register", data=user_data)
+    return user_data, response
+
+
+def delete_user(client, username):
+    url = "/api/delete_user"
+    data = {"username": username}
+
+    response = client.delete(url, json=data)
+
+    return response
+
 
 @pytest.fixture
 def client():
@@ -12,6 +33,20 @@ def client():
     with app.test_client() as client:
         # yields a test client for making HTTP requests to the application
         yield client
+
+
+@pytest.fixture
+def test_user(client):
+    response = delete_user(client, 'test_user')
+    assert response.status_code == 200
+
+    user, response = create_user(client, 'test_user')
+    assert response.status_code == 302
+    yield user
+
+    # clean up
+    response = delete_user(client, user['username'])
+    assert response.status_code == 200
 
 
 # Pass in the client fixture. Parameter name is not arbitrary but
@@ -38,13 +73,10 @@ def test_home_redirect(client):
 #     pass
 
 
-def delete_user(client, username):
-    url = "/api/delete_user"
-    data = {"username": username}
 
-    response = client.delete(url, json=data)
 
-    return response
+
+
 
 # def register_user(client):
 
@@ -140,11 +172,12 @@ def test_register(client):
 #     assert b"Register" in response.data  # Assuming "Register" is in the form page
 
 
-# def test_login(client):
-#     response = client.post(
-#         "/login", data={"email": "test@example.com", "password": "password"}
-#     )
-#     assert response.status_code == 200
+def test_login(client, test_user):
+    # test_user = test_user()
+    response = client.post(
+        "/login", data={"email": test_user['email'], "password": test_user['password']}
+    )
+    assert response.status_code == 302
 
 
 # Define a test function for the login route
