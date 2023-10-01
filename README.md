@@ -136,6 +136,9 @@ Run the following command in the terminal: `python application.py`
 **Step 5**:
 Open the URL in your browser: `http://127.0.0.1:5000/`
 
+**Step 6**:
+Run `python insert_food_data.py` to create a food collection in the test database. This food data is used for the Calories form.
+
 # Core Functionalities
  
 ### Register
