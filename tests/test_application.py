@@ -37,20 +37,20 @@ def test_register(client):
     response = client.get("/register")
     assert response.status_code == 200
     # expected_redirect_url = url_for("register", _external=True)
-    assert response.request.path == '/register'
+    assert response.request.path == "/register"
 
     # POST request
     response = client.post(
         "/register",
-        data = {
+        data={
             "username": "burnout_user",
-            "email": "test@example.com", 
+            "email": "test@example.com",
             "password": "password",
             "confirm_password": "password",
-        }
+        },
     )
     assert response.status_code == 302
-    assert response.request.path == '/register'
+    assert response.request.path == "/register"
 
     # Set session email, modifying the session for the current request
     with client.session_transaction() as sess:
@@ -58,9 +58,7 @@ def test_register(client):
 
     response = client.get("/register")
     assert response.status_code == 302
-    assert response.request.path == '/home'
-
-    
+    assert response.request.path == "/home"
 
 
 # def test_register(client):
