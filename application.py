@@ -86,29 +86,41 @@ def login():
     - Authentication result and redirection to the dashboard upon success.
     - Error message and re-display of the login form upon failure.
     """
-    if not session.get("email"):
+    print("START OF /request: ")
+    signed_in = session.get("email")
+    if signed_in:
+        print("SIGNED IN")
+        return redirect(url_for("home"))
+    else:
+        print("LOGGING IN")
         form = LoginForm()
+        print(form.email.data, "FROM THE TOP")
         if form.validate_on_submit():
-            temp = mongo.db.user.find_one({"email": form.email.data}, {"email", "pwd"})
+            user = mongo.db.user.find_one({"email": form.email.data}, {"email", "pwd"})
             if (
-                temp is not None
-                and temp["email"] == form.email.data
+                user
+                and user["email"] == form.email.data
                 and (
-                    bcrypt.checkpw(form.password.data.encode("utf-8"), temp["pwd"])
-                    or temp["temp"] == form.password.data
+                    bcrypt.checkpw(form.password.data.encode("utf-8"), user["pwd"])
+                    or user["temp"] == form.password.data
                 )
             ):
+                print(form.email.data, 'WHAT IN THE IF STATEMENT')
                 flash("You have been logged in!", "success")
-                session["email"] = temp["email"]
+                session["email"] = user["email"]
                 # session['login_type'] = form.type.data
                 return redirect(url_for("dashboard"))
             else:
+                print(form.email.data, 'WHAT IN THE ELSE STATEMENT')
                 flash(
                     "Login Unsuccessful. Please check username and password", "danger"
                 )
-    else:
-        return redirect(url_for("home"))
-    return render_template("login.html", title="Login", form=form)
+                return render_template("login.html", title="Login", form=form)
+        else:
+            print(form.email.data, 'WHAT IN THE OTHER ELSE STATEMENT')
+            return render_template("login.html", title="Login", form=form)
+        
+    
 
 
 @app.route("/logout", methods=["GET", "POST"])

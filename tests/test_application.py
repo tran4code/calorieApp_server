@@ -25,6 +25,11 @@ def delete_user(client, username):
     return response
 
 
+def logout_user(client):
+    response = client.get('logout')
+    return response
+
+
 @pytest.fixture
 def client():
     # configures the Flask application for testing
@@ -123,20 +128,34 @@ def test_register(client):
     assert delete_user(client, "testuser").status_code == 200
 
 
+# Define a test function for the login route
 def test_login(client, test_user):
-    # test_user = test_user()
     response = client.post(
         "/login", data={"email": test_user["email"], "password": test_user["password"]}
     )
     assert response.status_code == 302
 
+    # already logged in
+    response = client.post(
+        "/login", data={"email": test_user["email"], "password": test_user["password"]}
+    )
 
-# Define a test function for the login route
+    # log out
+    assert logout_user(client).status_code == 200
+
+    # non-existent user
+    response = client.post(
+        "/login", data={"email": "non_existent_user@burnout.com", "password": "password"}
+    )
+    assert response.status_code == 200
+    assert b'Login Unsuccessful. Please check username and password' in response.data
+
+
 # def test_login_route(client):
 #     # Use the test client provided by pytest-flask
 
-#     # Simulate a GET request to the login route
-#     response = client.get("/login")
+    # Simulate a GET request to the login route
+    # response = client.get("/login")
 
 #     # Assert that the response status code is as expected (e.g., 200 for success)
 #     assert response.status_code == 200
