@@ -48,7 +48,7 @@ def test_home_redirect(client):
 
 #     # POST request
 #     response = client.post(
-#         "/register", data={"username": "burnout_user", "email": "test@example.com", 
+#         "/register", data={"username": "burnout_user", "email": "test@example.com",
 # "password": "password"}
 #     )
 #     assert response.status_code == 302
@@ -150,7 +150,7 @@ def test_logout(client):
 #         },
 #     )
 #     assert response.status_code == 200
-    # assert response.status_code == 302  # Expect a redirect after registration
+# assert response.status_code == 302  # Expect a redirect after registration
 
 
 def test_calories(client):
