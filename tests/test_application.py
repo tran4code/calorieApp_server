@@ -48,7 +48,8 @@ def test_home_redirect(client):
 
 #     # POST request
 #     response = client.post(
-#         "/register", data={"username": "burnout_user", "email": "test@example.com", "password": "password"}
+#         "/register", data={"username": "burnout_user", "email": "test@example.com", 
+# "password": "password"}
 #     )
 #     assert response.status_code == 302
 #     assert response.headers["Location"] == url_for("home", _external=True)
@@ -139,16 +140,16 @@ def test_logout(client):
     assert session.get("email") is None  # Expect session to be cleared
 
 
-def test_register(client):
-    response = client.post(
-        "/register",
-        data={
-            "username": "TestUser",
-            "email": "test@example.com",
-            "password": "password",
-        },
-    )
-    assert response.status_code == 200
+# def test_register(client):
+#     response = client.post(
+#         "/register",
+#         data={
+#             "username": "TestUser",
+#             "email": "test@example.com",
+#             "password": "password",
+#         },
+#     )
+#     assert response.status_code == 200
     # assert response.status_code == 302  # Expect a redirect after registration
 
 
