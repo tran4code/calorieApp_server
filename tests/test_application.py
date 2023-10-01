@@ -1,5 +1,5 @@
 import pytest
-from flask import session, url_for, get_flashed_messages
+from flask import session, url_for
 from application import app, mongo
 
 
