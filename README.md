@@ -13,8 +13,8 @@ https://drive.google.com/drive/folders/1M5vdCwH11C-MqK8X-Dkf5bPR0SaWA5Yc?usp=sha
 ![total lines](https://img.shields.io/tokei/lines/github/atharva1996/calorieApp_server)
 
 [//]: # (Github Actions)
-![github workflow](https://github.com/1360119047/calorieApp_server/actions/workflows/unit_test.yml/badge.svg)
-![github workflow](https://github.com/1360119047/calorieApp_server/actions/workflows/style_checker.yml/badge.svg)
+[![github workflow](https://github.com/1360119047/calorieApp_server/actions/workflows/unit_test.yml/badge.svg)](https://github.com/1360119047/calorieApp_server/actions/workflows/unit_test.yml)
+[![github workflow](https://github.com/1360119047/calorieApp_server/actions/workflows/style_checker.yml/badge.svg)](https://github.com/1360119047/calorieApp_server/actions/workflows/style_checker.yml)
 ![github workflow](https://github.com/1360119047/calorieApp_server/actions/workflows/syntax_checker.yml/badge.svg)
 ![github workflow](https://github.com/1360119047/calorieApp_server/actions/workflows/code_formatter.yml/badge.svg)
 
