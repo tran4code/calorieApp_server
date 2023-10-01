@@ -144,7 +144,8 @@ Run `python insert_food_data.py` to create a food collection in the test databas
 We primarily test the `application.py` module, the Flask API interface for which the client side interacts. If HTTP requests to application.py endpoints 
 return expected values, then we can reasonably assume that other backend code that is customer-facing is working. That is what we most care about.
 
-Unit tests are located in `tests/test_application.py`. To run tests and generate a code coverage report: `pytest --cov=application --cov-report=html`.
+Unit tests are located in `tests/test_application.py`. To run tests and generate a code coverage report:
+```pytest --cov=application --cov-report=html```
 Note that coverage HTML is written to directory htmlcov in the same location the command is run. Navigate to htmlcov and open index.html in a browser.
 
 [Code Coverage Report](https://github.com/1360119047/calorieApp_server/suites/16763004722/artifacts/957298956)
