@@ -114,7 +114,8 @@ Install the MongoDB Community Edition:
 
 - [Windows](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows) or [macOS](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/)
 
-The Community Edition lets you run MongoDB locally on your computer. If you want to work with MongoDB on the cloud, use MongoDB's Atlas managed database service.
+The Community Edition lets you run MongoDB locally on your computer. If you want to work with MongoDB on the cloud, use MongoDB's Atlas managed database service.  
+Optionally, install MongoDB Compass as a GUI for MongoDB databases, using connection string `mongodb://localhost:27017` for local development.
 
 Then, make sure that MongoDB is running:
 `brew services start mongodb` on macOS and `mongod` on Windows
