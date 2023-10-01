@@ -80,10 +80,9 @@ and more:
 
 # Table of Contents  
 
-- [Why use BurnOut?](#why-use-burnout)
-- [Implementation](#implementation)
-- [TechStack Used for the Development of Project:](#techstack-used-for-the-development-of-project)
-- [Core Functionalities of the Application:](#core-functionalities)
+- [Demo](#demo)
+- [Tech Stack](#tech-stack)
+- [Core Functionalities:](#core-functionalities)
   - [Register](#register)
   - [Login](#login)
   - [Set User Profile](#set-user-profile)
@@ -99,19 +98,18 @@ and more:
 - [License](#license)
 
 
-# Implementation
+# Demo
 
 Link to the implementation video of the BurnOut application:
 
-
-# TechStack Used for the Development of Project
+# Tech Stack
 
  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="python" width="20" height="20"/> Python </br>
  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" alt="mongo" width="20" height="20"/> MongoDB </br>
  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-plain.svg" alt="html" width="20" height="20"> CSS3 </br>
  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-plain.svg" alt="css" width="20" height="20">  HTML 5 </br>
  
-# Core Functionalities of the Application
+# Core Functionalities
  
  ## Register
  
