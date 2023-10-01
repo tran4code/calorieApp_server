@@ -32,6 +32,7 @@ jobs:
       run: |
         python application.py &
         sleep 5
+        python insert_food_data.py
         cd tests
         coverage run -m pytest test_application.py
         pytest --cov=application --cov-report=html
