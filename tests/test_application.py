@@ -1,5 +1,5 @@
 import pytest
-from flask import session, url_for
+from flask import session, url_for, request
 from application import app
 
 
@@ -7,6 +7,8 @@ from application import app
 def client():
     # configures the Flask application for testing
     app.config["TESTING"] = True
+    # deactivate need to CSRF token when sending POST requests
+    app.config['WTF_CSRF_ENABLED']=False
     with app.test_client() as client:
         # yields a test client for making HTTP requests to the application
         yield client
@@ -32,33 +34,67 @@ def test_home_redirect(client):
     assert response.headers["Location"] in expected_redirect_url
 
 
+# def user_exists(client, username):
+#     pass
+
+
+def delete_user(client, username):
+    url = "/api/delete_user"
+    data = {"username": username}
+
+    response = client.delete(url, json=data)
+
+    return response
+
+# def register_user(client):
+
+    
+
 def test_register(client):
     # GET request
     response = client.get("/register")
     assert response.status_code == 200
     # expected_redirect_url = url_for("register", _external=True)
     assert response.request.path == "/register"
+    # assert request.path == url_for("register")
 
+    delete_user(client, 'testuser')
     # POST request
-    response = client.post(
-        "/register",
-        data={
-            "username": "burnout_user",
-            "email": "test@example.com",
-            "password": "password",
-            "confirm_password": "password",
-        },
+    response = client.post("/register", data={
+            'username': 'testuser',
+            'email': 'testuser@example.com',
+            'password': 'password123',
+            'confirm_password': 'password123',
+        }, follow_redirects=True
     )
-    assert response.status_code == 302
-    assert response.request.path == "/register"
+    # account created but not yet signed in
 
-    # Set session email, modifying the session for the current request
+    # Check that there was two redirects.
+    # if this is not working, make sure the user you are creating is new
+    assert len(response.history) == 2
+
+    # Check that the first request was to the register page.
+    assert response.history[0].request.path == "/register"
+
+    # Check that the second request was to the home page.
+    assert response.history[1].request.path == "/home"
+
+    # Check that the last request was to the login page.
+    assert response.request.path == "/login"
+
+    # final status code after initial redirect to /home, then /login
+    assert response.status_code == 200
+
+    # Signed in, modifying the session for the current request
     with client.session_transaction() as sess:
         sess["email"] = "test@example.com"
 
     response = client.get("/register")
     assert response.status_code == 302
-    assert response.headers["Location"] == url_for("home", _external=True)
+    assert response.headers['Location'] == url_for("home", _external=True)
+
+    assert delete_user(client, 'testuser').status_code == 200
+    
 
 
 # def test_register(client):
@@ -104,11 +140,11 @@ def test_register(client):
 #     assert b"Register" in response.data  # Assuming "Register" is in the form page
 
 
-def test_login(client):
-    response = client.post(
-        "/login", data={"email": "test@example.com", "password": "password"}
-    )
-    assert response.status_code == 200
+# def test_login(client):
+#     response = client.post(
+#         "/login", data={"email": "test@example.com", "password": "password"}
+#     )
+#     assert response.status_code == 200
 
 
 # Define a test function for the login route

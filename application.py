@@ -151,10 +151,15 @@ def register():
     - Redirect to the homepage if the user is already authenticated.
     - Display of form validation errors, if any.
     """
-    if not session.get("email"):
+    signed_in = session.get("email")
+    if signed_in:
+        return redirect(url_for("home"))
+    else:
         form = RegistrationForm()
         # assert form.validate_on_submit() == True
-        if request.method == "POST":
+        #  and request.method == "POST"
+        if form.validate_on_submit():
+            # Form submission and validation successful
             username = form.username.data
             email = form.email.data
             password = form.password.data
@@ -173,9 +178,24 @@ def register():
             return redirect(url_for("home"))
         else:
             return render_template("register.html", title="Register", form=form)
-    else:
-        return redirect(url_for("home"))
 
+@app.route("/api/delete_user", methods=["DELETE"])
+def delete_user():
+    # Get the username from the request JSON data
+    data = request.get_json()
+    username = data.get('username')
+
+    if not username:
+        return jsonify({"message": "Username not provided in request body"}), 400
+
+    # Delete the user from the MongoDB collection
+    result = mongo.db.user.delete_one({"name": username})
+
+    if result.deleted_count == 1:
+        return jsonify({"message": f"User '{username}' deleted successfully"}), 200
+    else:
+        return jsonify({"message": f"User '{username}' not found"}), 404
+    
 
 @app.route("/calories", methods=["GET", "POST"])
 def calories():
