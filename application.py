@@ -86,15 +86,11 @@ def login():
     - Authentication result and redirection to the dashboard upon success.
     - Error message and re-display of the login form upon failure.
     """
-    print("START OF /request: ")
     signed_in = session.get("email")
     if signed_in:
-        print("SIGNED IN")
         return redirect(url_for("home"))
     else:
-        print("LOGGING IN")
         form = LoginForm()
-        print(form.email.data, "FROM THE TOP")
         if form.validate_on_submit():
             user = mongo.db.user.find_one({"email": form.email.data}, {"email", "pwd"})
             if (
@@ -105,19 +101,16 @@ def login():
                     or user["temp"] == form.password.data
                 )
             ):
-                print(form.email.data, "WHAT IN THE IF STATEMENT")
                 flash("You have been logged in!", "success")
                 session["email"] = user["email"]
                 # session['login_type'] = form.type.data
                 return redirect(url_for("dashboard"))
             else:
-                print(form.email.data, "WHAT IN THE ELSE STATEMENT")
                 flash(
                     "Login Unsuccessful. Please check username and password", "danger"
                 )
                 return render_template("login.html", title="Login", form=form)
         else:
-            print(form.email.data, "WHAT IN THE OTHER ELSE STATEMENT")
             return render_template("login.html", title="Login", form=form)
 
 
@@ -211,54 +204,76 @@ def delete_user():
 @app.route("/calories", methods=["GET", "POST"])
 def calories():
     """
-    calorie() function displays the Calorieform (calories.html) template
-    route "/calories" will redirect to calories() function.
-    CalorieForm() called and if the form is submitted then various values
-    are fetched and updated into the database entries
-    Input: Email, date, food, burnout
-    Output: Value update in database and redirected to home page
+    Display and update calorie data.
+
+    This route handles the display and submission of calorie data using a form (calories.html).
+    If the form is submitted successfully, the data is fetched and updated in the database.
+    
+    Input:
+    - POST request with form data including email, date, food, and burnout.
+
+    Output:
+    - Database entries are updated.
+    - A success flash message is displayed.
+    - The user is redirected to the calories page.
+    - If the user is not authenticated, they are redirected to the home page.
     """
     now = datetime.now()
     now = now.strftime("%Y-%m-%d")
 
-    get_session = session.get("email")
-    if get_session is not None:
+    signed_in = session.get("email")
+    if signed_in:
         form = CalorieForm()
-        if form.validate_on_submit():
-            if request.method == "POST":
-                email = session.get("email")
-                food = request.form.get("food")
-                cals = food.split(" ")
-                cals = int(cals[-1][1 : len(cals[-1]) - 1])
-                burn = request.form.get("burnout")
 
-                temp = mongo.db.calories.find_one(
-                    {"email": email}, {"email", "calories", "burnout"}
-                )
-                if temp is not None:
-                    mongo.db.calories.update_one(
-                        {"email": email},
-                        {
-                            "$set": {
-                                "calories": temp["calories"] + cals,
-                                "burnout": temp["burnout"] + int(burn),
-                            }
-                        },
-                    )
-                else:
-                    mongo.db.calories.insert_one(
-                        {
-                            "date": now,
-                            "email": email,
-                            "calories": cals,
-                            "burnout": int(burn),
+        print("AT THE CALORIES FORM")
+        if form.validate_on_submit():
+            print("VALID FORM")
+            email = session.get("email")
+            food = request.form.get("food")
+            cals = food.split(" ")[-1]
+            print("calories: ", cals)
+            cals = int(cals[1:-1])
+            print("calories w/o parenthesis:", cals)
+            burn = int(request.form.get("burnout"))
+
+            activity = mongo.db.calories.find_one(
+                {"email": email}, {"email", "calories", "burnout"}
+            )
+            if activity:
+                print("PRE-EXISTING ENTRY")
+                print(activity)
+                mongo.db.calories.update_one(
+                    # filter criteria
+                    {"email": email},
+                    {
+                        # set new values
+                        "$set": {
+                            "calories": activity["calories"] + cals,
+                            "burnout": activity["burnout"] + burn,
                         }
-                    )
-                flash("Successfully updated the data", "success")
-                return redirect(url_for("calories"))
+                    },
+                )
+            else:
+                print("NEW ENTRY")
+                mongo.db.calories.insert_one(
+                    {
+                        "date": now,
+                        "email": email,
+                        "calories": cals,
+                        "burnout": burn,
+                    }
+                )
+            flash("Successfully updated the data", "success")
+            return render_template("calories.html", form=form, time=now)
+        else:
+            print("INVALID FORM SUBMISSION")
+            return render_template("calories.html", form=form, time=now)
+            # can we also return a message?
+        #     return error?
     else:
+        print("NOT SIGNED IN")
         return redirect(url_for("home"))
-    return render_template("calories.html", form=form, time=now)
+    # return render_template("calories.html", form=form, time=now)
 
 
 @app.route("/user_profile", methods=["GET", "POST"])

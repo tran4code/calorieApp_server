@@ -47,6 +47,7 @@ class CalorieForm(FlaskForm):
         temp = i["food"] + " (" + i["calories"] + ")"
         result.append((temp, temp))
 
+    print(result)
     food = SelectField("Select Food", choices=result)
 
     burnout = StringField("Burn Out", validators=[DataRequired()])
