@@ -179,11 +179,12 @@ def register():
         else:
             return render_template("register.html", title="Register", form=form)
 
+
 @app.route("/api/delete_user", methods=["DELETE"])
 def delete_user():
     # Get the username from the request JSON data
     data = request.get_json()
-    username = data.get('username')
+    username = data.get("username")
 
     if not username:
         return jsonify({"message": "Username not provided in request body"}), 400
@@ -195,7 +196,7 @@ def delete_user():
         return jsonify({"message": f"User '{username}' deleted successfully"}), 200
     else:
         return jsonify({"message": f"User '{username}' not found"}), 404
-    
+
 
 @app.route("/calories", methods=["GET", "POST"])
 def calories():

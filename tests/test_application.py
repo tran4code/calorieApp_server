@@ -2,13 +2,14 @@ import pytest
 from flask import session, url_for
 from application import app
 
+
 # utility functions
 def create_user(client, username):
     user_data = {
-        'username': username,
-        'email': f'{username}@burnout.com',
-        'password': 'password',
-        'confirm_password': 'password',
+        "username": username,
+        "email": f"{username}@burnout.com",
+        "password": "password",
+        "confirm_password": "password",
     }
 
     response = client.post("/register", data=user_data)
@@ -29,7 +30,7 @@ def client():
     # configures the Flask application for testing
     app.config["TESTING"] = True
     # deactivate need to CSRF token when sending POST requests
-    app.config['WTF_CSRF_ENABLED']=False
+    app.config["WTF_CSRF_ENABLED"] = False
     with app.test_client() as client:
         # yields a test client for making HTTP requests to the application
         yield client
@@ -37,15 +38,15 @@ def client():
 
 @pytest.fixture
 def test_user(client):
-    response = delete_user(client, 'test_user')
+    response = delete_user(client, "test_user")
     assert response.status_code == 200
 
-    user, response = create_user(client, 'test_user')
+    user, response = create_user(client, "test_user")
     assert response.status_code == 302
     yield user
 
     # clean up
-    response = delete_user(client, user['username'])
+    response = delete_user(client, user["username"])
     assert response.status_code == 200
 
 
@@ -73,14 +74,8 @@ def test_home_redirect(client):
 #     pass
 
 
-
-
-
-
-
 # def register_user(client):
 
-    
 
 def test_register(client):
     # GET request
@@ -90,14 +85,17 @@ def test_register(client):
     assert response.request.path == "/register"
     # assert request.path == url_for("register")
 
-    delete_user(client, 'testuser')
+    delete_user(client, "testuser")
     # POST request
-    response = client.post("/register", data={
-            'username': 'testuser',
-            'email': 'testuser@example.com',
-            'password': 'password123',
-            'confirm_password': 'password123',
-        }, follow_redirects=True
+    response = client.post(
+        "/register",
+        data={
+            "username": "testuser",
+            "email": "testuser@example.com",
+            "password": "password123",
+            "confirm_password": "password123",
+        },
+        follow_redirects=True,
     )
     # account created but not yet signed in
 
@@ -123,10 +121,9 @@ def test_register(client):
 
     response = client.get("/register")
     assert response.status_code == 302
-    assert response.headers['Location'] == url_for("home", _external=True)
+    assert response.headers["Location"] == url_for("home", _external=True)
 
-    assert delete_user(client, 'testuser').status_code == 200
-    
+    assert delete_user(client, "testuser").status_code == 200
 
 
 # def test_register(client):
@@ -175,7 +172,7 @@ def test_register(client):
 def test_login(client, test_user):
     # test_user = test_user()
     response = client.post(
-        "/login", data={"email": test_user['email'], "password": test_user['password']}
+        "/login", data={"email": test_user["email"], "password": test_user["password"]}
     )
     assert response.status_code == 302
 
