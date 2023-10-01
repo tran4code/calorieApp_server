@@ -12,6 +12,7 @@ from flask import (
     flash,
     redirect,
     request,
+    jsonify
 )
 from flask_mail import Mail
 from flask_pymongo import PyMongo
@@ -61,13 +62,29 @@ def home():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    """ "
-    login() function displays the Login form (login.html) template
-    route "/login" will redirect to login() function.
-    LoginForm() called and if the form is submitted then various values are fetched
-    and verified from the database entries
-    Input: Email, Password, Login Type
-    Output: Account Authentication and redirecting to Dashboard
+    """
+    Display the login form and handle user authentication.
+
+    This route displays the login form using the 'login.html' template.
+    Users can log in by submitting their email, password, and login type.
+    The provided information is verified against database entries for authentication.
+
+    Methods:
+    - GET: Renders the login form.
+    - POST: Handles form submission and authentication.
+
+    Returns:
+    - If authentication is successful, redirects to the dashboard.
+    - If not authenticated, displays an error message.
+
+    Input:
+    - Email: User's email address.
+    - Password: User's password.
+    - Login Type: Type of login being attempted (e.g., user, admin).
+
+    Output:
+    - Authentication result and redirection to the dashboard upon success.
+    - Error message and re-display of the login form upon failure.
     """
     if not session.get("email"):
         form = LoginForm()
@@ -108,34 +125,57 @@ def logout():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """
-    register() function displays the Registration portal (register.html) template
-    route "/register" will redirect to register() function.
-    RegistrationForm() called and if the form is submitted then various values
-    are fetched and updated into database
-    Input: Username, Email, Password, Confirm Password
-    Output: Value update in database and redirected to home login page
+    Display the registration form and handle user registration.
+
+    This route displays the registration form using the 'register.html' template.
+    Users can register by providing their username, email, password, and confirming
+    their password. The provided information is then stored in the database.
+
+    Methods:
+    - GET: Renders the registration form.
+    - POST: Handles form submission and user registration.
+
+    Returns:
+    - If registration is successful, redirects to the homepage.
+    - If the user is already authenticated, redirects to the homepage.
+    - If there are form validation errors, displays them on the registration form.
+
+    Input:
+    - Username: User's desired username.
+    - Email: User's email address.
+    - Password: User's chosen password.
+    - Confirm Password: Re-entered password for confirmation.
+
+    Output:
+    - Successful registration and redirection to the homepage.
+    - Redirect to the homepage if the user is already authenticated.
+    - Display of form validation errors, if any.
     """
     if not session.get("email"):
         form = RegistrationForm()
-        if form.validate_on_submit():
-            if request.method == "POST":
-                username = request.form.get("username")
-                email = request.form.get("email")
-                password = request.form.get("password")
-                mongo.db.user.insert_one(
-                    {
-                        "name": username,
-                        "email": email,
-                        "pwd": bcrypt.hashpw(
-                            password.encode("utf-8"), bcrypt.gensalt()
-                        ),
-                    }
-                )
-            flash(f"Account created for {form.username.data}!", "success")
+
+        if form.validate_on_submit() and request.method == "POST":
+            username = form.username.data
+            email = form.email.data
+            password = form.password.data
+
+            hashed_password = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt())
+
+            mongo.db.user.insert_one(
+                {
+                    "name": username,
+                    "email": email,
+                    "pwd": hashed_password,
+                }
+            )
+
+            flash(f"Account created for {username}!", "success")
             return redirect(url_for("home"))
+        else:
+            return render_template("register.html", title="Register", form=form)
     else:
         return redirect(url_for("home"))
-    return render_template("register.html", title="Register", form=form)
+
 
 
 @app.route("/calories", methods=["GET", "POST"])
@@ -245,60 +285,73 @@ def user_profile():
 
 @app.route("/history", methods=["GET"])
 def history():
-    # ############################
-    # history() function displays the Historyform (history.html) template
-    # route "/history" will redirect to history() function.
-    # HistoryForm() called and if the form is submitted then various values are
-    # fetched and update into the database entries
-    # Input: Email, date
-    # Output: Value fetched and displayed
-    # ##########################
-    get_session = session.get("email")
-    if get_session:
-        form = HistoryForm()
-    return render_template("history.html", form=form)
+    """
+    Display the history form for retrieving historical data.
+
+    This function renders the 'history.html' template, which contains a form
+    for retrieving historical data. Users must be authenticated (have an email
+    in the session) to access this page.
+
+    Returns:
+        A Flask response object that renders the 'history.html' template.
+
+    """
+    signed_in = session.get("email")
+    form = HistoryForm()  # Assign a default value to form
+    if signed_in:
+        return render_template("history.html", form=form)
+    else:
+        # Handle the case where the user is not authenticated
+        return redirect(url_for("login"))
 
 
 @app.route("/ajaxhistory", methods=["POST"])
 def ajaxhistory():
-    # ############################
-    # ajaxhistory() is a POST function displays the fetches the various information
-    # from database
-    # route "/ajaxhistory" will redirect to ajaxhistory() function.
-    # Details corresponding to given email address are fetched from the
-    # database entries
-    # Input: Email, date
-    # Output: date, email, calories, burnout
-    # ##########################
-    email = get_session = session.get("email")
-    print(email)
-    if get_session is not None:
-        if request.method == "POST":
-            date = request.form.get("date")
-            res = mongo.db.calories.find_one(
-                {"email": email, "date": date}, {"date", "email", "calories", "burnout"}
-            )
-            if res:
-                return (
-                    json.dumps(
-                        {
-                            "date": res["date"],
-                            "email": res["email"],
-                            "burnout": res["burnout"],
-                            "calories": res["calories"],
-                        }
-                    ),
-                    200,
-                    {"ContentType": "application/json"},
-                )
-            else:
-                return (
-                    json.dumps(
-                        {"date": "", "email": "", "burnout": "", "calories": ""}
-                    ),
-                    200,
-                    {"ContentType": "application/json"},
-                )
+    """
+    Fetches information from the database based on the provided email and date.
+
+    This function handles POST requests to the '/ajaxhistory' route. It retrieves
+    details such as date, email, calories, and burnout from the database entries
+    corresponding to the given email and date.
+
+    Inputs:
+        - Email: User's email address.
+        - Date: Date for which information is requested.
+
+    Outputs:
+        - JSON response containing date, email, calories, and burnout data.
+    """
+    email = signed_in = session.get("email")
+
+    if signed_in and request.method == "POST":
+        date = request.form.get("date")
+        res = mongo.db.calories.find_one(
+            {"email": email, "date": date},
+            {"date": 1, "email": 1, "calories": 1, "burnout": 1},
+        )
+
+        if res:
+            return jsonify(
+                {
+                    "date": res["date"],
+                    "email": res["email"],
+                    "burnout": res["burnout"],
+                    "calories": res["calories"],
+                }
+            ), 200
+        else:
+            return jsonify(
+                {
+                    "date": "",
+                    "email": "",
+                    "burnout": "",
+                    "calories": "",
+                }
+            ), 200
+        
+    else:
+        # User is not signed in, return a 401 Unauthorized response
+        return jsonify({"message": "Unauthorized"}), 401
 
 
 @app.route("/friends", methods=["GET"])
