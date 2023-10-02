@@ -34,7 +34,7 @@ def login_user(client, user):
 
 
 def logout_user(client):
-    response = client.get("logout")
+    response = client.get("/logout")
     return response
 
 
