@@ -331,7 +331,7 @@ def update_profile():
         return render_template("user_profile.html", status=True, form=form)
 
 
-@app.route("/user_profile")
+@app.route("/user_profile", methods=["GET"])
 def user_profile():
     if session.get("email"):
         prof = mongo.db.profile.find_one(
