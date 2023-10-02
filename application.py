@@ -334,13 +334,13 @@ def update_profile():
 @app.route("/user_profile")
 def user_profile():
     if session.get("email"):
-        prof = mongo.db.profile.find_one({"email": session.get("email")}, {
-            "height": 1, "weight": 1, "goal": 1, "target_weight": 1
-        })
+        prof = mongo.db.profile.find_one(
+            {"email": session.get("email")},
+            {"height": 1, "weight": 1, "goal": 1, "target_weight": 1},
+        )
         return render_template("display_profile.html", prof=prof)
     else:
         return redirect(url_for("login"))
-
 
 @app.route("/history", methods=["GET"])
 def history():
