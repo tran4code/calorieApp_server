@@ -57,8 +57,6 @@ def delete_calories_collection():
         return "Collection deleted successfully"
     except Exception as e:
         return f"Error: {str(e)}"
-    
-
 
 
 @pytest.fixture
