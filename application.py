@@ -292,13 +292,13 @@ def user_profile():
         return redirect(url_for("login"))
     else:
         form = UserProfileForm()
-        
+
         if form.validate_on_submit():
             weight = request.form.get("weight")
             height = request.form.get("height")
             goal = request.form.get("goal")
             target_weight = request.form.get("target_weight")
-            
+
             user = mongo.db.profile.find_one(
                 {"email": email}, {"height", "weight", "goal", "target_weight"}
             )
@@ -329,7 +329,6 @@ def user_profile():
             return render_template("display_profile.html", status=True, form=form)
         else:
             return render_template("user_profile.html", status=True, form=form)
-
 
 
 @app.route("/history", methods=["GET"])
