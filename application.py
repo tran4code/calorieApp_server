@@ -94,12 +94,12 @@ def login():
         if form.validate_on_submit():
             user = mongo.db.user.find_one({"email": form.email.data}, {"email", "pwd"})
             if (
-                    user
-                    and user["email"] == form.email.data
-                    and (
+                user
+                and user["email"] == form.email.data
+                and (
                     bcrypt.checkpw(form.password.data.encode("utf-8"), user["pwd"])
                     or user["temp"] == form.password.data
-            )
+                )
             ):
                 flash("You have been logged in!", "success")
                 session["email"] = user["email"]
@@ -342,6 +342,7 @@ def user_profile():
     else:
         return redirect(url_for("login"))
 
+
 @app.route("/history", methods=["GET"])
 def history():
     """
@@ -513,8 +514,8 @@ def send_email():
     # Logging in with sender details
     server.login(sender_email, sender_password)
     message = (
-            "Subject: Calorie History\n\n Your Friend wants to share their"
-            + " calorie history with you!\n {}"
+        "Subject: Calorie History\n\n Your Friend wants to share their"
+        + " calorie history with you!\n {}"
     ).format(tabulate(table))
     for e in friend_email:
         print(e)
