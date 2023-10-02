@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
-<html></html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Your Profile</title>
@@ -16,7 +16,7 @@
                 <div class="card"><img class="img-thumbnail img-fluid" src="../static/img/height.jpg">
                     <div class="card-body">
                         <h4 class="card-title">Your Height</h4>
-                        <p class="card-text">164 cms<br><br></p>
+                        <p class="card-text">{{prof.get("height")}}<br><br></p>
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                 <div class="card"><img class="img-thumbnail img-fluid" src="../static/img/weight.png">
                     <div class="card-body">
                         <h4 class="card-title">Your Weight</h4>
-                        <p class="card-text">58 Kgs<br><br></p>
+                        <p class="card-text">{{ prof.get("weight") }}<br><br></p>
                     </div>
                 </div>
             </div>
@@ -32,12 +32,13 @@
                 <div class="card"><img class="img-thumbnail img-fluid" src="../static/img/weightgoal.jpg"></a>
                     <div class="card-body">
                         <h4 class="card-title">Your Target Weight</h4>
-                        <p class="card-text">53 Kgs<br><br></p>
+                        <p class="card-text">{{ prof.get("target_weight") }}<br><br></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <a class="btn btn-secondary btn-sm" href="{{ url_for('update_profile') }}" role="button">Edit Profile</a>
 </section>
 </html>
 {% endblock content %}

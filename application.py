@@ -91,12 +91,12 @@ def login():
         if form.validate_on_submit():
             temp = mongo.db.user.find_one({"email": form.email.data}, {"email", "pwd"})
             if (
-                temp is not None
-                and temp["email"] == form.email.data
-                and (
+                    temp is not None
+                    and temp["email"] == form.email.data
+                    and (
                     bcrypt.checkpw(form.password.data.encode("utf-8"), temp["pwd"])
                     or temp["temp"] == form.password.data
-                )
+            )
             ):
                 flash("You have been logged in!", "success")
                 session["email"] = temp["email"]
@@ -219,7 +219,7 @@ def calories():
                 email = session.get("email")
                 food = request.form.get("food")
                 cals = food.split(" ")
-                cals = int(cals[-1][1 : len(cals[-1]) - 1])
+                cals = int(cals[-1][1: len(cals[-1]) - 1])
                 burn = request.form.get("burnout")
 
                 temp = mongo.db.calories.find_one(
@@ -262,45 +262,68 @@ def user_profile():
     Output: Value update in database and redirected to home login page
     """
     if session.get("email"):
+
+        prof = mongo.db.profile.find_one(
+            {"email": session.get("email")}, {"height", "weight", "goal", "target_weight"})
+
+        return render_template("display_profile.html", status=True, prof=prof)
+
+    else:
+        return redirect(url_for("login"))
+
+
+@app.route("/update_profile", methods=["GET", "POST"])
+def update_profile():
+    """
+    user_profile() function displays the UserProfileForm (user_profile.html) template
+    route "/user_profile" will redirect to user_profile() function.
+    user_profile() called and if the form is submitted then various values are
+    fetched and updated into the database entries
+    Input: Email, height, weight, goal, Target weight
+    Output: Value update in database and redirected to home login page
+    """
+    signed_in = email = session.get("email")
+    if not signed_in:
+        return redirect(url_for("login"))
+    else:
         form = UserProfileForm()
         if form.validate_on_submit():
-            if request.method == "POST":
-                email = session.get("email")
-                weight = request.form.get("weight")
-                height = request.form.get("height")
-                goal = request.form.get("goal")
-                target_weight = request.form.get("target_weight")
-                temp = mongo.db.profile.find_one(
-                    {"email": email}, {"height", "weight", "goal", "target_weight"}
-                )
-                if temp is not None:
-                    mongo.db.profile.update_one(
-                        {"email": email},
-                        {
-                            "$set": {
-                                "weight": temp["weight"],
-                                "height": temp["height"],
-                                "goal": temp["goal"],
-                                "target_weight": temp["target_weight"],
-                            }
-                        },
-                    )
-                else:
-                    mongo.db.profile.insert_one(
-                        {
-                            "email": email,
-                            "height": height,
+
+            weight = request.form.get("weight")
+            height = request.form.get("height")
+            goal = request.form.get("goal")
+            target_weight = request.form.get("target_weight")
+
+            user = mongo.db.profile.find_one(
+                {"email": email}, {"height", "weight", "goal", "target_weight"}
+            )
+            if user:
+                mongo.db.profile.update_one(
+                    {"email": email},
+                    {
+                        "$set": {
                             "weight": weight,
+                            "height": height,
                             "goal": goal,
                             "target_weight": target_weight,
                         }
-                    )
+                    },
+                )
+            else:
+                mongo.db.profile.insert_one(
+                    {
+                        "email": email,
+                        "height": height,
+                        "weight": weight,
+                        "goal": goal,
+                        "target_weight": target_weight,
+                    }
+                )
 
             flash("User Profile Updated", "success")
-            return render_template("display_profile.html", status=True, form=form)
-    else:
-        return redirect(url_for("login"))
-    return render_template("user_profile.html", status=True, form=form)
+            return redirect(url_for("user_profile"))
+
+        return render_template("user_profile.html", status=True, form=form)
 
 
 @app.route("/history", methods=["GET"])
@@ -471,8 +494,8 @@ def send_email():
     # Logging in with sender details
     server.login(sender_email, sender_password)
     message = (
-        "Subject: Calorie History\n\n Your Friend wants to share their"
-        + " calorie history with you!\n {}"
+            "Subject: Calorie History\n\n Your Friend wants to share their"
+            + " calorie history with you!\n {}"
     ).format(tabulate(table))
     for e in friend_email:
         print(e)
