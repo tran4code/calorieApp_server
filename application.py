@@ -277,8 +277,8 @@ def calories():
     # return render_template("calories.html", form=form, time=now)
 
 
-@app.route("/user_profile", methods=["GET", "POST"])
-def user_profile():
+@app.route("/update_profile", methods=["GET", "POST"])
+def update_profile():
     """
     user_profile() function displays the UserProfileForm (user_profile.html) template
     route "/user_profile" will redirect to user_profile() function.
@@ -307,10 +307,10 @@ def user_profile():
                     {"email": email},
                     {
                         "$set": {
-                            "weight": user["weight"],
-                            "height": user["height"],
-                            "goal": user["goal"],
-                            "target_weight": user["target_weight"],
+                            "weight": weight,
+                            "height": height,
+                            "goal": goal,
+                            "target_weight": target_weight,
                         }
                     },
                 )
@@ -326,9 +326,20 @@ def user_profile():
                 )
 
             flash("User Profile Updated", "success")
-            return render_template("display_profile.html", status=True, form=form)
-        else:
-            return render_template("user_profile.html", status=True, form=form)
+            return redirect(url_for("user_profile"))
+
+        return render_template("user_profile.html", status=True, form=form)
+
+@app.route("/user_profile")
+def user_profile():
+    if session.get("email"):
+        prof = mongo.db.profile.find_one({"email": session.get("email")}, {
+            "height": 1, "weight": 1, "goal": 1, "target_weight": 1
+        })
+        return render_template("display_profile.html", prof=prof)
+    else:
+        redirect(url_for("login"))
+
 
 
 @app.route("/history", methods=["GET"])
