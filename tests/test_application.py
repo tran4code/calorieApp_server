@@ -57,17 +57,8 @@ def delete_calories_collection():
         return "Collection deleted successfully"
     except Exception as e:
         return f"Error: {str(e)}"
+    
 
-
-# def delete_user_profile(email):
-#     # try:
-#     #     # Get the MongoDB collection you want to delete
-#     #     collection = mongo.db.profile
-#     collection = mongo.db.profile
-#     if collection.delete_one({'email': email}):
-#         return "User profile deleted successfully"
-
-#     return
 
 
 @pytest.fixture
