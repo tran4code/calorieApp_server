@@ -297,9 +297,11 @@ def test_belly(client):
     response = client.get("/belly")
     assert response.status_code == 302
 
+
 def test_core(client):
     response = client.get("/core")
     assert response.status_code == 302
+
 
 def test_gym(client):
     response = client.get("/gym")
@@ -310,9 +312,11 @@ def test_walk(client):
     response = client.get("/walk")
     assert response.status_code == 302
 
+
 def test_dance(client):
     response = client.get("/dance")
     assert response.status_code == 302
+
 
 def test_hrx(client):
     response = client.get("/dance")
