@@ -6,7 +6,6 @@
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">User Profile</legend>
                 <div class="form-group">
-                    
                     {{ form.height.label(class="form-control-label") }} (cms)
                     {% if form.height.errors %}
                         {{ form.height(class="form-control form-control-lg is-invalid") }}
@@ -18,6 +17,7 @@
                     {% else %}
                         {{ form.height(class="form-control form-control-lg") }}
                     {% endif %}
+                    
                     {{ form.weight.label(class="form-control-label") }} (kgs)
                     {% if form.weight.errors %}
                         {{ form.weight(class="form-control form-control-lg is-invalid") }}
@@ -29,6 +29,7 @@
                     {% else %}
                         {{ form.weight(class="form-control form-control-lg") }}
                     {% endif %}
+                    
                     {{ form.goal.label(class="form-control-label") }}
                     {% if form.goal.errors %}
                         {{ form.goal(class="form-control form-control-lg is-invalid") }}
@@ -40,6 +41,7 @@
                     {% else %}
                         {{ form.goal(class="form-control form-control-lg") }}
                     {% endif %}
+                    
                     {{ form.target_weight.label(class="form-control-label") }} (kgs)
                     {% if form.target_weight.errors %}
                         {{ form.goal(class="form-control form-control-lg is-invalid") }}

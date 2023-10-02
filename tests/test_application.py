@@ -57,6 +57,16 @@ def delete_calories_collection():
         return "Collection deleted successfully"
     except Exception as e:
         return f"Error: {str(e)}"
+    
+# def delete_user_profile(email):
+#     # try:
+#     #     # Get the MongoDB collection you want to delete
+#     #     collection = mongo.db.profile
+#     collection = mongo.db.profile
+#     if collection.delete_one({'email': email}):
+#         return "User profile deleted successfully"
+    
+#     return
 
 
 @pytest.fixture
@@ -219,9 +229,22 @@ def test_calories(client, test_user):
 
 
 # Add more test cases for other routes and functions as needed
-def test_user_profile(client):
+def test_user_profile(client, test_user):
     response = client.get("/user_profile")
     assert response.status_code == 302
+
+    mongo.db.profile.delete_one({'email': 'test_user@burnout.com'})
+    assert login_user(client, test_user).status_code == 302
+    assert user_signed_in(client, test_user)
+    
+    # signed in
+    response = client.post("/user_profile", data = {
+        "weight": 150,
+        "height": 6,
+        "goal": "gain muscle",
+        "target_weight": 160
+    })
+    assert response.status_code == 200
 
 
 def test_history(client):

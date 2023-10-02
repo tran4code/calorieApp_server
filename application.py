@@ -287,46 +287,49 @@ def user_profile():
     Input: Email, height, weight, goal, Target weight
     Output: Value update in database and redirected to home login page
     """
-    if session.get("email"):
+    signed_in = email = session.get("email")
+    if not signed_in:
+        return redirect(url_for("login"))
+    else:
         form = UserProfileForm()
+        
         if form.validate_on_submit():
-            if request.method == "POST":
-                email = session.get("email")
-                weight = request.form.get("weight")
-                height = request.form.get("height")
-                goal = request.form.get("goal")
-                target_weight = request.form.get("target_weight")
-                temp = mongo.db.profile.find_one(
-                    {"email": email}, {"height", "weight", "goal", "target_weight"}
-                )
-                if temp is not None:
-                    mongo.db.profile.update_one(
-                        {"email": email},
-                        {
-                            "$set": {
-                                "weight": temp["weight"],
-                                "height": temp["height"],
-                                "goal": temp["goal"],
-                                "target_weight": temp["target_weight"],
-                            }
-                        },
-                    )
-                else:
-                    mongo.db.profile.insert_one(
-                        {
-                            "email": email,
-                            "height": height,
-                            "weight": weight,
-                            "goal": goal,
-                            "target_weight": target_weight,
+            weight = request.form.get("weight")
+            height = request.form.get("height")
+            goal = request.form.get("goal")
+            target_weight = request.form.get("target_weight")
+            
+            user = mongo.db.profile.find_one(
+                {"email": email}, {"height", "weight", "goal", "target_weight"}
+            )
+            if user:
+                mongo.db.profile.update_one(
+                    {"email": email},
+                    {
+                        "$set": {
+                            "weight": user["weight"],
+                            "height": user["height"],
+                            "goal": user["goal"],
+                            "target_weight": user["target_weight"],
                         }
-                    )
+                    },
+                )
+            else:
+                mongo.db.profile.insert_one(
+                    {
+                        "email": email,
+                        "height": height,
+                        "weight": weight,
+                        "goal": goal,
+                        "target_weight": target_weight,
+                    }
+                )
 
             flash("User Profile Updated", "success")
             return render_template("display_profile.html", status=True, form=form)
-    else:
-        return redirect(url_for("login"))
-    return render_template("user_profile.html", status=True, form=form)
+        else:
+            return render_template("user_profile.html", status=True, form=form)
+
 
 
 @app.route("/history", methods=["GET"])
