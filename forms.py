@@ -36,6 +36,7 @@ class CalorieForm(FlaskForm):
     app = App()
     mongo = app.mongo
 
+    # Read database for food options
     cursor = mongo.db.food.find()
     get_docs = []
     for record in cursor:

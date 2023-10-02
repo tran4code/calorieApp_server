@@ -99,10 +99,10 @@ Link to the implementation video of the BurnOut application:
 
 # Tech Stack
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="python" width="20" height="20"/> Python </br>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" alt="mongo" width="20" height="20"/> MongoDB </br>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-plain.svg" alt="html" width="20" height="20"> CSS3 </br>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-plain.svg" alt="css" width="20" height="20">  HTML 5 </br>
+<img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="python" width="20" height="20" style="vertical-align:middle" /> Python </br>
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" alt="mongo" width="20" height="20" style="vertical-align:middle" /> MongoDB </br>
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-plain.svg" alt="html" width="20" height="20" style="vertical-align:middle" /> CSS3 </br>
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-plain.svg" alt="css" width="20" height="20" style="vertical-align:middle" />  HTML 5 </br>
 
 # Environment Setup
 Prerequisites:
@@ -124,8 +124,9 @@ Then, make sure that MongoDB is running:
 Clone the repository: `git clone https://github.com/1360119047/calorieApp_server.git`
 
 **Step 3**:  
-Note: it is best practice to use a virtual environment. We have been using venv, which comes bundled with Python.
-To activate the venv virtual environment, navigate to the root of the project directory and run: `source ./venv/Scripts/activate` on macOS. To deactivate, run `deactivate`.
+> [!NOTE]
+> It is best practice to use a virtual environment. We have been using venv, which comes bundled with Python.
+> To activate the venv virtual environment, navigate to the root of the project directory and run: `source ./venv/Scripts/activate` on macOS. To deactivate, run `deactivate`.
 
 Install the required packages by running the following command in the terminal: `pip install -r requirements.txt`.
 There is a separate `requirements-dev.txt` for installing dev dependencies: `pip install -r requirements-dev.txt`.
@@ -135,6 +136,22 @@ Run the following command in the terminal: `python application.py`
 
 **Step 5**:
 Open the URL in your browser: `http://127.0.0.1:5000/`
+
+**Step 6**:
+Run `python insert_food_data.py` to create a food collection in the test database. This food data is used for the Calories form.
+
+# Testing
+We primarily test the `application.py` module, the Flask API interface for which the client side interacts. If HTTP requests to application.py endpoints 
+return expected values, then we can reasonably assume that other backend code that is customer-facing is working. That is what we most care about.
+
+Unit tests are located in `tests/test_application.py`. To run tests and generate a code coverage report:
+
+```pytest --cov=application --cov-report=html```
+
+Note that coverage HTML is written to directory htmlcov in the same location the command is run. Navigate to htmlcov and open index.html in a browser.
+
+[Code Coverage Report](https://github.com/1360119047/calorieApp_server/suites/16763004722/artifacts/957298956)
+
 
 # Core Functionalities
  
