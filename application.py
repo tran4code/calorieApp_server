@@ -476,7 +476,10 @@ def send_email():
     # Input: Email
     # Output: Calorie History Received on specified email
     # ##########################
-    email = session.get("email")
+    signed_in = email = session.get("email")
+    if not signed_in:
+        return redirect(url_for("home"))
+
     data = list(
         mongo.db.calories.find(
             {"email": email}, {"date", "email", "calories", "burnout"}

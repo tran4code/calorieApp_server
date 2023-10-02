@@ -253,9 +253,9 @@ def test_friends(client):
     assert response.status_code == 200
 
 
-# def test_send_email(client):
-#     response = client.get("/send_email")
-#     assert response.status_code == 302
+def test_send_email(client):
+    response = client.get("/send_email")
+    assert response.status_code == 302
 
 
 def test_ajaxsendrequest(client):
@@ -284,8 +284,8 @@ def test_yoga(client):
 
 
 def test_swim(client):
-    response = client.get("/dashboard")
-    assert response.status_code == 200
+    response = client.get("/swim")
+    assert response.status_code == 302
 
 
 def test_abbs(client):
