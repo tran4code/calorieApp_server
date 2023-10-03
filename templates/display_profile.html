@@ -16,7 +16,7 @@
                 <div class="card"><img class="img-thumbnail img-fluid" src="../static/img/height.jpg">
                     <div class="card-body">
                         <h4 class="card-title">Your Height</h4>
-                        <p class="card-text">{{prof.get("height")}}<br><br></p>
+                        <p class="card-text">{{prof.get("height") if prof else "Not added"}}<br><br></p>
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                 <div class="card"><img class="img-thumbnail img-fluid" src="../static/img/weight.png">
                     <div class="card-body">
                         <h4 class="card-title">Your Weight</h4>
-                        <p class="card-text">{{ prof.get("weight") }}<br><br></p>
+                        <p class="card-text">{{ prof.get("weight") if prof else "Not added" }}<br><br></p>
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                 <div class="card"><img class="img-thumbnail img-fluid" src="../static/img/weightgoal.jpg"></a>
                     <div class="card-body">
                         <h4 class="card-title">Your Target Weight</h4>
-                        <p class="card-text">{{ prof.get("target_weight") }}<br><br></p>
+                        <p class="card-text">{{ prof.get("target_weight") if prof else "Not added" }}<br><br></p>
                     </div>
                 </div>
             </div>
