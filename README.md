@@ -79,6 +79,7 @@ and more:
 - [Demo](#demo)
 - [Tech Stack](#tech-stack)
 - [Setup](#environment-setup)
+- [Testing](#Testing)
 - [Core Functionalities:](#core-functionalities)
   - [Register](#register)
   - [Login](#login)
