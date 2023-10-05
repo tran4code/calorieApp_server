@@ -203,17 +203,9 @@ Note that coverage HTML is written to directory htmlcov in the same location the
 <center>
   <table>
     <tr>
-      <td align="center">
-        <a href="https://github.com/deekay2310">
-          <img src="https://avatars.githubusercontent.com/u/29257773?v=4" width="100px;" alt=""/>
-          <br /><sub><b>Dev Kumar</b></sub>
-        </a>
-        <br />
-      </td>
-      <td align="center"><a href="https://github.com/PrakruthiSomashekar"><img src="https://avatars.githubusercontent.com/u/62984587?v=4" width="100px;" alt=""/><br /><sub><b>Prakruthi Somashekar</b></sub></a></td>
-    <td align="center"><a href="https://github.com/radhikaraman20"><img src="https://avatars.githubusercontent.com/u/89432698?s=400&v=4" width="100px;" alt=""/><br /><sub><b>Radhika Raman</b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/RohanSinha96"><img src="https://avatars.githubusercontent.com/u/15325746?v=4" width="100px;" alt=""/><br /><sub><b>Rohan Sinha</b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/SunidhiHegde"><img src="https://avatars.githubusercontent.com/u/62884191?v=4" width="100px;" alt=""/><br /><sub><b>Sunidhi Hegde</b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/lrwilli7"><img src="https://avatars.githubusercontent.com/u/64102141?v=4" width="100px;" alt=""/><br /><sub><b>Logan Williams</b></sub></a></td>
+    <td align="center"><a href="https://github.com/MichaelDacanay"><img src="https://avatars.githubusercontent.com/u/18317412?s=400&v=4" width="100px;" alt=""/><br /><sub><b>MichaelDacanay</b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/1360119047"><img src="https://avatars.githubusercontent.com/u/62859405?v=4" width="100px;" alt=""/><br /><sub><b>Xiaochun Liang</b></sub></a><br /></td>
     </tr>
   </table>
 </center>
