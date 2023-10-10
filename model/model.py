@@ -1,3 +1,4 @@
+#  calculating a diet plan and generating a weight loss/gain projection chart
 import pandas as pd
 import pymongo
 import collections
@@ -9,8 +10,8 @@ index_list = df.index.tolist()
 client = pymongo.MongoClient("mongodb://localhost:27017")
 db = client["test"]
 p_details = db["profile"]  # profile details
-records = p_details.find()
-list_record = list(records)
+records = p_details.find()  # retrieves all documents
+list_record = list(records)  # converts the cursor object to a list
 
 df_profile = pd.DataFrame(list_record)
 cur_wt_list = df_profile["weight"].tolist()
@@ -20,6 +21,8 @@ food = df["Food"].tolist()
 calories = df["Calories"].tolist()
 
 
+# Sum of Subsets problem, Trying to find a subset of food that satisfy its daily gold
+# but the variable name as weight it's really confused really not helpful
 def find_subset(weight: list, req_sum: int):
     # ROWS : array, # COL : range(sum)
     row = len(weight)
@@ -145,7 +148,7 @@ for i in range(len(u_cal)):
 for i in range(len(u_cal)):
     print('Consume one of these items', u_cal_food[i],'*',list_occ[i][1], 'times')
 """
-
+# "diet_guide.txt"
 diet_report = open(
     "C:\\Users\\Shivam\\Desktop\\calorieApp_server\\model\\diet_guide.txt", "wt"
 )  # path
