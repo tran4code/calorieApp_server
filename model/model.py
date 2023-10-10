@@ -20,7 +20,8 @@ goal_wt_list = df_profile["target_weight"].tolist()
 food = df["Food"].tolist()
 calories = df["Calories"].tolist()
 
-# Sum of Subsets problem, Trying to find a subset of food that satisfy its daily gold but the variable name as weight it's really confused really not helpful
+# Sum of Subsets problem, Trying to find a subset of food that satisfy its daily gold 
+# but the variable name as weight it's really confused really not helpful
 def find_subset(weight: list, req_sum: int):
     # ROWS : array, # COL : range(sum)
     row = len(weight)
