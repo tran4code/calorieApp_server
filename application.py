@@ -96,12 +96,12 @@ def login():
         if form.validate_on_submit():
             user = mongo.db.user.find_one({"email": form.email.data}, {"email", "pwd"})
             if (
-                    user
-                    and user["email"] == form.email.data
-                    and (
+                user
+                and user["email"] == form.email.data
+                and (
                     bcrypt.checkpw(form.password.data.encode("utf-8"), user["pwd"])
                     or user["temp"] == form.password.data
-            )
+                )
             ):
                 flash("You have been logged in!", "success")
                 session["email"] = user["email"]
@@ -230,7 +230,6 @@ def calories():
         activity_form = ActivityForm()
 
         if food_form.validate_on_submit():
-
             food = request.form.get("food")
             cals = food.split(" ")[-1]
 
@@ -240,7 +239,6 @@ def calories():
                 {"email": email}, {"email", "calories"}
             )
             if activity:
-
                 mongo.db.calories.update_one(
                     # filter criteria
                     {"email": email},
@@ -252,7 +250,6 @@ def calories():
                     },
                 )
             else:
-
                 mongo.db.calories.insert_one(
                     {
                         "date": now,
@@ -261,7 +258,12 @@ def calories():
                     }
                 )
             flash("Successfully updated the data", "success")
-            return render_template("calories.html", food_form=food_form, activity_form=activity_form, time=now)
+            return render_template(
+                "calories.html",
+                food_form=food_form,
+                activity_form=activity_form,
+                time=now,
+            )
         elif not food_form.validate_on_submit():
             flash("Food form not submitted")
 
@@ -272,7 +274,9 @@ def calories():
             user_activity = activity_form.activity.data
             user_duration = activity_form.duration.data
 
-            activity_data = mongo.db.activities.find_one({"_id": ObjectId(user_activity)})
+            activity_data = mongo.db.activities.find_one(
+                {"_id": ObjectId(user_activity)}
+            )
             activity_rate = activity_data.get("burn_rate", 0)
 
             user_prof = mongo.db.profile.find_one({"email": email})
@@ -282,18 +286,24 @@ def calories():
             calories_burned = activity_rate * user_weight * user_duration / 60
 
             mongo.db.burned.insert_one(
-                {
-                    "email": email,
-                    "date": now,
-                    "burned": calories_burned
-                }
+                {"email": email, "date": now, "burned": calories_burned}
             )
 
             flash("Successfully updated the data", "success")
-            return render_template("calories.html", food_form=food_form, activity_form=activity_form, time=now)
+            return render_template(
+                "calories.html",
+                food_form=food_form,
+                activity_form=activity_form,
+                time=now,
+            )
         else:
             print("INVALID FORM SUBMISSION")
-            return render_template("calories.html", food_form=food_form, activity_form=activity_form, time=now)
+            return render_template(
+                "calories.html",
+                food_form=food_form,
+                activity_form=activity_form,
+                time=now,
+            )
             # can we also return a message?
         #     return error?
     else:
@@ -537,8 +547,8 @@ def send_email():
     # Logging in with sender details
     server.login(sender_email, sender_password)
     message = (
-            "Subject: Calorie History\n\n Your Friend wants to share their"
-            + " calorie history with you!\n {}"
+        "Subject: Calorie History\n\n Your Friend wants to share their"
+        + " calorie history with you!\n {}"
     ).format(tabulate(table))
     for e in friend_email:
         print(e)
