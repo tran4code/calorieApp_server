@@ -2,7 +2,7 @@
 {% block content %}
     <div class="content-section">
         <form method="POST" onSubmit="storeCalories()" name='calorieform'>
-            {{ form.hidden_tag() }}
+            {{ food_form.hidden_tag() }}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Today's Calories</legend>
                 <div class="form-group">
@@ -10,16 +10,23 @@
                         <p class="form-control form-control-lg" name='time'>{{ time }}</p>
                 </div>
                 <div class="form-group">
-                    {{ form.food.label(class="form-control-label") }}
-                    {{ form.food(class="form-control form-control-lg") }}
+                    {{ food_form.food.label(class="form-control-label") }}
+                    {{ food_form.food(class="form-control form-control-lg") }}
                 </div>
                 <div class="form-group">
-                    {{ form.burnout.label(class="form-control-label") }}
-                    {{ form.burnout(class="form-control form-control-lg") }}
+                    {{ activity_form.activity.label(class="form-control-label") }}
+                    {{ activity_form.activity(class="form-control form-control-lg") }}
+                </div>
+                <div class="form-group">
+                    {{ activity_form.duration.label(class="form-control-label") }}
+                    {{ activity_form.duration(class="form-control form-control-lg") }}
                 </div>
             </fieldset>
             <div class="form-group">
-                {{ form.submit(class="btn btn-outline-info") }}
+                {{ food_form.submit(class="btn btn-outline-info") }}
+            </div>
+            <div class="form-group">
+                {{ activity_form.submit(class="btn btn-outline-info") }}
             </div>
         </form>
     </div>

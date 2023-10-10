@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, IntegerField
 from wtforms import DateField, SelectField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from apps import App
@@ -50,8 +50,16 @@ class CalorieForm(FlaskForm):
 
     food = SelectField("Select Food", choices=result)
 
-    burnout = StringField("Burn Out", validators=[DataRequired()])
     submit = SubmitField("Save")
+
+
+class ActivityForm(FlaskForm):
+    app = App()
+    mongo = app.mongo
+
+    activity = SelectField("Activity", validators=[DataRequired()])
+    duration = IntegerField("Minutes", validators=[DataRequired()])
+    submit = SubmitField("Burn")
 
 
 class UserProfileForm(FlaskForm):
