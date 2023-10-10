@@ -10,8 +10,8 @@ index_list = df.index.tolist()
 client = pymongo.MongoClient("mongodb://localhost:27017")
 db = client["test"]
 p_details = db["profile"]  # profile details
-records = p_details.find() # retrieves all documents 
-list_record = list(records) # converts the cursor object to a list
+records = p_details.find()  # retrieves all documents
+list_record = list(records)  # converts the cursor object to a list
 
 df_profile = pd.DataFrame(list_record)
 cur_wt_list = df_profile["weight"].tolist()
@@ -19,6 +19,7 @@ goal_wt_list = df_profile["target_weight"].tolist()
 
 food = df["Food"].tolist()
 calories = df["Calories"].tolist()
+
 
 # Sum of Subsets problem, Trying to find a subset of food that satisfy its daily gold but the variable name as weight it's really confused really not helpful
 def find_subset(weight: list, req_sum: int):
