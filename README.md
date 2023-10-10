@@ -139,7 +139,7 @@ Run the following command in the terminal: `python application.py`
 Open the URL in your browser: `http://127.0.0.1:5000/`
 
 **Step 6**:
-Run `python insert_food_data.py` to create a food collection in the test database. This food data is used for the Calories form.
+Run `python insert_data.py` to create a food collection and exercise collection in the test database. This food data is used for the Calories form.
 
 # Testing
 We primarily test the `application.py` module, the Flask API interface for which the client side interacts. If HTTP requests to application.py endpoints 
