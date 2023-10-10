@@ -1,4 +1,6 @@
 // const { load } = require("mime");
+// it been use in the layout.html file, the funtion are self explainning
+
 
 function addToLocalStorage(key,data){
     localStorage.setItem(key) = data;
@@ -8,6 +10,9 @@ function retrieveFromLocalStorage(key){
     return localStorage.getItem(key)
 }
 
+/**
+ * Sends a POST request to log out the user and redirects to the login page upon success.
+ */
 function logout(){
     $.ajax({
         type: "POST",
@@ -19,6 +24,11 @@ function logout(){
     });
 }
 
+/**
+ * Handles the history form the calories page and updates history data
+ *  with the new food or burn out.
+ * @param {Event} e - The form submission event.
+ */
 function history(e){
     const form = new FormData(e.target);
     date = form.get("date")
