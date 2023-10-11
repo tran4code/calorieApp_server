@@ -47,13 +47,19 @@ function history(e){
             $("#date_legend").empty().append("Date: ")
             $("#date").empty().append(response["date"])
 
-            $("#calories_legend").empty().append("Calories Consumed: ")
+            $("#foods_legend").empty().append("Foods Log: ")
+            $("#foods").empty().append(response["foods"])
+
+            $("#calories_legend").empty().append("Total Calories Gained: ")
             $("#calories").empty().append(response["cals_in"])
 
-            $("#burnout_legend").empty().append("Calories Burned: ")
+            $("#activities_legend").empty().append("Activities Log: ")
+            $("#activities").empty().append(response["activities"])
+
+            $("#burnout_legend").empty().append("Total Calories Burned: ")
             $("#burnout").empty().append(response["cals_out"])
 
-            $("#net_legend").empty().append("Total: ")
+            $("#net_legend").empty().append("Net Total Calories: ")
             $("#net").empty().append(response["net"])
 
             $("#history-data").empty().append(JSON.stringify(response));
