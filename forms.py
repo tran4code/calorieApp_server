@@ -57,8 +57,11 @@ class ActivityForm(FlaskForm):
     app = App()
     mongo = app.mongo
 
-    activity = SelectField("Activity", validators=[DataRequired()])
-    duration = IntegerField("Minutes", validators=[DataRequired()])
+    activities = mongo.db.activities.find()
+    choices = [(entry["activity"]) for entry in activities]
+
+    activity = SelectField("Activity", choices=choices)
+    duration = IntegerField("Minutes")
     submit = SubmitField("Burn")
 
 

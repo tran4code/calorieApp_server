@@ -41,16 +41,20 @@ function history(e){
         },
         success: function(response){
             console.log(response)
-            resdata = JSON.parse(response)
+            // let resdata = JSON.parse(response)
+            // console.log(resdata)
             
             $("#date_legend").empty().append("Date: ")
-            $("#date").empty().append(resdata.date)
+            $("#date").empty().append(response["date"])
 
-            $("#calories_legend").empty().append("Calories: ")
-            $("#calories").empty().append(resdata.calories)
+            $("#calories_legend").empty().append("Calories Consumed: ")
+            $("#calories").empty().append(response["cals_in"])
 
-            $("#burnout_legend").empty().append("Burnout: ")
-            $("#burnout").empty().append(resdata.burnout)
+            $("#burnout_legend").empty().append("Calories Burned: ")
+            $("#burnout").empty().append(response["cals_out"])
+
+            $("#net_legend").empty().append("Total: ")
+            $("#net").empty().append(response["net"])
 
             $("#history-data").empty().append(JSON.stringify(response));
         }
