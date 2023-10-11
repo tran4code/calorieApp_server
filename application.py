@@ -3,7 +3,6 @@ from datetime import datetime
 import bcrypt
 import smtplib
 
-from bson import ObjectId
 from flask import (
     Flask,
     json,
