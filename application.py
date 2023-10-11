@@ -232,9 +232,8 @@ def calories():
         if request.method == "POST":
             if food_form.validate_on_submit():
                 food = food_form.food.data
-                cals = food.split(" ")[-1]
-
-                cals = int(cals[1:-1])
+                cals = food.split(" ")[-2]
+                cals = int(cals[1:])
 
                 mongo.db.calories.insert_one(
                     {"email": email, "date": now, "calories": cals}
@@ -243,6 +242,8 @@ def calories():
 
             if activity_form.validate_on_submit():
                 user_activity = activity_form.activity.data
+                # extract it from the string  
+                user_activity = user_activity.split(" (")[0]
                 user_duration = activity_form.duration.data
 
                 activity_data = mongo.db.activities.find_one(
