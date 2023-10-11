@@ -49,7 +49,6 @@ class CalorieForm(FlaskForm):
         result.append((temp, temp))
 
     food = SelectField("Select Food", choices=result)
-
     submit = SubmitField("Save")
 
 
