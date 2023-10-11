@@ -96,12 +96,12 @@ def login():
         if form.validate_on_submit():
             user = mongo.db.user.find_one({"email": form.email.data}, {"email", "pwd"})
             if (
-                    user
-                    and user["email"] == form.email.data
-                    and (
+                user
+                and user["email"] == form.email.data
+                and (
                     bcrypt.checkpw(form.password.data.encode("utf-8"), user["pwd"])
                     or user["temp"] == form.password.data
-            )
+                )
             ):
                 flash("You have been logged in!", "success")
                 session["email"] = user["email"]
@@ -242,17 +242,17 @@ def calories():
 
                 food_entry = (food_name, food_cals)
 
-                calories_entry_exists = mongo.db.calories.find_one({"email": email, "date": now})
+                calories_entry_exists = mongo.db.calories.find_one(
+                    {"email": email, "date": now}
+                )
                 if calories_entry_exists:
                     mongo.db.calories.update_one(
                         {"email": email, "date": now},
-                        {"$push": {"food_data": food_entry}}
+                        {"$push": {"food_data": food_entry}},
                     )
                 else:
                     mongo.db.calories.insert_one(
-                        {
-                            "email": email, "date": now, "food_data": [food_entry]
-                        }
+                        {"email": email, "date": now, "food_data": [food_entry]}
                     )
 
                 flash_updated = True
@@ -274,17 +274,17 @@ def calories():
 
                 burn_entry = (user_activity, calories_burned)
 
-                burned_entry_exists = mongo.db.burned.find_one({"email": email, "date": now})
+                burned_entry_exists = mongo.db.burned.find_one(
+                    {"email": email, "date": now}
+                )
                 if burned_entry_exists:
                     mongo.db.burned.update_one(
                         {"email": email, "date": now},
-                        {"$push": {"burn_data": burn_entry}}
+                        {"$push": {"burn_data": burn_entry}},
                     )
                 else:
                     mongo.db.burned.insert_one(
-                        {
-                            "email": email, "date": now, "burn_data": [burn_entry]
-                        }
+                        {"email": email, "date": now, "burn_data": [burn_entry]}
                     )
                 flash_updated = True
 
@@ -297,9 +297,6 @@ def calories():
             activity_form=activity_form,
             time=now,
         )
-
-
-
 
     else:
         print("NOT SIGNED IN")
@@ -430,14 +427,12 @@ def ajaxhistory():
 
         net = cals_in_num - cals_out_num
 
-        return jsonify(
-            {
-                "date": date,
-                "cals_in": cals_in,
-                "cals_out": cals_out,
-                "net": net
-            }
-        ), 200
+        return (
+            jsonify(
+                {"date": date, "cals_in": cals_in, "cals_out": cals_out, "net": net}
+            ),
+            200,
+        )
 
         # if calories_consumed :
         #     return (
@@ -561,8 +556,8 @@ def send_email():
     # Logging in with sender details
     server.login(sender_email, sender_password)
     message = (
-            "Subject: Calorie History\n\n Your Friend wants to share their"
-            + " calorie history with you!\n {}"
+        "Subject: Calorie History\n\n Your Friend wants to share their"
+        + " calorie history with you!\n {}"
     ).format(tabulate(table))
     for e in friend_email:
         print(e)
