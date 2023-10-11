@@ -234,11 +234,13 @@ def calories():
             if food_form.validate_on_submit():
                 food_data = food_form.food.data
                 print(food_data)
-                food_split = food_data.split(",")
+                food_split = food_data.split(" (")
                 print(food_split)
                 food_name = food_split[0].strip()
                 print(food_name)
-                food_cals = int(food_split[1].strip())
+                cal_split = food_split[1].split(" ")
+                food_cals = int(cal_split[0].strip())
+                print(food_cals)
 
                 food_entry = (food_name, food_cals)
 
@@ -259,6 +261,9 @@ def calories():
 
             if activity_form.validate_on_submit():
                 user_activity = activity_form.activity.data
+                # extract it from the string  
+                user_activity = user_activity.split(" (")[0]
+                print(user_activity)
                 user_duration = activity_form.duration.data
 
                 activity_data = mongo.db.activities.find_one(

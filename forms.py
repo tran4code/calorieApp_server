@@ -45,7 +45,7 @@ class CalorieForm(FlaskForm):
     result = []
     temp = ""
     for i in get_docs:
-        temp = i["food"] + ", " + i["calories"]
+        temp = i["food"] + " (" + i["calories"] + " cal)"
         result.append((temp, temp))
 
     food = SelectField("Select Food", choices=result)
@@ -58,7 +58,9 @@ class ActivityForm(FlaskForm):
     mongo = app.mongo
 
     activities = mongo.db.activities.find()
-    choices = [(entry["activity"]) for entry in activities]
+    choices = [(entry["activity"] + " (" + 
+                "{:.2f}".format(entry["burn_rate"]) + 
+                ".../kg/hr" + ")") for entry in activities]
 
     activity = SelectField("Activity", choices=choices)
     duration = IntegerField("Minutes")
