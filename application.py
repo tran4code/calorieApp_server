@@ -260,7 +260,7 @@ def calories():
 
             if activity_form.validate_on_submit():
                 user_activity = activity_form.activity.data
-                # extract it from the string  
+                # extract it from the string
                 user_activity = user_activity.split(" (")[0]
                 print(user_activity)
                 user_duration = activity_form.duration.data
