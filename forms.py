@@ -45,7 +45,7 @@ class CalorieForm(FlaskForm):
     result = []
     temp = ""
     for i in get_docs:
-        temp = i["food"] + " (" + i["calories"] + ")"
+        temp = i["food"] + ", " + i["calories"]
         result.append((temp, temp))
 
     food = SelectField("Select Food", choices=result)

@@ -230,18 +230,32 @@ def calories():
         activity_form = ActivityForm()
 
         if request.method == "POST":
+            flash_updated = False
             if food_form.validate_on_submit():
-                food = food_form.food.data
-                cals = food.split(" ")[-1]
+                food_data = food_form.food.data
+                print(food_data)
+                food_split = food_data.split(",")
+                print(food_split)
+                food_name = food_split[0].strip()
+                print(food_name)
+                food_cals = int(food_split[1].strip())
 
-                cals = int(cals[1:-1])
+                food_entry = (food_name, food_cals)
 
-                mongo.db.calories.insert_one(
-                    {
-                        "email": email, "date": now, "calories": cals
-                    }
-                )
-                flash("Successfully updated the data", "success")
+                calories_entry_exists = mongo.db.calories.find_one({"email": email, "date": now})
+                if calories_entry_exists:
+                    mongo.db.calories.update_one(
+                        {"email": email, "date": now},
+                        {"$push": {"food_data": food_entry}}
+                    )
+                else:
+                    mongo.db.calories.insert_one(
+                        {
+                            "email": email, "date": now, "food_data": [food_entry]
+                        }
+                    )
+
+                flash_updated = True
 
             if activity_form.validate_on_submit():
                 user_activity = activity_form.activity.data
@@ -258,10 +272,23 @@ def calories():
                     user_weight = int(user_prof.get("weight"))
                 calories_burned = activity_rate * user_weight * user_duration / 60
 
-                mongo.db.burned.insert_one(
-                    {"email": email, "date": now, "activity": user_activity, "burned": calories_burned}
-                )
+                burn_entry = (user_activity, calories_burned)
 
+                burned_entry_exists = mongo.db.burned.find_one({"email": email, "date": now})
+                if burned_entry_exists:
+                    mongo.db.burned.update_one(
+                        {"email": email, "date": now},
+                        {"$push": {"burn_data": burn_entry}}
+                    )
+                else:
+                    mongo.db.burned.insert_one(
+                        {
+                            "email": email, "date": now, "burn_data": [burn_entry]
+                        }
+                    )
+                flash_updated = True
+
+            if flash_updated:
                 flash("Successfully updated the data", "success")
 
         return render_template(
@@ -392,8 +419,8 @@ def ajaxhistory():
         cals_in, cals_in_num = "No data for this date", 0
         cals_out, cals_out_num = "No data for this date", 0
 
-        cals_in_data = mongo.db.calories.find_one({"email": email, "date": date})
-        cals_out_data = mongo.db.burned.find_one({"email": email, "date": date})
+        cals_in_data = mongo.db.calories.find({"email": email, "date": date})
+        cals_out_data = mongo.db.burned.find({"email": email, "date": date})
 
         if cals_in_data:
             cals_in = cals_in_num = cals_in_data["calories"]
