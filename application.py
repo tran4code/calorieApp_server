@@ -96,12 +96,12 @@ def login():
         if form.validate_on_submit():
             user = mongo.db.user.find_one({"email": form.email.data}, {"email", "pwd"})
             if (
-                    user
-                    and user["email"] == form.email.data
-                    and (
+                user
+                and user["email"] == form.email.data
+                and (
                     bcrypt.checkpw(form.password.data.encode("utf-8"), user["pwd"])
                     or user["temp"] == form.password.data
-            )
+                )
             ):
                 flash("You have been logged in!", "success")
                 session["email"] = user["email"]
@@ -413,8 +413,16 @@ def ajaxhistory():
     if signed_in and request.method == "POST":
         date = request.form.get("date")
 
-        foods, cals_in, cals_in_num = "No data for this date", "No data for this date", 0
-        activities, cals_out, cals_out_num = "No data for this date", "No data for this date", 0
+        foods, cals_in, cals_in_num = (
+            "No data for this date",
+            "No data for this date",
+            0,
+        )
+        activities, cals_out, cals_out_num = (
+            "No data for this date",
+            "No data for this date",
+            0,
+        )
 
         cals_in_data = mongo.db.calories.find_one({"email": email, "date": date})
         cals_out_data = mongo.db.burned.find_one({"email": email, "date": date})
@@ -441,7 +449,14 @@ def ajaxhistory():
 
         return (
             jsonify(
-                {"date": date, "foods": foods, "cals_in": cals_in, "activities": activities, "cals_out": cals_out, "net": net}
+                {
+                    "date": date,
+                    "foods": foods,
+                    "cals_in": cals_in,
+                    "activities": activities,
+                    "cals_out": cals_out,
+                    "net": net,
+                }
             ),
             200,
         )
@@ -545,8 +560,8 @@ def send_email():
     # Logging in with sender details
     server.login(sender_email, sender_password)
     message = (
-            "Subject: Calorie History\n\n Your Friend wants to share their"
-            + " calorie history with you!\n {}"
+        "Subject: Calorie History\n\n Your Friend wants to share their"
+        + " calorie history with you!\n {}"
     ).format(tabulate(table))
     for e in friend_email:
         print(e)
