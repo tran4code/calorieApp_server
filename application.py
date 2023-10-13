@@ -21,7 +21,7 @@ from forms import (
     HistoryForm,
     RegistrationForm,
     LoginForm,
-    CalorieForm,
+    FoodForm,
     UserProfileForm,
     EnrollForm,
     ActivityForm,
@@ -225,21 +225,21 @@ def calories():
 
     email = session.get("email")
     if email:
-        food_form = CalorieForm()
+        food_form = FoodForm()
         activity_form = ActivityForm()
 
         if request.method == "POST":
             flash_updated = False
             if food_form.validate_on_submit():
                 food_data = food_form.food.data
-                print(food_data)
+                # print(food_data)
                 food_split = food_data.split(" (")
-                print(food_split)
+                # print(food_split)
                 food_name = food_split[0].strip()
-                print(food_name)
+                # print(food_name)
                 cal_split = food_split[1].split(" ")
                 food_cals = int(cal_split[0].strip())
-                print(food_cals)
+                # print(food_cals)
 
                 food_entry = (food_name, food_cals)
 

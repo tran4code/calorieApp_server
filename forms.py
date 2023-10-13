@@ -32,7 +32,7 @@ class LoginForm(FlaskForm):
     submit = SubmitField("Login")
 
 
-class CalorieForm(FlaskForm):
+class FoodForm(FlaskForm):
     app = App()
     mongo = app.mongo
 
