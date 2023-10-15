@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
     <div class="content-section">
-        <form method="POST" onSubmit="submitBothForms()" name='calorieform'>
+        <form method="POST" onSubmit="return submitBothForms();" name='calorieform'>
             {{ food_form.hidden_tag() }}
             {{ activity_form.hidden_tag() }}
             <fieldset class="form-group">
@@ -26,13 +26,16 @@
             <div class="form-group">
                 <input type="submit" class="btn btn-outline-info" value="Submit">
             </div>
-    <script>
-        function submitBothForms() {
-            // Submit both forms when the button is clicked
-            document.forms['food_form'].submit();
-            document.forms['activity_form'].submit();
-        }
-    </script>
+            
+        <script>
+            function submitBothForms() {
+                // Submit both forms when the button is clicked
+                document.forms['food_form'].submit();
+                document.forms['activity_form'].submit();
+                // Prevent the default form submission
+                return false;
+            }
+        </script>
 
         </form>
     </div>

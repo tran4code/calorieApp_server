@@ -294,6 +294,7 @@ def calories():
 
             if flash_updated:
                 flash("Successfully updated the data", "success")
+                return redirect(url_for("calories"))
 
         return render_template(
             "calories.html",
