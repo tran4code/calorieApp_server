@@ -1,5 +1,5 @@
 from datetime import datetime
-
+from flask import Flask, flash, redirect, request, url_for, session
 import bcrypt
 import smtplib
 
@@ -242,8 +242,8 @@ def update_calorie_data():
                     )
 
                 flash_updated = True
-            else:
-                flash("activity form no update", "error")
+        else:
+            flash("activity form no update", "error")
 
         if added_activity_data:
             for activity_data_item in added_activity_data:
@@ -294,12 +294,12 @@ def update_calorie_data():
                         {"email": email, "date": now, "burn_data": [burn_entry]}
                     )
                 flash_updated = True
-            else:
-                flash("activity form no update", "error")
+        else:
+            flash("activity form no update", "error")
 
-            if flash_updated:
-                flash("Successfully updated the data", "success")
-                return redirect(url_for("calories"))
+        if flash_updated:
+            flash("Successfully updated the data", "success")
+            return redirect(url_for("calories"))
     else:
         return jsonify({"message": "Invalid request method"})
 
@@ -322,18 +322,41 @@ def calories():
     - The user is redirected to the calories page.
     - If the user is not authenticated, they are redirected to the home page.
     """
-    now = datetime.now()
-    now = now.strftime("%Y-%m-%d")
+    
+    if request.method == "GET":
+        now = datetime.now()
+        now = now.strftime("%Y-%m-%d")
 
-    email = session.get("email")
-    if email:
-        food_form = FoodForm()
-        activity_form = ActivityForm()
+        email = session.get("email")
+        if email:
+            food_form = FoodForm()
+            activity_form = ActivityForm()
 
-        if request.method == "POST":
-            flash_updated = False
-            if food_form.validate_on_submit():
-                food_data = food_form.food.data
+            return render_template(
+                "calories.html",
+                food_form=food_form,
+                activity_form=activity_form,
+                time=now,
+            )
+        else:
+            print("NOT SIGNED IN")
+            return redirect(url_for("home"))
+    # return render_template("calories.html", form=form, time=now)
+    
+    
+    if request.method == "POST":
+        added_food_data = request.get_json().get("addedFoodData")
+        added_activity_data = request.get_json().get("addedActivityData")
+
+        now = datetime.now()
+        now = now.strftime("%Y-%m-%d")
+
+        email = session.get("email")
+
+        flash_updated = False
+
+        if added_food_data:
+            for food_data in added_food_data:
                 # print(food_data)
                 food_split = food_data.split(" (")
                 # print(food_split)
@@ -359,16 +382,31 @@ def calories():
                     )
 
                 flash_updated = True
-            else:
-                flash("activity form no update", "error")
+        else:
+            flash("activity form no update", "error")
 
-            if activity_form.validate_on_submit():
-                user_activity = activity_form.activity.data
+        if added_activity_data:
+            for activity_data_item in added_activity_data:
+                user_activity = activity_data_item.get("activity")
+
+                print("user_activity")
+                print(user_activity)
                 # extract it from the string
-                user_activity = user_activity.split(" (")[0]
-                # print(user_activity)
-                user_duration = activity_form.duration.data
+
+                user_activity = user_activity.split(" (")
+                if len(user_activity) < 3:
+                    user_activity = user_activity[0]
+                else:
+                    user_activity = user_activity[0] + " (" + user_activity[1]
+
+                print("user_activity , split")
+                print(user_activity)
+
+                user_duration = int(activity_data_item.get("duration"))
+
+                # print("user_duration")
                 # print(user_duration)
+                # print(type(user_duration))
 
                 activity_data = mongo.db.activities.find_one(
                     {"activity": user_activity}
@@ -379,12 +417,6 @@ def calories():
                 user_weight = 170
                 if user_prof:
                     user_weight = int(user_prof.get("weight"))
-                print("activity_rate")
-                print(activity_rate)
-                print("user_weight")
-                print(user_weight)
-                print("user_duration")
-                print(user_duration)
                 calories_burned = activity_rate * user_weight * user_duration / 60
 
                 burn_entry = (user_activity, calories_burned)
@@ -402,24 +434,17 @@ def calories():
                         {"email": email, "date": now, "burn_data": [burn_entry]}
                     )
                 flash_updated = True
-            else:
-                flash("activity form no update", "error")
+        else:
+            flash("activity form no update", "error")
 
-            if flash_updated:
-                flash("Successfully updated the data", "success")
-                return redirect(url_for("calories"))
-
-        return render_template(
-            "calories.html",
-            food_form=food_form,
-            activity_form=activity_form,
-            time=now,
-        )
-
+        if flash_updated:
+            flash("Successfully updated the data", "success")
+            return redirect(url_for("calories"))
+        else:
+            flash("form not update", "message")
     else:
-        print("NOT SIGNED IN")
-        return redirect(url_for("home"))
-    # return render_template("calories.html", form=form, time=now)
+        return jsonify({"message": "Invalid request method"})
+        
 
 
 @app.route("/update_profile", methods=["GET", "POST"])

@@ -56,11 +56,9 @@ class FoodForm(FlaskForm):
         temp = i["food"] + " (" + i["calories"] + " cal)"
         result.append((temp, temp))
 
-    food = SelectMultipleField(
+    food = SelectField(
         "Select Food",
         choices=result,
-        widget=ListWidget(prefix_label=False),
-        option_widget=CheckboxInput(),
     )
     submit = SubmitField("Save")
 

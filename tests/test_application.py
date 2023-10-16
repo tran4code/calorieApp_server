@@ -202,17 +202,17 @@ def test_calories(client, test_user):
 
     # signed in
     # New user
-    response = client.post("/calories", data={"food": "Acai (20)", "burnout": "20"})
-    assert response.status_code == 200
+    response = client.post("/update_calorie_data", data={"food": "Acai (20)", "burnout": "20"})
+    assert response.status_code == 302
     # mongo.db.calories
 
     # Existing user
-    response = client.post("/calories", data={"food": "Acai (20)", "burnout": "20"})
-    assert response.status_code == 200
+    response = client.post("/update_calorie_data", data={"food": "Acai (20)", "burnout": "20"})
+    assert response.status_code == 302
 
     # Invalid submission
-    response = client.post("/calories", data={"burnout": "20"})
-    assert response.status_code == 200
+    response = client.post("/update_calorie_data", data={"burnout": "20"})
+    assert response.status_code == 302
 
     # print('-------------------------------------', response.data)
     # assert b'Successfully updated the data' in response.data
