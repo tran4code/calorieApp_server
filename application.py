@@ -18,10 +18,10 @@ from flask_mail import Mail
 from flask_pymongo import PyMongo
 from tabulate import tabulate
 from forms import (
+    FoodForm,
     HistoryForm,
     RegistrationForm,
     LoginForm,
-    CalorieForm,
     UserProfileForm,
     EnrollForm,
     ActivityForm,
@@ -225,38 +225,34 @@ def calories():
 
     email = session.get("email")
     if email:
-        food_form = CalorieForm()
+        food_form = FoodForm()
         activity_form = ActivityForm()
 
         if request.method == "POST":
             flash_updated = False
             if food_form.validate_on_submit():
-                food_data = food_form.food.data
-                print(food_data)
-                food_split = food_data.split(" (")
-                print(food_split)
-                food_name = food_split[0].strip()
-                print(food_name)
-                cal_split = food_split[1].split(" ")
-                food_cals = int(cal_split[0].strip())
-                print(food_cals)
+                for food_data in food_form.food.data:
+                    food_split = food_data.split(" (")
+                    food_name = food_split[0].strip()
+                    cal_split = food_split[1].split(" ")
+                    food_cals = int(cal_split[0].strip())
 
-                food_entry = (food_name, food_cals)
+                    food_entry = (food_name, food_cals)
 
-                calories_entry_exists = mongo.db.calories.find_one(
-                    {"email": email, "date": now}
-                )
-                if calories_entry_exists:
-                    mongo.db.calories.update_one(
-                        {"email": email, "date": now},
-                        {"$push": {"food_data": food_entry}},
+                    calories_entry_exists = mongo.db.calories.find_one(
+                        {"email": email, "date": now}
                     )
-                else:
-                    mongo.db.calories.insert_one(
-                        {"email": email, "date": now, "food_data": [food_entry]}
-                    )
+                    if calories_entry_exists:
+                        mongo.db.calories.update_one(
+                            {"email": email, "date": now},
+                            {"$push": {"food_data": food_entry}},
+                        )
+                    else:
+                        mongo.db.calories.insert_one(
+                            {"email": email, "date": now, "food_data": [food_entry]}
+                        )
 
-                flash_updated = True
+                    flash_updated = True
 
             if activity_form.validate_on_submit():
                 user_activity = activity_form.activity.data
