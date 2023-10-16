@@ -248,11 +248,19 @@ def update_calorie_data():
         if added_activity_data:
             for activity_data_item in added_activity_data:
                 user_activity = activity_data_item.get("activity")
-
+                
+                print("user_activity")
+                print(user_activity)
                 # extract it from the string
-                user_activity = user_activity.split(" (")[0]
-                # print("user_activity")
-                # print(user_activity)
+                
+                user_activity = user_activity.split(" (")
+                if len(user_activity) < 3 :
+                    user_activity = user_activity[0]
+                else:
+                    user_activity = user_activity[0] + " (" + user_activity[1]
+                    
+                print("user_activity , split")
+                print(user_activity)
 
                 user_duration = int(activity_data_item.get("duration"))
 
