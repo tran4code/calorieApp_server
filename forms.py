@@ -1,8 +1,16 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, IntegerField
+from wtforms import (
+    SelectMultipleField,
+    StringField,
+    PasswordField,
+    SubmitField,
+    BooleanField,
+    IntegerField,
+)
 from wtforms import DateField, SelectField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from apps import App
+from wtforms.widgets import ListWidget, CheckboxInput
 
 
 class RegistrationForm(FlaskForm):
@@ -48,7 +56,12 @@ class FoodForm(FlaskForm):
         temp = i["food"] + " (" + i["calories"] + " cal)"
         result.append((temp, temp))
 
-    food = SelectField("Select Food", choices=result)
+    food = SelectMultipleField(
+        "Select Food",
+        choices=result,
+        widget=ListWidget(prefix_label=False),
+        option_widget=CheckboxInput(),
+    )
     submit = SubmitField("Save")
 
 
