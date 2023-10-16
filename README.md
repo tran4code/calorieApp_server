@@ -213,7 +213,7 @@ Note that coverage HTML is written to directory htmlcov in the same location the
 
 # How to Contribute
   
-Please refer to [CONTRIBUTING.md](https://github.com/deekay2310/calorieApp_server/blob/main/CONTRIBUTING.md) for instructions on how to contribute to BurnOut.
+Please refer to [docs/CONTRIBUTING.md](https://github.com/deekay2310/calorieApp_server/blob/main/CONTRIBUTING.md) for instructions on how to contribute to BurnOut.
 
 <p align="center">
   <a href="https://github.com/deekay2310/calorieApp_server/issues/new/choose">Report Bug</a>
@@ -224,3 +224,8 @@ Please refer to [CONTRIBUTING.md](https://github.com/deekay2310/calorieApp_serve
 # License
   
 This project is licensed under the MIT License.
+
+Other important links:
+
+- [Change Log](docs/CHANGELOG.md)
+- [Code of Conduct](docs/CODE_OF_CONDUCT.md)
