@@ -257,6 +257,8 @@ def calories():
                     )
 
                 flash_updated = True
+            else:
+                flash("activity form no update", "error")
 
             if activity_form.validate_on_submit():
                 user_activity = activity_form.activity.data
@@ -291,6 +293,8 @@ def calories():
                         {"email": email, "date": now, "burn_data": [burn_entry]}
                     )
                 flash_updated = True
+            else:
+                flash("activity form no update", "error")
 
             if flash_updated:
                 flash("Successfully updated the data", "success")
