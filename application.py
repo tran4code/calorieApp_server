@@ -201,22 +201,22 @@ def delete_user():
     else:
         return jsonify({"message": f"User '{username}' not found"}), 404
 
+
 @app.route("/update_calorie_data", methods=["POST"])
 def update_calorie_data():
     if request.method == "POST":
         added_food_data = request.get_json().get("addedFoodData")
         added_activity_data = request.get_json().get("addedActivityData")
-        
+
         now = datetime.now()
         now = now.strftime("%Y-%m-%d")
 
         email = session.get("email")
-        
+
         flash_updated = False
-        
+
         if added_food_data:
             for food_data in added_food_data:
-             
                 # print(food_data)
                 food_split = food_data.split(" (")
                 # print(food_split)
@@ -244,18 +244,18 @@ def update_calorie_data():
                 flash_updated = True
             else:
                 flash("activity form no update", "error")
-        
+
         if added_activity_data:
             for activity_data_item in added_activity_data:
                 user_activity = activity_data_item.get("activity")
-                
+
                 # extract it from the string
                 user_activity = user_activity.split(" (")[0]
                 # print("user_activity")
                 # print(user_activity)
-                
+
                 user_duration = int(activity_data_item.get("duration"))
-                
+
                 # print("user_duration")
                 # print(user_duration)
                 # print(type(user_duration))
