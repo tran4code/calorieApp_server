@@ -202,12 +202,16 @@ def test_calories(client, test_user):
 
     # signed in
     # New user
-    response = client.post("/update_calorie_data", data={"food": "Acai (20)", "burnout": "20"})
+    response = client.post(
+        "/update_calorie_data", data={"food": "Acai (20)", "burnout": "20"}
+    )
     assert response.status_code == 302
     # mongo.db.calories
 
     # Existing user
-    response = client.post("/update_calorie_data", data={"food": "Acai (20)", "burnout": "20"})
+    response = client.post(
+        "/update_calorie_data", data={"food": "Acai (20)", "burnout": "20"}
+    )
     assert response.status_code == 302
 
     # Invalid submission

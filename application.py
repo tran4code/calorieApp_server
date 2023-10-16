@@ -322,7 +322,7 @@ def calories():
     - The user is redirected to the calories page.
     - If the user is not authenticated, they are redirected to the home page.
     """
-    
+
     if request.method == "GET":
         now = datetime.now()
         now = now.strftime("%Y-%m-%d")
@@ -342,8 +342,7 @@ def calories():
             print("NOT SIGNED IN")
             return redirect(url_for("home"))
     # return render_template("calories.html", form=form, time=now)
-    
-    
+
     if request.method == "POST":
         added_food_data = request.get_json().get("addedFoodData")
         added_activity_data = request.get_json().get("addedActivityData")
@@ -444,7 +443,6 @@ def calories():
             flash("form not update", "message")
     else:
         return jsonify({"message": "Invalid request method"})
-        
 
 
 @app.route("/update_profile", methods=["GET", "POST"])
