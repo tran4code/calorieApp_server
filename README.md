@@ -225,7 +225,7 @@ Please refer to [docs/CONTRIBUTING.md](https://github.com/deekay2310/calorieApp_
   
 This project is licensed under the MIT License.
 
-Other important links:
+# Other important links:
 
 - [Change Log](docs/CHANGELOG.md)
 - [Code of Conduct](docs/CODE_OF_CONDUCT.md)
