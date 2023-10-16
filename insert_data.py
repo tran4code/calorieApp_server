@@ -4,7 +4,7 @@ import csv
 app = App()
 mongo = app.mongo
 
-f = open("food_data/calories.csv", "r", encoding="ISO-8859-1")
+f = open("datasets/calories.csv", "r", encoding="ISO-8859-1")
 lines = f.readlines()
 
 for i in range(1, len(lines)):
@@ -14,7 +14,7 @@ for i in range(1, len(lines)):
     temp = lines[i].split(",")
     mongo.db.food.insert_one({"food": temp[0], "calories": temp[1]})
 
-with open("food_data/exercise_dataset.csv", "r", encoding="utf-8") as exercise_data:
+with open("datasets/exercise_dataset.csv", "r", encoding="utf-8") as exercise_data:
     reader = csv.reader(exercise_data, delimiter=",", quotechar='"')
 
     next(reader, None)
