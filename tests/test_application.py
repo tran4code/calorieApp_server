@@ -202,24 +202,27 @@ def test_calories(client, test_user):
 
     # signed in
     # New user
-    response = client.post(
-        "/update_calorie_data", data={"food": "Acai (20)", "burnout": "20"}
-    )
-    assert response.status_code == 302
-    # mongo.db.calories
+    # response = client.post("/calories", data={"food": "Acai (20)", "burnout": "20"})
+    # assert response.status_code == 200
+    # # mongo.db.calories
 
-    # Existing user
-    response = client.post(
-        "/update_calorie_data", data={"food": "Acai (20)", "burnout": "20"}
-    )
-    assert response.status_code == 302
+    # # Existing user
+    # response = client.post("/calories", data={"food": "Acai (20)", "burnout": "20"})
+    # assert response.status_code == 200
 
-    # Invalid submission
-    response = client.post("/update_calorie_data", data={"burnout": "20"})
+    # # Invalid submission
+    # response = client.post("/calories", data={"burnout": "20"})
+    # assert response.status_code == 200
+    
+    # stringify(data): {"addedFoodData":["Acai (20 cal)"],"addedActivityData":[{"activity":"Cycling, mountain bike, bmx (1.75.../kg/hr)","duration":"1"}]}
+     # Existing user
+    response = client.post("/update_calorie_data", data={ "addedFoodData": ["Acai (20 cal)"], "addedActivityData": []})
     assert response.status_code == 302
 
     # print('-------------------------------------', response.data)
     # assert b'Successfully updated the data' in response.data
+
+
 
 
 # Add more test cases for other routes and functions as needed

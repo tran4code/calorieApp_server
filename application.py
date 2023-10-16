@@ -299,7 +299,8 @@ def update_calorie_data():
 
         if flash_updated:
             flash("Successfully updated the data", "success")
-            return redirect(url_for("calories"))
+            return jsonify({"message": "Data received and processed successfully"})
+            # return redirect(url_for("calories"))
     else:
         return jsonify({"message": "Invalid request method"})
 
@@ -322,7 +323,8 @@ def calories():
     - The user is redirected to the calories page.
     - If the user is not authenticated, they are redirected to the home page.
     """
-
+    
+    app.logger.debug("Inside the calories route")
     if request.method == "GET":
         now = datetime.now()
         now = now.strftime("%Y-%m-%d")
@@ -331,7 +333,7 @@ def calories():
         if email:
             food_form = FoodForm()
             activity_form = ActivityForm()
-
+            app.logger.debug("start return")
             return render_template(
                 "calories.html",
                 food_form=food_form,
@@ -342,7 +344,8 @@ def calories():
             print("NOT SIGNED IN")
             return redirect(url_for("home"))
     # return render_template("calories.html", form=form, time=now)
-
+    
+    
     if request.method == "POST":
         added_food_data = request.get_json().get("addedFoodData")
         added_activity_data = request.get_json().get("addedActivityData")
@@ -438,11 +441,12 @@ def calories():
 
         if flash_updated:
             flash("Successfully updated the data", "success")
-            return redirect(url_for("calories"))
+            return jsonify({"message": "data recive success"})
         else:
             flash("form not update", "message")
     else:
         return jsonify({"message": "Invalid request method"})
+        
 
 
 @app.route("/update_profile", methods=["GET", "POST"])
