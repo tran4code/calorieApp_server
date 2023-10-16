@@ -1,20 +1,21 @@
 {% extends "layout.html" %}
 {% block content %}
     <div class="content-section">
-        <form method="POST" onSubmit="return submitBothForms();" name='calorieform'>
+        <form method="POST" name='calorieform'>
             {{ food_form.hidden_tag() }}
             {{ activity_form.hidden_tag() }}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Today's Calories</legend>
                 <div class="form-group">
                     <label class="form-control-label">Date</label>
-                        <p class="form-control form-control-lg" name='time'>{{ time }}</p>
+                    <p class="form-control form-control-lg" name='time'>{{ time }}</p>
                 </div>
                 <div class="form-group">
                     {{ food_form.food.label(class="form-control-label") }}
                 </div>
                 <div class="form-group" style="height: 200px; overflow: auto;">
                     {{ food_form.food(class="form-control form-control-lg") }}
+                    <button type="button" class="btn btn-primary" onclick="addFood()">Add Food</button>
                 </div>
                 <div class="form-group">
                     {{ activity_form.activity.label(class="form-control-label") }}
@@ -23,22 +24,89 @@
                 <div class="form-group">
                     {{ activity_form.duration.label(class="form-control-label") }}
                     {{ activity_form.duration(class="form-control form-control-lg") }}
+                    <button type="button" class="btn btn-primary" onclick="addActivity()">Add Activity</button>
                 </div>
             </fieldset>
             <div class="form-group">
-                <input type="submit" class="btn btn-outline-info" value="Submit">
+                <button type="button" class="btn btn-primary" onclick="submitBothForms()">submit</button>
             </div>
-            
-        <script>
-            function submitBothForms() {
-                // Submit both forms when the button is clicked
-                document.forms['food_form'].submit();
-                document.forms['activity_form'].submit();
-                // Prevent the default form submission
-                return false;
-            }
-        </script>
+            <script>
+                var addedFoodData = [];
+                var addedActivityData = [];
 
+                //function for add food, add food in the history list to show and save in addedFoodData for submit
+                function addFood() {
+                    var selectedFood = document.forms['calorieform']['food'].value;
+                    addedFoodData.push(selectedFood); 
+                    document.getElementById('addedFood').textContent = "Added Food: ";
+                    var foodHistoryList = document.getElementById('foodHistory');
+                    var listItem = document.createElement('li');
+                    listItem.textContent = selectedFood;
+                    foodHistoryList.appendChild(listItem);
+                    console.log(addedFoodData);
+                }
+
+                //function for add Activity, add Activity in the history list to show and save in addedFoodData for submit
+                function addActivity() {
+                    var selectedActivity = document.forms['calorieform']['activity'].value;
+                    var selectedDuration = document.forms['calorieform']['duration'].value;
+                    addedActivityData.push({ activity: selectedActivity, duration: selectedDuration });
+                    document.getElementById('addedActivity').textContent = "Added Activity: ";
+                    var activityHistoryList = document.getElementById('activityHistory');
+                    var listItem = document.createElement('li');
+                    listItem.textContent = selectedActivity + " for " + selectedDuration + " minutes";
+                    activityHistoryList.appendChild(listItem);
+                    console.log(addedActivityData);
+                }
+
+                function clearHistory() {
+                    document.getElementById('addedFood').textContent = '';
+                    document.getElementById('addedActivity').textContent = '';
+                    document.getElementById('foodHistory').innerHTML = '';
+                    document.getElementById('activityHistory').innerHTML = '';
+                    addedFoodData = [];
+                    addedActivityData = [];
+                }
+
+                function submitBothForms() {
+                    console.log("befor submitting");
+                    console.log(addedFoodData);
+                    console.log(addedActivityData);
+                    // Prepare the data to be sent
+                    const data = {
+                        addedFoodData: addedFoodData,
+                        addedActivityData: addedActivityData,
+                    };
+                    
+                    console.log(JSON.stringify(data));
+                    // Make a POST request to the server
+                    fetch('/update_calorie_data', {
+                        method: 'POST',
+                        body: JSON.stringify(data),
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Handle the response from the server if needed
+                        console.log(data);
+                    })
+                    .catch(error => {
+                        // Handle any errors
+                        console.error('Error:', error);
+                    });
+
+                    clearHistory()
+                
+                }                
+            </script>
         </form>
+    </div>
+    <div class="content-section">
+        <p id="addedFood"></p>
+        <ul id="foodHistory"></ul><!-- Add a list for food history -->
+        <p id="addedActivity"></p>
+        <ul id="activityHistory"></ul>  <!-- Add a list for activity history -->
     </div>
 {% endblock content %}
