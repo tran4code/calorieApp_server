@@ -26,7 +26,6 @@
                 </div>
             </fieldset>
             <div class="form-group">
-                <input type="submit" class="btn btn-outline-info" value="Submit">
                 <button type="button" class="btn btn-primary" onclick="submitBothForms()">submit</button>
             </div>
             <script>
@@ -37,7 +36,7 @@
                 function addFood() {
                     var selectedFood = document.forms['calorieform']['food'].value;
                     addedFoodData.push(selectedFood); 
-                    document.getElementById('addedFood').textContent = "Added Food: "  + selectedFood;
+                    document.getElementById('addedFood').textContent = "Added Food: ";
                     var foodHistoryList = document.getElementById('foodHistory');
                     var listItem = document.createElement('li');
                     listItem.textContent = selectedFood;
@@ -68,23 +67,37 @@
                 }
 
                 function submitBothForms() {
-                    // Submit each food and activities in forms in data list
-                    for (let i = 0; i < addedFoodData.length; i++) {
-                        document.forms['food_form']['food'].value = addedFoodData[i];
-                        document.forms['food_form'].submit();
-                    }
-                
-                    for (let i = 0; i < addedActivityData.length; i++) {
-                        document.forms['activity_form']['activity'].value = addedActivityData[i].activity;
-                        document.forms['activity_form']['duration'].value = addedActivityData[i].duration;
-                        document.forms['activity_form'].submit();
-                    }
-                    clearHistory()
+                    console.log("befor submitting");
                     console.log(addedFoodData);
                     console.log(addedActivityData);
-                }
+                    // Prepare the data to be sent
+                    const data = {
+                        addedFoodData: addedFoodData,
+                        addedActivityData: addedActivityData,
+                    };
+                    
+                    console.log(JSON.stringify(data));
+                    // Make a POST request to the server
+                    fetch('/update_calorie_data', {
+                        method: 'POST',
+                        body: JSON.stringify(data),
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Handle the response from the server if needed
+                        console.log(data);
+                    })
+                    .catch(error => {
+                        // Handle any errors
+                        console.error('Error:', error);
+                    });
 
+                    clearHistory()
                 
+                }                
             </script>
         </form>
     </div>

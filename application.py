@@ -201,6 +201,100 @@ def delete_user():
     else:
         return jsonify({"message": f"User '{username}' not found"}), 404
 
+@app.route("/update_calorie_data", methods=["POST"])
+def update_calorie_data():
+    if request.method == "POST":
+        added_food_data = request.get_json().get("addedFoodData")
+        added_activity_data = request.get_json().get("addedActivityData")
+        
+        now = datetime.now()
+        now = now.strftime("%Y-%m-%d")
+
+        email = session.get("email")
+        
+        flash_updated = False
+        
+        if added_food_data:
+            for food_data in added_food_data:
+             
+                # print(food_data)
+                food_split = food_data.split(" (")
+                # print(food_split)
+                food_name = food_split[0].strip()
+                # print(food_name)
+                cal_split = food_split[1].split(" ")
+                food_cals = int(cal_split[0].strip())
+                # print(food_cals)
+
+                food_entry = (food_name, food_cals)
+
+                calories_entry_exists = mongo.db.calories.find_one(
+                    {"email": email, "date": now}
+                )
+                if calories_entry_exists:
+                    mongo.db.calories.update_one(
+                        {"email": email, "date": now},
+                        {"$push": {"food_data": food_entry}},
+                    )
+                else:
+                    mongo.db.calories.insert_one(
+                        {"email": email, "date": now, "food_data": [food_entry]}
+                    )
+
+                flash_updated = True
+            else:
+                flash("activity form no update", "error")
+        
+        if added_activity_data:
+            for activity_data_item in added_activity_data:
+                user_activity = activity_data_item.get("activity")
+                
+                # extract it from the string
+                user_activity = user_activity.split(" (")[0]
+                # print("user_activity")
+                # print(user_activity)
+                
+                user_duration = int(activity_data_item.get("duration"))
+                
+                # print("user_duration")
+                # print(user_duration)
+                # print(type(user_duration))
+
+                activity_data = mongo.db.activities.find_one(
+                    {"activity": user_activity}
+                )
+                activity_rate = activity_data.get("burn_rate", 0)
+
+                user_prof = mongo.db.profile.find_one({"email": email})
+                user_weight = 170
+                if user_prof:
+                    user_weight = int(user_prof.get("weight"))
+                calories_burned = activity_rate * user_weight * user_duration / 60
+
+                burn_entry = (user_activity, calories_burned)
+
+                burned_entry_exists = mongo.db.burned.find_one(
+                    {"email": email, "date": now}
+                )
+                if burned_entry_exists:
+                    mongo.db.burned.update_one(
+                        {"email": email, "date": now},
+                        {"$push": {"burn_data": burn_entry}},
+                    )
+                else:
+                    mongo.db.burned.insert_one(
+                        {"email": email, "date": now, "burn_data": [burn_entry]}
+                    )
+                flash_updated = True
+            else:
+                flash("activity form no update", "error")
+
+            if flash_updated:
+                flash("Successfully updated the data", "success")
+                return redirect(url_for("calories"))
+    else:
+        return jsonify({"message": "Invalid request method"})
+
 
 @app.route("/calories", methods=["GET", "POST"])
 def calories():
@@ -264,8 +358,9 @@ def calories():
                 user_activity = activity_form.activity.data
                 # extract it from the string
                 user_activity = user_activity.split(" (")[0]
-                print(user_activity)
+                # print(user_activity)
                 user_duration = activity_form.duration.data
+                # print(user_duration)
 
                 activity_data = mongo.db.activities.find_one(
                     {"activity": user_activity}
@@ -276,6 +371,12 @@ def calories():
                 user_weight = 170
                 if user_prof:
                     user_weight = int(user_prof.get("weight"))
+                print("activity_rate")
+                print(activity_rate)
+                print("user_weight")
+                print(user_weight)
+                print("user_duration")
+                print(user_duration)
                 calories_burned = activity_rate * user_weight * user_duration / 60
 
                 burn_entry = (user_activity, calories_burned)
@@ -298,6 +399,7 @@ def calories():
 
             if flash_updated:
                 flash("Successfully updated the data", "success")
+                return redirect(url_for("calories"))
 
         return render_template(
             "calories.html",
