@@ -13,6 +13,10 @@
                 <div class="form-group">
                     {{ food_form.food.label(class="form-control-label") }}
                     {{ food_form.food(class="form-control form-control-lg") }}
+                </div>
+                <div class="form-group">
+                    {{ food_form.amount.label(class="form-control-label") }}
+                    {{ food_form.amount(class="form-control form-control-lg") }}
                     <button type="button" class="btn btn-primary" onclick="addFood()">Add Food</button>
                 </div>
                 <div class="form-group">
@@ -26,7 +30,7 @@
                 </div>
             </fieldset>
             <div class="form-group">
-                <button type="button" class="btn btn-primary" onclick="submitBothForms()">submit</button>
+                <button type="button" class="btn btn-primary" onclick="submitBothForms()">Submit</button>
             </div>
             <script>
                 var addedFoodData = [];
@@ -35,11 +39,12 @@
                 //function for add food, add food in the history list to show and save in addedFoodData for submit
                 function addFood() {
                     var selectedFood = document.forms['calorieform']['food'].value;
-                    addedFoodData.push(selectedFood); 
+                    var selectedAmount = document.forms['calorieform']['amount'].value;
+                    addedFoodData.push({ food: selectedFood, amount: selectedAmount});
                     document.getElementById('addedFood').textContent = "Added Food: ";
                     var foodHistoryList = document.getElementById('foodHistory');
                     var listItem = document.createElement('li');
-                    listItem.textContent = selectedFood;
+                    listItem.textContent = selectedAmount + "g of " + selectedFood;
                     foodHistoryList.appendChild(listItem);
                     console.log(addedFoodData);
                 }

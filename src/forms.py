@@ -53,13 +53,16 @@ class FoodForm(FlaskForm):
     result = []
     temp = ""
     for i in get_docs:
-        temp = i["food"] + " (" + i["calories"] + " cal)"
+        temp = i["food"] + " (" + str(i["calories"]) + " cal)"
         result.append((temp, temp))
 
     food = SelectField(
         "Select Food",
         choices=result,
     )
+
+    amount = IntegerField("Portion (grams)")
+
     submit = SubmitField("Save")
 
 
@@ -80,7 +83,7 @@ class ActivityForm(FlaskForm):
     ]
 
     activity = SelectField("Activity", choices=choices)
-    duration = IntegerField("Minutes")
+    duration = IntegerField("Duration (minutes)")
     submit = SubmitField("Burn")
 
 

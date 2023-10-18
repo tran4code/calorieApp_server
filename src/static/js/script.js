@@ -40,21 +40,24 @@ function history(e){
             "date":date
         },
         success: function(response){
-            console.log(response)
-            // let resdata = JSON.parse(response)
-            // console.log(resdata)
+
+
+            var foodsList = Object.values(response["foods"])
+            var activitiesList = Object.values(response["activities"])
+
+
             
             $("#date_legend").empty().append("Date: ")
             $("#date").empty().append(response["date"])
 
             $("#foods_legend").empty().append("Foods Log: ")
-            $("#foods").empty().append(response["foods"])
+            $("#foods").empty().append(foodsList.join("<br>"))
 
             $("#calories_legend").empty().append("Total Calories Gained: ")
             $("#calories").empty().append(response["cals_in"])
 
             $("#activities_legend").empty().append("Activities Log: ")
-            $("#activities").empty().append(response["activities"])
+            $("#activities").empty().append(activitiesList.join("<br>"))
 
             $("#burnout_legend").empty().append("Total Calories Burned: ")
             $("#burnout").empty().append(response["cals_out"])

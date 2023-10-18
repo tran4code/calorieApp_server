@@ -216,7 +216,8 @@ def update_calorie_data():
         flash_updated = False
 
         if added_food_data:
-            for food_data in added_food_data:
+            for food_data_item in added_food_data:
+                food_data = food_data_item.get("food")
                 # print(food_data)
                 food_split = food_data.split(" (")
                 # print(food_split)
@@ -226,7 +227,10 @@ def update_calorie_data():
                 food_cals = int(cal_split[0].strip())
                 # print(food_cals)
 
-                food_entry = (food_name, food_cals)
+                amount = int(food_data_item.get("amount"))
+                total_cals = int(food_cals * (amount / 100.0))
+
+                food_entry = (food_name, amount, total_cals)
 
                 calories_entry_exists = mongo.db.calories.find_one(
                     {"email": email, "date": now}
@@ -274,24 +278,25 @@ def update_calorie_data():
                 activity_rate = activity_data.get("burn_rate", 0)
 
                 user_prof = mongo.db.profile.find_one({"email": email})
-                user_weight = 170
+                # if no user has not added their weight to profile, use 75kg as estimate
+                user_weight = 75
                 if user_prof:
                     user_weight = int(user_prof.get("weight"))
-                calories_burned = activity_rate * user_weight * user_duration / 60
+                calories_burned = int(activity_rate * user_weight * user_duration / 60)
 
-                burn_entry = (user_activity, calories_burned)
+                activity_entry = (user_activity, user_duration, calories_burned)
 
-                burned_entry_exists = mongo.db.burned.find_one(
+                activity_entry_exists = mongo.db.burned.find_one(
                     {"email": email, "date": now}
                 )
-                if burned_entry_exists:
+                if activity_entry_exists:
                     mongo.db.burned.update_one(
                         {"email": email, "date": now},
-                        {"$push": {"burn_data": burn_entry}},
+                        {"$push": {"burn_data": activity_entry}},
                     )
                 else:
                     mongo.db.burned.insert_one(
-                        {"email": email, "date": now, "burn_data": [burn_entry]}
+                        {"email": email, "date": now, "burn_data": [activity_entry]}
                     )
                 flash_updated = True
         else:
@@ -574,18 +579,18 @@ def ajaxhistory():
             cals_in_list = cals_in_data["food_data"]
             foods = []
             for entry in cals_in_list:
-                foods.append(entry[0] + "(" + str(entry[1]) + ")" + ", ")
-                cals_in_num += int(entry[1])
-            foods[-1] = foods[-1][:-2]
+                foods.append(entry[0] + ": " + str(entry[1]) + " grams, " + str(entry[2]) + " calories")
+                cals_in_num += int(entry[2])
+
             cals_in = cals_in_num
 
         if cals_out_data:
             cals_out_list = cals_out_data["burn_data"]
             activities = []
             for entry in cals_out_list:
-                activities.append(entry[0] + "(" + str(int(entry[1])) + ")" + ", ")
-                cals_out_num += int(entry[1])
-            activities[-1] = activities[-1][:-2]
+                activities.append(entry[0] + ": " + str(int(entry[1])) + " minutes, " + str(entry[2]) + " calories")
+                cals_out_num += int(entry[2])
+
             cals_out = cals_out_num
 
         net = cals_in_num - cals_out_num
