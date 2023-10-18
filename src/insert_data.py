@@ -29,9 +29,7 @@ with open("../datasets/nutrition.csv", "r", encoding="utf-8") as food_data:
     sorted_food_list = sorted(food_list, key=lambda x: x[0])
 
     for item in sorted_food_list:
-        mongo.db.food.insert_one(
-            {"food": item[0], "calories": item[1]}
-        )
+        mongo.db.food.insert_one({"food": item[0], "calories": item[1]})
 
 with open("../datasets/exercise_dataset.csv", "r", encoding="utf-8") as exercise_data:
     activity_reader = csv.reader(exercise_data, delimiter=",", quotechar='"')
@@ -48,6 +46,4 @@ with open("../datasets/exercise_dataset.csv", "r", encoding="utf-8") as exercise
     sorted_activity_list = sorted(activity_list, key=lambda x: x[0])
 
     for item in sorted_activity_list:
-        mongo.db.activities.insert_one(
-            {"activity": item[0], "burn_rate": item[1]}
-        )
+        mongo.db.activities.insert_one({"activity": item[0], "burn_rate": item[1]})
