@@ -629,8 +629,8 @@ def ajaxhistory():
             cals_in_list = cals_in_data["food_data"]
             foods = []
             for entry in cals_in_list:
-                food = 'X'
-                print(entry, '<--- entry')
+                food = "X"
+                print(entry, "<--- entry")
                 grams, calories = 0, 0
                 if len(entry) > 2:
                     grams = entry[1]
@@ -638,15 +638,11 @@ def ajaxhistory():
                     cals_in_num += int(entry[2])
                 elif len(entry) == 2:
                     grams = entry[1]
-                
+
                 if len(entry) > 0:
                     food = entry[0]
                 foods.append(
-                    food + ": "
-                    + str(grams)
-                    + " grams, "
-                    + str(calories)
-                    + " calories"
+                    food + ": " + str(grams) + " grams, " + str(calories) + " calories"
                 )
 
             cals_in = cals_in_num
@@ -654,9 +650,9 @@ def ajaxhistory():
         if cals_out_data:
             cals_out_list = cals_out_data["burn_data"]
             activities = []
-            
+
             for entry in cals_out_list:
-                activity = 'X'
+                activity = "X"
                 minutes, calories = 0, 0
                 if len(entry) > 2:
                     minutes = entry[1]
@@ -664,7 +660,7 @@ def ajaxhistory():
                     cals_out_num += int(entry[2])
                 elif len(entry) == 2:
                     grams = entry[1]
-                
+
                 if len(entry) > 0:
                     activity = entry[0]
                 activities.append(
