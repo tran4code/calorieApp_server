@@ -219,10 +219,14 @@ def test_calories(client, test_user):
     headers = {"Content-Type": "application/json"}
     data = {
         "addedFoodData": [{"food": "Apricots, raw (48 cal)", "amount": "10"}],
-        "addedActivityData": [{"activity":"Badminton (0.93.../kg/hr)","duration":"50"}],
+        "addedActivityData": [
+            {"activity": "Badminton (0.93.../kg/hr)", "duration": "50"}
+        ],
     }
     response = client.post(
-        "/update_calorie_data", json=data, headers=headers,
+        "/update_calorie_data",
+        json=data,
+        headers=headers,
     )
     assert response.status_code == 302
 
