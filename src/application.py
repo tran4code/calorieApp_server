@@ -1115,6 +1115,10 @@ def hrx():
 #                 return json.dumps({'email': "", 'Status': ""}), 200, {
 #                     'ContentType': 'application/json'}
 
+@app.route("/Goals")
+def goals():
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
