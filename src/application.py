@@ -1,7 +1,9 @@
-from datetime import datetime
 import bcrypt
+import os
 import smtplib
 
+from dotenv import load_dotenv
+from datetime import datetime
 from flask import (
     Flask,
     json,
@@ -26,9 +28,11 @@ from forms import (
     ActivityForm,
 )
 
+load_dotenv()
+
 app = Flask(__name__)
 app.secret_key = "secret"
-app.config["MONGO_URI"] = "mongodb://127.0.0.1:27017/test"
+app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
 app.config["MONGO_CONNECT"] = False
 mongo = PyMongo(app)
 
@@ -1116,4 +1120,6 @@ def hrx():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    print(os.environ.get('FLASK_RUN_HOST'), '<--- FLASK_RUN_HOST')
+    print(os.environ.get('MONGO_URI'), '<--- MONGO_URI')
+    app.run(host=os.environ.get('FLASK_RUN_HOST'), port=5001)
