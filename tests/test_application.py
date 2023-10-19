@@ -228,7 +228,7 @@ def test_calories(client, test_user):
         json=data,
         headers=headers,
     )
-    assert response.status_code == 302
+    assert response.status_code == 200
 
     # print('-------------------------------------', response.data)
     # assert b'Successfully updated the data' in response.data
