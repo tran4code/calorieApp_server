@@ -7,9 +7,10 @@
 - add style checker
 - add activity feature 
 - add multiple foods on the calorie page
-- add multiple activities edible on the calorie 
+- add multiple activities on the calorie page
 - add net calorie and other detail on the history page
 - add gold personal goal page
+- add dockerization
 
 ### Changed
 - Updated environment setup documentation and initial description.
