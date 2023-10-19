@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 import bcrypt
 import smtplib
 
@@ -23,7 +23,7 @@ from forms import (
     LoginForm,
     UserProfileForm,
     EnrollForm,
-    ActivityForm,
+    ActivityForm, GoalForm,
 )
 
 app = Flask(__name__)
@@ -94,12 +94,12 @@ def login():
         if form.validate_on_submit():
             user = mongo.db.user.find_one({"email": form.email.data}, {"email", "pwd"})
             if (
-                user
-                and user["email"] == form.email.data
-                and (
+                    user
+                    and user["email"] == form.email.data
+                    and (
                     bcrypt.checkpw(form.password.data.encode("utf-8"), user["pwd"])
                     or user["temp"] == form.password.data
-                )
+            )
             ):
                 flash("You have been logged in!", "success")
                 session["email"] = user["email"]
@@ -214,6 +214,9 @@ def update_calorie_data():
 
         flash_updated = False
 
+        cals_in = 0
+        cals_out = 0
+
         if added_food_data:
             for food_data_item in added_food_data:
                 food_data = food_data_item.get("food")
@@ -227,9 +230,9 @@ def update_calorie_data():
                 # print(food_cals)
 
                 amount = int(food_data_item.get("amount"))
-                total_cals = int(food_cals * (amount / 100.0))
+                cals_in = int(food_cals * (amount / 100.0))
 
-                food_entry = (food_name, amount, total_cals)
+                food_entry = (food_name, amount, cals_in)
 
                 calories_entry_exists = mongo.db.calories.find_one(
                     {"email": email, "date": now}
@@ -281,9 +284,9 @@ def update_calorie_data():
                 user_weight = 75
                 if user_prof:
                     user_weight = int(user_prof.get("weight"))
-                calories_burned = int(activity_rate * user_weight * user_duration / 60)
+                cals_out = int(activity_rate * user_weight * user_duration / 60)
 
-                activity_entry = (user_activity, user_duration, calories_burned)
+                activity_entry = (user_activity, user_duration, cals_out)
 
                 activity_entry_exists = mongo.db.burned.find_one(
                     {"email": email, "date": now}
@@ -300,6 +303,38 @@ def update_calorie_data():
                 flash_updated = True
         else:
             flash("activity form no update", "error")
+
+        goal = mongo.db.goals.find_one({"email": email})
+        net_cals = cals_in - cals_out
+        if goal and net_cals > 0:
+            def met():
+                cur_streak = goal["current_streak"] + 1
+                total_days = goal["total_days_met"] + 1
+                mongo.db.goals.update_one({"email": email},
+                                          {"$set": {"current_streak": cur_streak,
+                                                    "total_days_met": total_days}})
+
+            def not_met():
+                mongo.db.goals.update_one({"email": email},
+                                          {"$set": {"current_streak": 0}})
+
+            if goal["goal"] == "Lose":
+                met() if net_cals <= int(goal["target"]) else not_met()
+
+            elif goal["goal"] == "Gain":
+                met() if net_cals >= int(goal["target"]) else not_met()
+
+            else:
+                met() if int(goal["target"]) - 300 <= net_cals <= int(goal["target"]) + 300 else not_met()
+
+            current_streak = goal["current_streak"]
+
+            if current_streak > goal["best_streak"]:
+                mongo.db.goals.update_one({"email": email},
+                                          {"$set": {"best_streak": current_streak}})
+
+        elif goal and net_cals <= 0:
+            goal["current_streak"] = 0
 
         if flash_updated:
             flash("Successfully updated the data", "success")
@@ -721,8 +756,8 @@ def send_email():
     # Logging in with sender details
     server.login(sender_email, sender_password)
     message = (
-        "Subject: Calorie History\n\n Your Friend wants to share their"
-        + " calorie history with you!\n {}"
+            "Subject: Calorie History\n\n Your Friend wants to share their"
+            + " calorie history with you!\n {}"
     ).format(tabulate(table))
     for e in friend_email:
         print(e)
@@ -1114,8 +1149,45 @@ def hrx():
 #                 return json.dumps({'email': "", 'Status': ""}), 200, {
 #                     'ContentType': 'application/json'}
 
-@app.route("/Goals")
+@app.route("/Goals", methods=["POST", "GET"])
 def goals():
+    email = session.get("email")
+    if email is None:
+        return redirect(url_for("login"))
+
+    form = GoalForm()
+    data = {}
+
+    current_date = datetime.now()
+    now = current_date.strftime("%Y-%m-%d")
+
+    current_goal = mongo.db.goals.find_one({"email": email})
+
+    if form.validate_on_submit():
+        now = datetime.now()
+        now = now.strftime("%Y-%m-%d")
+
+
+        if current_goal:
+            mongo.db.goals.update_one(
+                {"email": email, "date": now},
+                {"$set": {"goal": form.goal_type.data, "target": form.daily_goal.data, "current_streak": 0}}
+            )
+            return redirect(url_for("goals"))
+        else:
+            mongo.db.goals.insert_one(
+                {"email": email, "date": now, "goal": form.goal_type.data, "target": form.daily_goal.data,
+                 "current_streak": 0, "best_streak": 0, "total_days_met": 0}
+            )
+            return redirect(url_for("goals"))
+
+    if current_goal:
+        data = current_goal
+    else:
+        data = {"email": email, "date": now, "goal": "Set a goal and start tracking progress today!", "target": "",
+                "current_streak": 0, "best_streak": 0, "total_days_met": 0}
+
+    return render_template("dailygoal.html", form=form, data=data)
 
 
 if __name__ == "__main__":
