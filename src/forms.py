@@ -1,6 +1,5 @@
 from flask_wtf import FlaskForm
 from wtforms import (
-    SelectMultipleField,
     StringField,
     PasswordField,
     SubmitField,
@@ -10,7 +9,6 @@ from wtforms import (
 from wtforms import DateField, SelectField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from apps import App
-from wtforms.widgets import ListWidget, CheckboxInput
 
 
 class RegistrationForm(FlaskForm):

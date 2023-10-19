@@ -1,5 +1,4 @@
 from datetime import datetime
-from flask import Flask, flash, redirect, request, url_for, session
 import bcrypt
 import smtplib
 
@@ -1117,7 +1116,6 @@ def hrx():
 
 @app.route("/Goals")
 def goals():
-
 
 
 if __name__ == "__main__":
