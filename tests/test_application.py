@@ -220,8 +220,8 @@ def test_calories(client, test_user):
     response = client.post(
         "/update_calorie_data",
         data={
-            "addedFoodData": [{"food": "apple (20)", "amount": "50"}],
-            "addedActivityData": [{"activity": "running", "duration": "30"}],
+            "addedFoodData": [{"food": "apple (20)", "amount": 50}],
+            "addedActivityData": [{"activity": "running", "duration": 30}],
         },
         headers=headers,
     )
