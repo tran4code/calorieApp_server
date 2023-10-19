@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action="" name="GoalForm()">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Daily Goal</legend>
+                <div class="form-group">
+                    {{ form.goal_type.label(class="form-control-label") }}
+                    {% if form.goal_type.errors %}
+                        {{ form.goal_type(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.goal_type.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.goal_type(class="form-control form-control-lg") }}
+                    {% endif %}
+
+                    {{ form.daily_goal.label(class="form-control-label") }}
+                    {% if form.daily_goal.errors %}
+                        {{ form.daily_goal(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.daily_goal.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.daily_goal(class="form-control form-control-lg") }}
+                    {% endif %}
+
+
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+        {{ data.goal, data.target, data.current_streak, data.best_streak, data.total_days_met }}
+    </div>
+{% endblock content %}
