@@ -19,31 +19,31 @@ https://drive.google.com/drive/folders/1M5vdCwH11C-MqK8X-Dkf5bPR0SaWA5Yc?usp=sha
 
 <!--Badges-->
 <a href="https://github.com/1360119047/calorieApp_server/fork" target="blank">
-<img src="https://img.shields.io/github/forks/deekay2310/calorieApp_server?style=flat-square" alt="calorieApp_server forks"/>
+<img src="https://img.shields.io/github/forks/1360119047/calorieApp_server?style=flat-square" alt="calorieApp_server forks"/>
 </a>
 <a href="https://github.com/1360119047/calorieApp_server/stargazers" target="blank">
-<img src="https://img.shields.io/github/stars/deekay2310/calorieApp_server?style=flat-square" alt="calorieApp_server stars"/>
+<img src="https://img.shields.io/github/stars/1360119047/calorieApp_server?style=flat-square" alt="calorieApp_server stars"/>
 </a>
 <a href="https://github.com/1360119047/calorieApp_server/issues" target="blank" alt="Github Issues">
-<img src="https://img.shields.io/github/issues/deekay2310/calorieApp_server?style=flat-square" alt="calorieApp_server issues"/>
+<img src="https://img.shields.io/github/issues/1360119047/calorieApp_server?style=flat-square" alt="calorieApp_server issues"/>
 </a>
 <a href="https://github.com/1360119047/calorieApp_server/issues" target="blank">
-<img src="https://img.shields.io/github/issues-closed/deekay2310/calorieApp_server" alt="calorieApp_server issues closed"/>
+<img src="https://img.shields.io/github/issues-closed/1360119047/calorieApp_server" alt="calorieApp_server issues closed"/>
 </a>
 <a href="https://github.com/1360119047/calorieApp_server/pulls" target="blank">
-<img src="https://img.shields.io/github/issues-pr/deekay2310/calorieApp_server?style=flat-square" alt="cheapBuy pull-requests"/>
+<img src="https://img.shields.io/github/issues-pr/1360119047/calorieApp_server?style=flat-square" alt="cheapBuy pull-requests"/>
 </a>
 <a href="https://github.com/1360119047/calorieApp_server/graphs/contributors" alt="Contributors">
-<img src="https://img.shields.io/github/contributors/deekay2310/calorieApp_server" /></a>
+<img src="https://img.shields.io/github/contributors/1360119047/calorieApp_server" /></a>
 
 <a href="https://github.com/1360119047/calorieApp_server/milestones" alt="milestones">
-<img src="https://img.shields.io/github/milestones/all/deekay2310/calorieApp_server" /></a> 
+<img src="https://img.shields.io/github/milestones/all/1360119047/calorieApp_server" /></a> 
 
 <a href="https://github.com/1360119047/calorieApp_server/graphs/commit-activity" alt="commit activity">
-<img src="https://img.shields.io/github/commit-activity/w/deekay2310/calorieApp_server" /></a> 
+<img src="https://img.shields.io/github/commit-activity/w/1360119047/calorieApp_server" /></a> 
 
 <a href="https://github.com/1360119047/calorieApp_server/discussions" alt="discussion">
-<img src="https://img.shields.io/github/discussions/deekay2310/calorieApp_server" /></a> 
+<img src="https://img.shields.io/github/discussions/1360119047/calorieApp_server" /></a> 
 
 <a href="https://img.shields.io/github/repo-size/1360119047/calorieApp_server" alt="repo size">
 <img src="https://img.shields.io/github/repo-size/1360119047/calorieApp_server" /></a>
