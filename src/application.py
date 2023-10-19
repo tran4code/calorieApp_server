@@ -1122,4 +1122,4 @@ def hrx():
 if __name__ == "__main__":
     print(os.environ.get("FLASK_RUN_HOST"), "<--- FLASK_RUN_HOST")
     print(os.environ.get("MONGO_URI"), "<--- MONGO_URI")
-    app.run(host=os.environ.get("FLASK_RUN_HOST"), port=5001)
+    app.run(host=os.environ.get("FLASK_RUN_HOST"), port=5000)
