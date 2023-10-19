@@ -23,7 +23,8 @@ from forms import (
     LoginForm,
     UserProfileForm,
     EnrollForm,
-    ActivityForm, GoalForm,
+    ActivityForm,
+    GoalForm,
 )
 
 app = Flask(__name__)
@@ -94,12 +95,12 @@ def login():
         if form.validate_on_submit():
             user = mongo.db.user.find_one({"email": form.email.data}, {"email", "pwd"})
             if (
-                    user
-                    and user["email"] == form.email.data
-                    and (
+                user
+                and user["email"] == form.email.data
+                and (
                     bcrypt.checkpw(form.password.data.encode("utf-8"), user["pwd"])
                     or user["temp"] == form.password.data
-            )
+                )
             ):
                 flash("You have been logged in!", "success")
                 session["email"] = user["email"]
@@ -307,16 +308,24 @@ def update_calorie_data():
         goal = mongo.db.goals.find_one({"email": email})
         net_cals = cals_in - cals_out
         if goal and net_cals > 0:
+
             def met():
                 cur_streak = goal["current_streak"] + 1
                 total_days = goal["total_days_met"] + 1
-                mongo.db.goals.update_one({"email": email},
-                                          {"$set": {"current_streak": cur_streak,
-                                                    "total_days_met": total_days}})
+                mongo.db.goals.update_one(
+                    {"email": email},
+                    {
+                        "$set": {
+                            "current_streak": cur_streak,
+                            "total_days_met": total_days,
+                        }
+                    },
+                )
 
             def not_met():
-                mongo.db.goals.update_one({"email": email},
-                                          {"$set": {"current_streak": 0}})
+                mongo.db.goals.update_one(
+                    {"email": email}, {"$set": {"current_streak": 0}}
+                )
 
             if goal["goal"] == "Lose":
                 met() if net_cals <= int(goal["target"]) else not_met()
@@ -325,13 +334,16 @@ def update_calorie_data():
                 met() if net_cals >= int(goal["target"]) else not_met()
 
             else:
-                met() if int(goal["target"]) - 300 <= net_cals <= int(goal["target"]) + 300 else not_met()
+                met() if int(goal["target"]) - 300 <= net_cals <= int(
+                    goal["target"]
+                ) + 300 else not_met()
 
             current_streak = goal["current_streak"]
 
             if current_streak > goal["best_streak"]:
-                mongo.db.goals.update_one({"email": email},
-                                          {"$set": {"best_streak": current_streak}})
+                mongo.db.goals.update_one(
+                    {"email": email}, {"$set": {"best_streak": current_streak}}
+                )
 
         elif goal and net_cals <= 0:
             goal["current_streak"] = 0
@@ -756,8 +768,8 @@ def send_email():
     # Logging in with sender details
     server.login(sender_email, sender_password)
     message = (
-            "Subject: Calorie History\n\n Your Friend wants to share their"
-            + " calorie history with you!\n {}"
+        "Subject: Calorie History\n\n Your Friend wants to share their"
+        + " calorie history with you!\n {}"
     ).format(tabulate(table))
     for e in friend_email:
         print(e)
@@ -1149,6 +1161,7 @@ def hrx():
 #                 return json.dumps({'email': "", 'Status': ""}), 200, {
 #                     'ContentType': 'application/json'}
 
+
 @app.route("/Goals", methods=["POST", "GET"])
 def goals():
     email = session.get("email")
@@ -1167,25 +1180,44 @@ def goals():
         now = datetime.now()
         now = now.strftime("%Y-%m-%d")
 
-
         if current_goal:
             mongo.db.goals.update_one(
                 {"email": email, "date": now},
-                {"$set": {"goal": form.goal_type.data, "target": form.daily_goal.data, "current_streak": 0}}
+                {
+                    "$set": {
+                        "goal": form.goal_type.data,
+                        "target": form.daily_goal.data,
+                        "current_streak": 0,
+                    }
+                },
             )
             return redirect(url_for("goals"))
         else:
             mongo.db.goals.insert_one(
-                {"email": email, "date": now, "goal": form.goal_type.data, "target": form.daily_goal.data,
-                 "current_streak": 0, "best_streak": 0, "total_days_met": 0}
+                {
+                    "email": email,
+                    "date": now,
+                    "goal": form.goal_type.data,
+                    "target": form.daily_goal.data,
+                    "current_streak": 0,
+                    "best_streak": 0,
+                    "total_days_met": 0,
+                }
             )
             return redirect(url_for("goals"))
 
     if current_goal:
         data = current_goal
     else:
-        data = {"email": email, "date": now, "goal": "Set a goal and start tracking progress today!", "target": "",
-                "current_streak": 0, "best_streak": 0, "total_days_met": 0}
+        data = {
+            "email": email,
+            "date": now,
+            "goal": "Set a goal and start tracking progress today!",
+            "target": "",
+            "current_streak": 0,
+            "best_streak": 0,
+            "total_days_met": 0,
+        }
 
     return render_template("dailygoal.html", form=form, data=data)
 

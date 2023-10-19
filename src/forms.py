@@ -118,6 +118,10 @@ class ResetPasswordForm(FlaskForm):
 
 class GoalForm(FlaskForm):
     choices = ["Lose", "Gain", "Maintain"]
-    goal_type = SelectField("What is your weight plan?: ", choices=choices, validators=[DataRequired()])
-    daily_goal = IntegerField("Enter your daily calorie target: ", validators=[DataRequired()])
+    goal_type = SelectField(
+        "What is your weight plan?: ", choices=choices, validators=[DataRequired()]
+    )
+    daily_goal = IntegerField(
+        "Enter your daily calorie target: ", validators=[DataRequired()]
+    )
     submit = SubmitField("Set Daily Goal")
