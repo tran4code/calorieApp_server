@@ -218,7 +218,8 @@ def test_calories(client, test_user):
     # Existing user
     response = client.post(
         "/update_calorie_data",
-        data={"addedFoodData": ["Acai (20 cal)", "100"], "addedActivityData": ["running", "60"]},
+        data={"addedFoodData": [{"food": "apple (20)", "amount": "50"}],
+              "addedActivityData": [{"activity": "running", "duration": "30"}]}
     )
     assert response.status_code == 302
 
