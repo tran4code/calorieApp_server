@@ -133,13 +133,29 @@ Install the required packages by running the following command in the terminal: 
 There is a separate `requirements-dev.txt` for installing dev dependencies: `pip install -r requirements-dev.txt`.
 
 **Step 4**:
-Run the following command in the terminal: `python application.py`
+Run the following command in the terminal: `python src/application.py`
 
 **Step 5**:
 Open the URL in your browser: `http://127.0.0.1:5000/`
 
 **Step 6**:
-Run `python insert_data.py` to create a food collection and exercise collection in the test database. This food data is used for the Calories form.
+Run `python src/insert_data.py` to create a food collection and exercise collection in the test database. This food data is used for the Calories form.
+
+
+Alternatively, deploy using Docker Compose:
+Prerequisites:
+
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+
+**Step 1**:
+Clone the repository: `git clone https://github.com/1360119047/calorieApp_server.git`
+
+**Step 2**:
+Run with Docker: `docker compose up --build`
+
+**Step 3**:
+Open the URL in your browser: `http://127.0.0.1:5000/`
+
 
 # Testing
 We primarily test the `application.py` module, the Flask API interface for which the client side interacts. If HTTP requests to application.py endpoints 
