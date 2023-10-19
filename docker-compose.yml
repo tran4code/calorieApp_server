@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  flask-app:
+    build: .
+    ports:
+      - "5001:5001"  # Map host port to container port for your Python app
+    environment:
+      - FLASK_RUN_HOST=0.0.0.0
+      - MONGO_URI=mongodb://mongo:27017/test
+      - MONGO_DATABASE=test
+    depends_on:
+      - mongo  # Ensure that MongoDB container is started before your Python app
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"  # Map host port to container port for MongoDB
+    volumes:
+      - mongo-data:/data/db  # Mount a data volume for MongoDB data persistence
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongo localhost:27017/test --quiet
+      interval: 5s
+      timeout: 10s
+      retries: 5
+
+volumes:
+  mongo-data:
