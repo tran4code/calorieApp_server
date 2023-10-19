@@ -142,7 +142,7 @@ Open the URL in your browser: `http://127.0.0.1:5000/`
 Run `python src/insert_data.py` to create a food collection and exercise collection in the test database. This food data is used for the Calories form.
 
 
-Alternatively, deploy using Docker Compose:
+### Alternatively, deploy using Docker Compose:  
 Prerequisites:
 
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
