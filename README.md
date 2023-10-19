@@ -19,31 +19,31 @@ https://drive.google.com/drive/folders/1M5vdCwH11C-MqK8X-Dkf5bPR0SaWA5Yc?usp=sha
 
 <!--Badges-->
 <a href="https://github.com/1360119047/calorieApp_server/fork" target="blank">
-<img src="https://img.shields.io/github/forks/deekay2310/calorieApp_server?style=flat-square" alt="calorieApp_server forks"/>
+<img src="https://img.shields.io/github/forks/1360119047/calorieApp_server?style=flat-square" alt="calorieApp_server forks"/>
 </a>
 <a href="https://github.com/1360119047/calorieApp_server/stargazers" target="blank">
-<img src="https://img.shields.io/github/stars/deekay2310/calorieApp_server?style=flat-square" alt="calorieApp_server stars"/>
+<img src="https://img.shields.io/github/stars/1360119047/calorieApp_server?style=flat-square" alt="calorieApp_server stars"/>
 </a>
 <a href="https://github.com/1360119047/calorieApp_server/issues" target="blank" alt="Github Issues">
-<img src="https://img.shields.io/github/issues/deekay2310/calorieApp_server?style=flat-square" alt="calorieApp_server issues"/>
+<img src="https://img.shields.io/github/issues/1360119047/calorieApp_server?style=flat-square" alt="calorieApp_server issues"/>
 </a>
 <a href="https://github.com/1360119047/calorieApp_server/issues" target="blank">
-<img src="https://img.shields.io/github/issues-closed/deekay2310/calorieApp_server" alt="calorieApp_server issues closed"/>
+<img src="https://img.shields.io/github/issues-closed/1360119047/calorieApp_server" alt="calorieApp_server issues closed"/>
 </a>
 <a href="https://github.com/1360119047/calorieApp_server/pulls" target="blank">
-<img src="https://img.shields.io/github/issues-pr/deekay2310/calorieApp_server?style=flat-square" alt="cheapBuy pull-requests"/>
+<img src="https://img.shields.io/github/issues-pr/1360119047/calorieApp_server?style=flat-square" alt="cheapBuy pull-requests"/>
 </a>
 <a href="https://github.com/1360119047/calorieApp_server/graphs/contributors" alt="Contributors">
-<img src="https://img.shields.io/github/contributors/deekay2310/calorieApp_server" /></a>
+<img src="https://img.shields.io/github/contributors/1360119047/calorieApp_server" /></a>
 
 <a href="https://github.com/1360119047/calorieApp_server/milestones" alt="milestones">
-<img src="https://img.shields.io/github/milestones/all/deekay2310/calorieApp_server" /></a> 
+<img src="https://img.shields.io/github/milestones/all/1360119047/calorieApp_server" /></a> 
 
 <a href="https://github.com/1360119047/calorieApp_server/graphs/commit-activity" alt="commit activity">
-<img src="https://img.shields.io/github/commit-activity/w/deekay2310/calorieApp_server" /></a> 
+<img src="https://img.shields.io/github/commit-activity/w/1360119047/calorieApp_server" /></a> 
 
 <a href="https://github.com/1360119047/calorieApp_server/discussions" alt="discussion">
-<img src="https://img.shields.io/github/discussions/deekay2310/calorieApp_server" /></a> 
+<img src="https://img.shields.io/github/discussions/1360119047/calorieApp_server" /></a> 
 
 <a href="https://img.shields.io/github/repo-size/1360119047/calorieApp_server" alt="repo size">
 <img src="https://img.shields.io/github/repo-size/1360119047/calorieApp_server" /></a>
@@ -128,18 +128,36 @@ Clone the repository: `git clone https://github.com/1360119047/calorieApp_server
 > [!NOTE]
 > It is best practice to use a virtual environment. We have been using venv, which comes bundled with Python.
 > To activate the venv virtual environment, navigate to the root of the project directory and run: `source ./venv/Scripts/activate` on macOS. To deactivate, run `deactivate`.
+>
+> Alternatively, use pipenv virtual environment: `pipenv shell`
 
 Install the required packages by running the following command in the terminal: `pip install -r requirements.txt`.
 There is a separate `requirements-dev.txt` for installing dev dependencies: `pip install -r requirements-dev.txt`.
 
 **Step 4**:
-Run the following command in the terminal: `python application.py`
+Run the following command in the terminal: `python src/application.py`
 
 **Step 5**:
 Open the URL in your browser: `http://127.0.0.1:5000/`
 
 **Step 6**:
-Run `python insert_data.py` to create a food collection and exercise collection in the test database. This food data is used for the Calories form.
+Run `python src/insert_data.py` to create a food collection and exercise collection in the test database. This food data is used for the Calories form.
+
+
+### Alternatively, deploy using Docker Compose:  
+Prerequisites:
+
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+
+**Step 1**:
+Clone the repository: `git clone https://github.com/1360119047/calorieApp_server.git`
+
+**Step 2**:
+Run with Docker: `docker compose up --build`
+
+**Step 3**:
+Open the URL in your browser: `http://127.0.0.1:5000/`
+
 
 # Testing
 We primarily test the `application.py` module, the Flask API interface for which the client side interacts. If HTTP requests to application.py endpoints 
