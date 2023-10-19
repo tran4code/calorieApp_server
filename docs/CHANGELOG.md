@@ -1,13 +1,22 @@
 # Change Log
 
-## [3.0.1] - 2023-09-30
+## [4.0.0] - 2023-09-30
 ### Added
 - Test case suite for Python Flask with pytest.
+- increase coverage
+- add style checker
+- add activity feature 
+- add multiple foods on the calorie page
+- add multiple activities edible on the calorie 
+- add net calorie and other detail on the history page
+- add gold personal goal page
 
 ### Changed
 - Updated environment setup documentation and initial description.
 - Updated badges.
 - Improved Github Actions workflows for linting and code formatting.
+- Fix when change personal data, data staty at 170
+- Fix when you refresh the calorie page it submit
 
 ## [3.0.0] - 2021-12-04
 ### Added
