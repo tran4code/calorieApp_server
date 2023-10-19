@@ -25,7 +25,8 @@ from forms import (
     LoginForm,
     UserProfileForm,
     EnrollForm,
-    ActivityForm, GoalForm,
+    ActivityForm,
+    GoalForm,
 )
 
 load_dotenv()
@@ -1163,6 +1164,7 @@ def hrx():
 #             else:
 #                 return json.dumps({'email': "", 'Status': ""}), 200, {
 #                     'ContentType': 'application/json'}
+
 
 @app.route("/Goals", methods=["POST", "GET"])
 def goals():
