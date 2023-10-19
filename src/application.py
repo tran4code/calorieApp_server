@@ -32,7 +32,7 @@ load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = "secret"
-app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
+app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.config["MONGO_CONNECT"] = False
 mongo = PyMongo(app)
 
@@ -1120,6 +1120,6 @@ def hrx():
 
 
 if __name__ == "__main__":
-    print(os.environ.get('FLASK_RUN_HOST'), '<--- FLASK_RUN_HOST')
-    print(os.environ.get('MONGO_URI'), '<--- MONGO_URI')
-    app.run(host=os.environ.get('FLASK_RUN_HOST'), port=5001)
+    print(os.environ.get("FLASK_RUN_HOST"), "<--- FLASK_RUN_HOST")
+    print(os.environ.get("MONGO_URI"), "<--- MONGO_URI")
+    app.run(host=os.environ.get("FLASK_RUN_HOST"), port=5001)
