@@ -128,6 +128,8 @@ Clone the repository: `git clone https://github.com/1360119047/calorieApp_server
 > [!NOTE]
 > It is best practice to use a virtual environment. We have been using venv, which comes bundled with Python.
 > To activate the venv virtual environment, navigate to the root of the project directory and run: `source ./venv/Scripts/activate` on macOS. To deactivate, run `deactivate`.
+>
+> Alternatively, use pipenv virtual environment: `pipenv shell`
 
 Install the required packages by running the following command in the terminal: `pip install -r requirements.txt`.
 There is a separate `requirements-dev.txt` for installing dev dependencies: `pip install -r requirements-dev.txt`.
