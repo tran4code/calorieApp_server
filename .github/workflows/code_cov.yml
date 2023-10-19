@@ -30,10 +30,11 @@ jobs:
         echo requirements installed
     - name: Run the tests
       run: |
-        python src/application.py &
+        cd src
+        python application.py &
         sleep 5
-        python src/insert_data.py
-        cd tests
+        python insert_data.py
+        cd ../tests
         coverage run -m pytest test_application.py
         pytest --cov=application .
         pytest --cov=application --cov-report=html
