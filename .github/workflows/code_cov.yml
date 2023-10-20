@@ -33,8 +33,9 @@ jobs:
         
         python src/application.py &
         sleep 5
-        python src/insert_data.py
-        cd tests
+        cd src
+        python insert_data.py
+        cd ../tests
         coverage run -m pytest test_application.py
         
         pytest --cov=application 
