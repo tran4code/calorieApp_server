@@ -1,7 +1,7 @@
 import pytest
 from flask import session, url_for
 
-from application import app, mongo
+from src.application import app, mongo
 
 
 # utility functions
