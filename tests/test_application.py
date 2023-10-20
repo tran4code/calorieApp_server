@@ -1,5 +1,6 @@
 import sys
-sys.path.insert(0, '../src')
+
+sys.path.insert(0, "../src")
 from application import app, mongo
 
 import pytest
