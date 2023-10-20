@@ -8,7 +8,7 @@ from wtforms import (
 )
 from wtforms import DateField, SelectField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
-from apps import App
+from src.apps import App
 
 
 class RegistrationForm(FlaskForm):
