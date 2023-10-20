@@ -86,6 +86,7 @@ and more:
   - [Set User Profile](#set-user-profile)
   - [Enter Calories in and burnt](#enter-calories-in-and-burnt)
   - [Check History](#check-history)
+  - [Daily Goal](#daily_Goal)
   - [Adding Friends](#adding-friends)
   - [Enrolling into several programs](#enrolling-into-several-programs)
 - [Future Scope](#future-scope)
@@ -188,7 +189,7 @@ Note that coverage HTML is written to directory htmlcov in the same location the
 
 ### Enter Calories burnt and consumed
 
-<img src=https://github.com/1360119047/calorieApp_server/blob/main/static/img/new_calories.png>
+<img src=https://github.com/1360119047/calorieApp_server/blob/main/src/static/img/new_calories.png>
 
 ### Chatbot
 
@@ -196,11 +197,11 @@ Note that coverage HTML is written to directory htmlcov in the same location the
 
 ### Check History
 
-<img src=https://github.com/1360119047/calorieApp_server/blob/main/static/img/newhistory.png>
+<img src=https://github.com/1360119047/calorieApp_server/blob/main/src/static/img/newhistory.png>
 
 ### Daily Goal
 
-<img src=https://github.com/1360119047/calorieApp_server/blob/main/static/img/goal.png>
+<img src=https://github.com/1360119047/calorieApp_server/blob/main/src/static/img/goal.png>
 
 ### Add weight alert
  
