@@ -1,10 +1,9 @@
-import sys
-
-sys.path.insert(0, "../src")
-from application import app, mongo
-
 import pytest
 from flask import session, url_for
+
+from application import app, mongo
+
+
 
 
 # utility functions
