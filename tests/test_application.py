@@ -4,8 +4,6 @@ from flask import session, url_for
 from application import app, mongo
 
 
-
-
 # utility functions
 def create_user(client, username):
     user_data = {
