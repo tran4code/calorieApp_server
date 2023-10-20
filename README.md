@@ -188,7 +188,7 @@ Note that coverage HTML is written to directory htmlcov in the same location the
 
 ### Enter Calories burnt and consumed
 
-<img src=https://github.com/deekay2310/calorieApp_server/blob/main/static/img/calories.png>
+<img src=https://github.com/deekay2310/calorieApp_server/blob/main/static/img/new_calories.png>
 
 ### Chatbot
 
@@ -196,7 +196,11 @@ Note that coverage HTML is written to directory htmlcov in the same location the
 
 ### Check History
 
-<img src=https://github.com/deekay2310/calorieApp_server/blob/main/static/img/history.png>
+<img src=https://github.com/deekay2310/calorieApp_server/blob/main/static/img/newhistory.png>
+
+### Daily Goal
+
+<img src=https://github.com/deekay2310/calorieApp_server/blob/main/static/img/goal.png>
 
 ### Add weight alert
  
