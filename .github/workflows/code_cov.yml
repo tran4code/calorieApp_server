@@ -36,7 +36,7 @@ jobs:
         python insert_data.py
         cd ../tests
         coverage run -m pytest test_application.py
-        cd ..
+        
         pytest --cov=application tests
         pytest --cov=application --cov-report=html
     - name: Archive code coverage html report

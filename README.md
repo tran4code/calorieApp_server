@@ -1,6 +1,4 @@
-# Link to demo/walkthrough video:
-https://drive.google.com/drive/folders/1M5vdCwH11C-MqK8X-Dkf5bPR0SaWA5Yc?usp=sharing
-<br>
+
 
 
 [![GitHub license](https://img.shields.io/github/license/1360119047/calorieApp_server)](https://github.com/1360119047/calorieApp_server/blob/main/LICENSE)
@@ -57,20 +55,20 @@ BurnOut is your ultimate fitness companion, designed to make tracking your daily
 
 - **Personalized Profiles**: Create your unique profile by entering your height, weight, fitness goals, and target weight. BurnOut tailors your fitness journey just for you.
 
-- **Goal Setting**: Set your fitness goals with ease. Whether it's weight loss or muscle gain, BurnOut provides the roadmap to get you there.
+- **Calorie Tracking**: Calorie mindfulness is the best way to achieve your goals. BurnOut provides a comprehensive calorie logbook as the best tool for a healthier lifestyle.
 
-- **Fitness Programs**: Join exciting fitness programs, including yoga classes and energizing workout sessions. BurnOut helps you stay motivated and engaged.
+- **Goal Setting**: Set your health and wellness goals with ease. Whether it's weight loss or muscle gain, BurnOut provides the roadmap to get you there.
 
 - **Connect with Friends**: Stay accountable by connecting with friends, sending friend requests, and sharing your fitness progress. Together, you can achieve your goals.
 
 and more:
 
- - User can keep a track of their calorie intake.
- - User just needs to input the food they've had, calories get calculated automatically.
+ - User can keep a track of their calorie intake and output.
+ - User just needs to input the food they've eaten or an activity they've done,and  calories get calculated automatically.
  - Displays a record of calories in and calories burnt out day wise in History tab.
  - Helps user to figure out how much to eat/exercise according to their desired goal(weight loss/gain).
  - Users can connect with their friends and keep track of each other's progress
- - Enrollment into numerous yoga and workout sessions.
+ - Enrollment into a variety of workout programs.
  - Accessible to everyone and easy to use.
 
 
@@ -95,9 +93,9 @@ and more:
 - [License](#license)
 
 
-# Demo
+# Demo Video
 
-Link to the implementation video of the BurnOut application:
+[Demo video showcasing the most recent updates and features of Burnout](https://drive.google.com/drive/folders/1M5vdCwH11C-MqK8X-Dkf5bPR0SaWA5Yc?usp=sharing)
 
 # Tech Stack
 
@@ -188,12 +186,11 @@ Note that coverage HTML is written to directory htmlcov in the same location the
 <img src=https://github.com/deekay2310/calorieApp_server/blob/main/static/img/Screen%20Shot%202021-12-04%20at%206.35.05%20PM.png>
 
 ### Enter Calories burnt and consumed
+- Data sources:
+  - [Foods](https://www.kaggle.com/datasets/trolukovich/nutritional-values-for-common-foods-and-products/data)
+  - [Activities](https://www.kaggle.com/datasets/aadhavvignesh/calories-burned-during-exercise-and-activities)
 
 <img src=https://github.com/1360119047/calorieApp_server/blob/main/src/static/img/new_calories.png>
-
-### Chatbot
-
-<img src=https://github.com/deekay2310/calorieApp_server/blob/main/static/img/Screen%20Shot%202021-12-04%20at%206.31.54%20PM.png>
 
 ### Check History
 
@@ -202,10 +199,6 @@ Note that coverage HTML is written to directory htmlcov in the same location the
 ### Daily Goal
 
 <img src=https://github.com/1360119047/calorieApp_server/blob/main/src/static/img/goal.png>
-
-### Add weight alert
- 
-<img src=https://github.com/deekay2310/calorieApp_server/blob/main/static/img/Screen%20Shot%202021-12-04%20at%206.30.48%20PM.png>
 
 ### Adding Friends
 
@@ -216,12 +209,15 @@ Note that coverage HTML is written to directory htmlcov in the same location the
 <img src=https://github.com/deekay2310/calorieApp_server/blob/main/static/img/Screen%20Shot%202021-12-04%20at%206.32.08%20PM.png>
 
   
-# Future scope
+# Roadmap and Future Ideas
 
-1. Make the website responsive -- the website should look good on phone, tablet and computer.
-2. Chatbot to guide through the application.
-3. Share workout plans with friends via email.
-4. Integrate machine learning to suggest friend or food recommendations
+1. Remake frontend with a standard javascript framework for a sleeker, more modern look.
+2. Improve user profile with more information and customizable options. Make profiles viewable to friends and other users.
+3. Provide user stats and trends for diet and activity.
+4. Improve the food and activity selection forms with a more efficient search tool for a better experience.
+5. Make goals more customizable. Add profile badges and other rewards for hitting goals.
+6. Add functionality to workout enrollment feature. Incorporate workout planner and other progress metrics.
+7. Implement a recommendation system for foods, activities, calorie goals, etc.
    
 # Team Members
 <center>
