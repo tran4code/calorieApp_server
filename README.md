@@ -4,7 +4,7 @@ https://drive.google.com/drive/folders/1M5vdCwH11C-MqK8X-Dkf5bPR0SaWA5Yc?usp=sha
 
 
 [![GitHub license](https://img.shields.io/github/license/1360119047/calorieApp_server)](https://github.com/1360119047/calorieApp_server/blob/main/LICENSE)
-[![DOI](https://zenodo.org/badge/10023549.svg)](https://zenodo.org/records/10023549)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10023549.svg)](https://zenodo.org/records/10023549)
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
 [![codecov](https://codecov.io/gh/deekay2310/calorieApp_server/branch/main/graph/badge.svg?token=IQW5PLLE22)](https://codecov.io/gh/deekay2310/calorieApp_server)
