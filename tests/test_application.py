@@ -1,6 +1,8 @@
 import pytest
 from flask import session, url_for
 
+import sys
+sys.path.insert(0, '../src')
 from application import app, mongo
 
 

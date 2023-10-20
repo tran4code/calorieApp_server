@@ -36,7 +36,7 @@ jobs:
         sleep 5
         python insert_data.py
         cd ../tests
-        export PYTHONPATH=/src:$PYTHONPATH
+
         coverage run -m pytest test_application.py
         
         pytest --cov=application .
