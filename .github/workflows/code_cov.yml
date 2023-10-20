@@ -37,7 +37,7 @@ jobs:
         
         coverage run -m pytest ../tests/test_application.py
         
-        pytest --cov=application .
+        pytest --cov=application ../tests
         pytest --cov=application --cov-report=html
     - name: Archive code coverage html report
       uses: actions/upload-artifact@v2
