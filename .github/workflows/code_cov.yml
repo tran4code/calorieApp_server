@@ -30,6 +30,7 @@ jobs:
         echo requirements installed
     - name: Run the tests
       run: |
+        export PYTHONPATH=src
         cd src
         python application.py &
         sleep 5
