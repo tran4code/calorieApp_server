@@ -18,7 +18,7 @@ from flask import (
 from flask_mail import Mail
 from flask_pymongo import PyMongo
 from tabulate import tabulate
-from src.forms import (
+from forms import (
     FoodForm,
     HistoryForm,
     RegistrationForm,
