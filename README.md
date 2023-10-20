@@ -86,7 +86,7 @@ and more:
   - [Set User Profile](#set-user-profile)
   - [Enter Calories in and burnt](#enter-calories-in-and-burnt)
   - [Check History](#check-history)
-  - [Daily Goal](#daily_Goal)
+  - [Daily Goal](#daily-goal)
   - [Adding Friends](#adding-friends)
   - [Enrolling into several programs](#enrolling-into-several-programs)
 - [Future Scope](#future-scope)
