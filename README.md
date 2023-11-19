@@ -49,7 +49,7 @@
 
 <img src="https://user-images.githubusercontent.com/25662536/135546154-cfae1d2e-439a-4edc-b0bb-57f693ef5a83.jpeg" width="500px">
 
-## BurnOut: Fuel Your Fitness Journey
+## BurnOut: Fuel Your Fitness Journey !
 
 BurnOut is your ultimate fitness companion, designed to make tracking your daily calorie intake and workouts a breeze. Whether you're aiming to shed some pounds or bulk up, BurnOut has got you covered. Here's what you can expect:
 
