@@ -1,3 +1,4 @@
+#Syntax checker
 # READ: https://dev.to/ken_mwaura1/enhancing-python-code-quality-a-comprehensive-guide-to-linting-with-ruff-3d6g
 name: Python Linter (Ruff)
 on: [push, pull_request]
