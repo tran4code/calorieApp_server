@@ -1,3 +1,4 @@
+#unit_test
 name: Run Tests On Push
 on:
   push:
