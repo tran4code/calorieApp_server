@@ -1,3 +1,4 @@
+
 name: Close as a feature
 on:
   issues:
