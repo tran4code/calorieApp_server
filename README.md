@@ -51,6 +51,12 @@
 
 ## BurnOut: Fuel Your Fitness Journey !
 
+
+
+https://github.com/tran4code/calorieApp_server/assets/113017516/762f9f7d-416c-4ee3-8d80-6ab720399d4c
+
+
+
 BurnOut is your ultimate fitness companion, designed to make tracking your daily calorie intake and workouts a breeze. Whether you're aiming to shed some pounds or bulk up, BurnOut has got you covered. Here's what you can expect:
 
 - **Personalized Profiles**: Create your unique profile by entering your height, weight, fitness goals, and target weight. BurnOut tailors your fitness journey just for you.
