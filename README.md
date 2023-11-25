@@ -229,10 +229,11 @@ Note that coverage HTML is written to directory htmlcov in the same location the
 <center>
   <table>
     <tr>
-      <td align="center"><a href="https://github.com/lrwilli7"><img src="https://avatars.githubusercontent.com/u/64102141?v=4" width="100px;" alt=""/><br /><sub><b>Logan Williams</b></sub></a></td>
-    <td align="center"><a href="https://github.com/MichaelDacanay"><img src="https://avatars.githubusercontent.com/u/18317412?s=400&v=4" width="100px;" alt=""/><br /><sub><b>MichaelDacanay</b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/kim5801"><img src="https://avatars.githubusercontent.com/u/62859405?v=4" width="100px;" alt=""/><br /><sub><b>Xiaochun Liang</b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/1360119047"><img src="https://avatars.githubusercontent.com/u/62859405?v=4" width="100px;" alt=""/><br /><sub><b>Xiaochun Liang</b></sub></a><br /></td>    </tr>
+      <td align="center"><a href="https://github.com/benyamintabarsi"><img src="https://avatars.githubusercontent.com/u/89616332?v=4" width="100px;" alt=""/><br /><sub><b>Benyamin Tabarsi</b></sub></a></td>
+      <td align="center"><a href="https://github.com/tran4code"><img src="https://avatars.githubusercontent.com/u/45933939?v=4" width="100px;" alt=""/><br /><sub><b>Keith Tran</b></sub></a></td>
+      <td align="center"><a href="https://github.com/kim5801"><img src="https://avatars.githubusercontent.com/u/113017516?v=4" width="100px;" alt=""/><br /><sub><b>Kimia Fazeli</b></sub></a></td>
+      <td align="center"><a href="https://github.com/mfaizan2710"><img src="https://avatars.githubusercontent.com/u/145224807?v=4" width="100px;" alt=""/><br /><sub><b>Mohammed Faizan</b></sub></a></td>
+    </tr>
   </table>
 </center>
 
