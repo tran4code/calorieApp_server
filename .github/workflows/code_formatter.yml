@@ -17,7 +17,7 @@ jobs:
         with:
           commit_message: 'code formatting by black'
 
-# name: Format
+# name: Code Formatter
 # on:
 #   pull_request: 
 #     branches: [main]
