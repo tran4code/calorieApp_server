@@ -28,6 +28,7 @@ from forms import (
     ActivityForm,
     GoalForm,
 )
+from langchain.llms import OpenAI
 
 load_dotenv()
 
@@ -43,6 +44,8 @@ app.config["MAIL_USE_SSL"] = True
 app.config["MAIL_USERNAME"] = "bogusdummy123@gmail.com"
 app.config["MAIL_PASSWORD"] = "helloworld123!"
 mail = Mail(app)
+
+API_KEY = os.environ["API_KEY"]
 
 
 @app.route("/")
@@ -97,12 +100,14 @@ def login():
     else:
         form = LoginForm()
         if form.validate_on_submit():
-            user = mongo.db.user.find_one({"email": form.email.data}, {"email", "pwd"})
+            user = mongo.db.user.find_one(
+                {"email": form.email.data}, {"email", "pwd"})
             if (
                 user
                 and user["email"] == form.email.data
                 and (
-                    bcrypt.checkpw(form.password.data.encode("utf-8"), user["pwd"])
+                    bcrypt.checkpw(form.password.data.encode(
+                        "utf-8"), user["pwd"])
                     or user["temp"] == form.password.data
                 )
             ):
@@ -172,7 +177,8 @@ def register():
             email = form.email.data
             password = form.password.data
 
-            hashed_password = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt())
+            hashed_password = bcrypt.hashpw(
+                password.encode("utf-8"), bcrypt.gensalt())
 
             mongo.db.user.insert_one(
                 {
@@ -249,7 +255,8 @@ def update_calorie_data():
                     )
                 else:
                     mongo.db.calories.insert_one(
-                        {"email": email, "date": now, "food_data": [food_entry]}
+                        {"email": email, "date": now,
+                            "food_data": [food_entry]}
                     )
 
                 flash_updated = True
@@ -289,7 +296,8 @@ def update_calorie_data():
                 user_weight = 75
                 if user_prof:
                     user_weight = int(user_prof.get("weight"))
-                cals_out = int(activity_rate * user_weight * user_duration / 60)
+                cals_out = int(activity_rate * user_weight *
+                               user_duration / 60)
 
                 activity_entry = (user_activity, user_duration, cals_out)
 
@@ -303,7 +311,8 @@ def update_calorie_data():
                     )
                 else:
                     mongo.db.burned.insert_one(
-                        {"email": email, "date": now, "burn_data": [activity_entry]}
+                        {"email": email, "date": now,
+                            "burn_data": [activity_entry]}
                     )
                 flash_updated = True
         else:
@@ -434,7 +443,8 @@ def calories():
                     )
                 else:
                     mongo.db.calories.insert_one(
-                        {"email": email, "date": now, "food_data": [food_entry]}
+                        {"email": email, "date": now,
+                            "food_data": [food_entry]}
                     )
 
                 flash_updated = True
@@ -487,7 +497,8 @@ def calories():
                     )
                 else:
                     mongo.db.burned.insert_one(
-                        {"email": email, "date": now, "burn_data": [burn_entry]}
+                        {"email": email, "date": now,
+                            "burn_data": [burn_entry]}
                     )
                 flash_updated = True
         else:
@@ -501,9 +512,73 @@ def calories():
     else:
         return jsonify({"message": "Invalid request method"})
 
+
 @app.route("/recipes")
-def recipes_workout():
-    return render_template('recipes.html')
+def recipes():
+    if session.get("email"):
+        prof = mongo.db.profile.find_one(
+            {"email": session.get("email")},
+            {"height": 1, "weight": 1, "goal": 1, "target_weight": 1})
+        height = prof["height"]
+        weight = prof["weight"]
+        target_weight = prof["target_weight"]
+        chatgpt_prompt = f"""\
+            Create a weekly diet plan in HTML with only Bootstrap for \
+            an individual with a height of {height} cm, weight of {weight} kg, \
+            and a target weight of {target_weight}. Include two persuasive, \
+            friendly long paragraphs on achieving weight goals including \
+            time estimation to reach target weight.\
+            Then, create a Bootstrap table for a 7-day plan, \
+            covering Monday to Sunday. Each day should include meals \
+            (breakfast, lunch, dinner, snacks), food items, serving sizes, \
+            and calories. Use striped rows, color coding, and 'rowspan' \
+            for days. Link to recipes or food info. \
+            DO NOT INCLUDE any titles/headings in your response.
+            """
+        llm = OpenAI(openai_api_key=API_KEY, max_tokens=-1)
+        response = llm.predict(chatgpt_prompt)
+        prof['diet_plan'] = response
+        prof['workout_plan'] = response
+        print("ChatGPT API Response:", response)
+
+        return render_template("recipes.html", prof=prof)
+    else:
+        return redirect(url_for("login"))
+
+
+@app.route("/workoutplan")
+def workoutplan():
+    if session.get("email"):
+        prof = mongo.db.profile.find_one(
+            {"email": session.get("email")},
+            {"height": 1, "weight": 1, "goal": 1, "target_weight": 1})
+        height = prof["height"]
+        weight = prof["weight"]
+        target_weight = prof["target_weight"]
+        chatgpt_prompt = f"""
+                        "Create a weekly workout plan in HTML with only Bootstrap\
+                         for an individual with a height of {height} cm, weight of \
+                        {weight} kg, and a target weight of {target_weight}. \
+                        Start with two persuasive, friendly paragraphs on achieving \
+                        fitness goals, including an estimated time to reach the \
+                        target weight through exercise. Then, design a Bootstrap \
+                        table for a 7-day workout schedule, covering Monday to \
+                        Sunday. Each day should list different types of exercises, their \
+                        descriptions, and the number of sets and reps (or duration). \
+                        Use striped rows and color coding, \
+                        with 'rowspan' for days to organize the plan. \
+                        Link to exercise tutorials or information. \
+                        DO NOT INCLUDE any titles/headings in your response.
+                        """
+        llm = OpenAI(openai_api_key=API_KEY, max_tokens=-1)
+        response = llm.predict(chatgpt_prompt)
+        prof['workout_plan'] = response
+        print("ChatGPT API Response:", response)
+
+        return render_template("workoutplan.html", prof=prof)
+    else:
+        return redirect(url_for("login"))
+
 
 @app.route("/update_profile", methods=["GET", "POST"])
 def update_profile():
@@ -625,8 +700,10 @@ def ajaxhistory():
             0,
         )
 
-        cals_in_data = mongo.db.calories.find_one({"email": email, "date": date})
-        cals_out_data = mongo.db.burned.find_one({"email": email, "date": date})
+        cals_in_data = mongo.db.calories.find_one(
+            {"email": email, "date": date})
+        cals_out_data = mongo.db.burned.find_one(
+            {"email": email, "date": date})
 
         if cals_in_data:
             cals_in_list = cals_in_data["food_data"]
@@ -645,7 +722,8 @@ def ajaxhistory():
                 if len(entry) > 0:
                     food = entry[0]
                 foods.append(
-                    food + ": " + str(grams) + " grams, " + str(calories) + " calories"
+                    food + ": " + str(grams) + " grams, " +
+                    str(calories) + " calories"
                 )
 
             cals_in = cals_in_num
@@ -728,7 +806,8 @@ def friends():
 
     pendingRequests = list(
         mongo.db.friends.find(
-            {"sender": email, "accept": False}, {"sender", "receiver", "accept"}
+            {"sender": email, "accept": False}, {
+                "sender", "receiver", "accept"}
         )
     )
     pendingReceivers = list()
@@ -738,7 +817,8 @@ def friends():
     pendingApproves = list()
     pendingApprovals = list(
         mongo.db.friends.find(
-            {"receiver": email, "accept": False}, {"sender", "receiver", "accept"}
+            {"receiver": email, "accept": False}, {
+                "sender", "receiver", "accept"}
         )
     )
     for p in pendingApprovals:
@@ -815,7 +895,8 @@ def send_email():
 
     pendingRequests = list(
         mongo.db.friends.find(
-            {"sender": email, "accept": False}, {"sender", "receiver", "accept"}
+            {"sender": email, "accept": False}, {
+                "sender", "receiver", "accept"}
         )
     )
     pendingReceivers = list()
@@ -825,7 +906,8 @@ def send_email():
     pendingApproves = list()
     pendingApprovals = list(
         mongo.db.friends.find(
-            {"receiver": email, "accept": False}, {"sender", "receiver", "accept"}
+            {"receiver": email, "accept": False}, {
+                "sender", "receiver", "accept"}
         )
     )
     for p in pendingApprovals:
@@ -885,7 +967,8 @@ def ajaxcancelrequest():
     email = get_session = session.get("email")
     if get_session is not None:
         receiver = request.form.get("receiver")
-        res = mongo.db.friends.delete_one({"sender": email, "receiver": receiver})
+        res = mongo.db.friends.delete_one(
+            {"sender": email, "receiver": receiver})
         if res:
             return (
                 json.dumps({"status": True}),
@@ -955,7 +1038,8 @@ def yoga():
             if request.method == "POST":
                 enroll = "yoga"
                 mongo.db.user.insert_one({"Email": email, "Status": enroll})
-            flash(f" You have succesfully enrolled in our {enroll} plan!", "success")
+            flash(
+                f" You have succesfully enrolled in our {enroll} plan!", "success")
             return render_template("new_dashboard.html", form=form)
             # return redirect(url_for('dashboard'))
     else:
@@ -980,7 +1064,8 @@ def swim():
             if request.method == "POST":
                 enroll = "swimming"
                 mongo.db.user.insert_one({"Email": email, "Status": enroll})
-            flash(f" You have succesfully enrolled in our {enroll} plan!", "success")
+            flash(
+                f" You have succesfully enrolled in our {enroll} plan!", "success")
             return render_template("new_dashboard.html", form=form)
             # return redirect(url_for('dashboard'))
     else:
@@ -1005,7 +1090,8 @@ def abbs():
             if request.method == "POST":
                 enroll = "abbs"
                 mongo.db.user.insert_one({"Email": email, "Status": enroll})
-            flash(f" You have succesfully enrolled in our {enroll} plan!", "success")
+            flash(
+                f" You have succesfully enrolled in our {enroll} plan!", "success")
             return render_template("new_dashboard.html", form=form)
     else:
         return redirect(url_for("dashboard"))
@@ -1029,7 +1115,8 @@ def belly():
             if request.method == "POST":
                 enroll = "belly"
                 mongo.db.user.insert_one({"Email": email, "Status": enroll})
-            flash(f" You have succesfully enrolled in our {enroll} plan!", "success")
+            flash(
+                f" You have succesfully enrolled in our {enroll} plan!", "success")
             return render_template("new_dashboard.html", form=form)
             # return redirect(url_for('dashboard'))
     else:
@@ -1054,7 +1141,8 @@ def core():
             if request.method == "POST":
                 enroll = "core"
                 mongo.db.user.insert_one({"Email": email, "Status": enroll})
-            flash(f" You have succesfully enrolled in our {enroll} plan!", "success")
+            flash(
+                f" You have succesfully enrolled in our {enroll} plan!", "success")
             return render_template("new_dashboard.html", form=form)
     else:
         return redirect(url_for("dashboard"))
@@ -1078,7 +1166,8 @@ def gym():
             if request.method == "POST":
                 enroll = "gym"
                 mongo.db.user.insert_one({"Email": email, "Status": enroll})
-            flash(f" You have succesfully enrolled in our {enroll} plan!", "success")
+            flash(
+                f" You have succesfully enrolled in our {enroll} plan!", "success")
             return render_template("new_dashboard.html", form=form)
             # return redirect(url_for('dashboard'))
     else:
@@ -1103,7 +1192,8 @@ def walk():
             if request.method == "POST":
                 enroll = "walk"
                 mongo.db.user.insert_one({"Email": email, "Status": enroll})
-            flash(f" You have succesfully enrolled in our {enroll} plan!", "success")
+            flash(
+                f" You have succesfully enrolled in our {enroll} plan!", "success")
             return render_template("new_dashboard.html", form=form)
             # return redirect(url_for('dashboard'))
     else:
@@ -1128,7 +1218,8 @@ def dance():
             if request.method == "POST":
                 enroll = "dance"
                 mongo.db.user.insert_one({"Email": email, "Status": enroll})
-            flash(f" You have succesfully enrolled in our {enroll} plan!", "success")
+            flash(
+                f" You have succesfully enrolled in our {enroll} plan!", "success")
             return render_template("new_dashboard.html", form=form)
             # return redirect(url_for('dashboard'))
     else:
@@ -1153,7 +1244,8 @@ def hrx():
             if request.method == "POST":
                 enroll = "hrx"
                 mongo.db.user.insert_one({"Email": email, "Status": enroll})
-            flash(f" You have succesfully enrolled in our {enroll} plan!", "success")
+            flash(
+                f" You have succesfully enrolled in our {enroll} plan!", "success")
             return render_template("new_dashboard.html", form=form)
             # return redirect(url_for('dashboard'))
     else:
