@@ -20,7 +20,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+from langchain.chains import LLMChain
 from langchain.llms import OpenAI
+from langchain.prompts import PromptTemplate
 
 from dotenv import load_dotenv
 import os

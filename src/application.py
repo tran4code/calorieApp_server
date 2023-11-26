@@ -501,6 +501,9 @@ def calories():
     else:
         return jsonify({"message": "Invalid request method"})
 
+@app.route("/recipes")
+def recipes_workout():
+    return render_template('recipes.html')
 
 @app.route("/update_profile", methods=["GET", "POST"])
 def update_profile():
