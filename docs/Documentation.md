@@ -1,4 +1,4 @@
-## New Functionalities Added to BurnOut App:
+## New Functionalities Added to BurnOut version 4:
 
 ## Theme and Logo Revamp
 In the latest version of BurnOut, we've given the user interface a fresh look by introducing a revamped theme and logo. The improved aesthetics provide a more engaging and visually appealing experience for users.
