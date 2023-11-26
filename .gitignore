@@ -10,6 +10,6 @@ __pycache__/
 .ruff_cache/
 .vscode/
 v/
-
+.env
 __init__.py
 
