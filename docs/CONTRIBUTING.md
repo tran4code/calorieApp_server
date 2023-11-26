@@ -1,6 +1,6 @@
-# Contributing to BurnOut 3.0!!
+# Contributing to BurnOut 4.0!!
 <h3>Hello!👋</h3>
-<p>Firstly, thank you so much for showing interest in BurnOut 3.0 and contributing to our project.👍</p>
+<p>Firstly, thank you so much for showing interest in BurnOut 4.0 and contributing to our project.👍</p>
 The following are a set of guidelines for contributing to BurnOut. We are open to suggestions to enhance our project so feel free to propose changes to this document in a pull request.
 
 
@@ -20,14 +20,14 @@ The following are a set of guidelines for contributing to BurnOut. We are open t
 
 
 ### Code of Conduct
-Everyone participating in this project needs to abide by the aPAS - A Personal Agile Scheduler Code of Conduct that can be found under the main repository link as a CODE_OF_CONDUCT.md file. By participating, you are expected to uphold this code. Please report unacceptable behavior to any of the original team members listed at the bottom of [README.md](README.md).
+Everyone participating in this project needs to abide by the aPAS - A Personal Agile Scheduler Code of Conduct that can be found under the main repository link as a CODE_OF_CONDUCT.md file. By participating, you are expected to uphold this code. Please report unacceptable behavior to any of the team members.
 
 ## How Can I Contribute?
 
 
   ## Reporting Bugs
 
-  This section guides you through submitting a bug report for SE Group 26. 
+  This section guides you through submitting a bug report for SE Group 54. 
 
   When you are creating a bug report, please ensure that you include as many details as possible to understand the issue.
 
@@ -57,7 +57,7 @@ Everyone participating in this project needs to abide by the aPAS - A Personal A
   ## Pull Requests Methods
   The process described here has several goals: 
 
-  - Maintain BurnOut 3.0 quality
+  - Maintain BurnOut 4.0 quality
   - Fix problems that are important to the users 
   - Engage the community in working towards the best possible BurnOut 
   - Enable a sustainable system for Atom's maintainers to review contributions
@@ -150,7 +150,7 @@ Everyone participating in this project needs to abide by the aPAS - A Personal A
 
 
 ### <h2>Need Additional Help?</h2>
-<p>Due to any reason, if you feel like you have reservations related to the process, feel free to reach us out at [apatil25@ncsu.edu] Github process can be a bit complex and we don't want to lose your valuable contributions because of that reason. We are extremely glad that you have visited us and will make our project much better.</p>
+<p>Due to any reason, if you feel like you have reservations related to the process, feel free to reach us out to any of the team members. Github process can be a bit complex and we don't want to lose your valuable contributions because of that reason. We are extremely glad that you have visited us and will make our project much better.</p>
 
 
 ## References
