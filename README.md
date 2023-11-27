@@ -250,7 +250,7 @@ Note that coverage HTML is written to directory htmlcov in the same location the
   
 # Roadmap and Future Ideas
 
-1. Remake frontend with a standard javascript framework for a sleeker, more modern look.
+1. Improve frontend even more.
 2. Improve user profile with more information and customizable options. Make profiles viewable to friends and other users.
 3. Provide user stats and trends for diet and activity.
 4. Improve the food and activity selection forms with a more efficient search tool for a better experience.
