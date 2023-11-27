@@ -26,7 +26,7 @@ The inclusion of a setup.py file was crucial. Now, it allows users to easily ins
 The introduction of a ticketing system enhances user support and issue tracking. Users can now submit tickets to report problems, request features, or seek assistance, streamlining communication between users and the development team.
 
 
-## Documentation.md and Governance model.md added:
+## Documentation.md added:
 
 Unfortunately non of the previous groups had the Doumentation related to new features. Now the documentation has been expanded to include (Documentation.md). These documents provide users and developers with detailed information on using the application and understanding its new features.
 
