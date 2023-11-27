@@ -25,8 +25,8 @@
 <a href="https://github.com/tran4code/calorieApp_server/issues" target="blank" alt="Github Issues">
 <img src="https://img.shields.io/github/issues/tran4code/calorieApp_server?style=flat-square" alt="calorieApp_server issues"/>
 </a>
-<a href="https://github.com/1360119047/calorieApp_server/issues" target="blank">
-<img src="https://img.shields.io/github/issues-closed/1360119047/calorieApp_server" alt="calorieApp_server issues closed"/>
+<a href="https://github.com/tran4code/calorieApp_server/issues" target="blank">
+<img src="https://img.shields.io/github/issues-closed/tran4code/calorieApp_server" alt="calorieApp_server issues closed"/>
 </a>
 <a href="https://github.com/1360119047/calorieApp_server/pulls" target="blank">
 <img src="https://img.shields.io/github/issues-pr/1360119047/calorieApp_server?style=flat-square" alt="cheapBuy pull-requests"/>
