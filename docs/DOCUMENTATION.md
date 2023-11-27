@@ -63,5 +63,9 @@ Success stories are now included, showcasing positive experiences and outcomes o
 
 The addition of a chat channel provides users with a direct communication platform, fostering community interaction and support within the BurnOut community.
 
+## Milestones added
+
+Miltesyones including the new features next group can work on is added to the repo.
+
 ## Documentation Update
 We've revamped the documentation to provide users with clearer and more comprehensive guidance. The documentation now includes details on the new features, customization options, and step-by-step guides for an improved overall user experience.
