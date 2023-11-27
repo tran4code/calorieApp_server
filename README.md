@@ -67,6 +67,10 @@ BurnOut is your ultimate fitness companion, designed to make tracking your daily
 
 - **Connect with Friends**: Stay accountable by connecting with friends, sending friend requests, and sharing your fitness progress. Together, you can achieve your goals.
 
+- **ChatGPT4 generated WorkOut plan** Now you can get customized and more accurate work out plan.
+- 
+- **ChatGPT generated diet plan** Now you can get customized and more accurate diet plan.
+
 and more:
 
  - User can keep a track of their calorie intake and output.
