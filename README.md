@@ -22,8 +22,8 @@
 <a href="https://github.com/tran4code/calorieApp_server/stargazers" target="blank">
 <img src="https://img.shields.io/github/stars/tran4code/calorieApp_server?style=flat-square" alt="calorieApp_server stars"/>
 </a>
-<a href="https://github.com/1360119047/calorieApp_server/issues" target="blank" alt="Github Issues">
-<img src="https://img.shields.io/github/issues/1360119047/calorieApp_server?style=flat-square" alt="calorieApp_server issues"/>
+<a href="https://github.com/tran4code/calorieApp_server/issues" target="blank" alt="Github Issues">
+<img src="https://img.shields.io/github/issues/tran4code/calorieApp_server?style=flat-square" alt="calorieApp_server issues"/>
 </a>
 <a href="https://github.com/1360119047/calorieApp_server/issues" target="blank">
 <img src="https://img.shields.io/github/issues-closed/1360119047/calorieApp_server" alt="calorieApp_server issues closed"/>
