@@ -84,7 +84,7 @@ and more:
 - [Tech Stack](#tech-stack)
 - [Setup](#environment-setup)
 - [Testing](#Testing)
-- [Core Functionalities:](#core-functionalities)
+- [Quick start guide(Core Functionalities):](#core-functionalities)
   - [Register](#register)
   - [Login](#login)
   - [Set User Profile](#set-user-profile)
@@ -210,7 +210,7 @@ Note that coverage HTML is written to directory htmlcov in the same location the
 [Code Coverage Report](https://github.com/1360119047/calorieApp_server/suites/16763004722/artifacts/957298956)
 
 
-# Core Functionalities
+# Quick start guide(Core Functionalities)
  
 ### Register
  
