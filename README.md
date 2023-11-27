@@ -67,6 +67,10 @@ BurnOut is your ultimate fitness companion, designed to make tracking your daily
 
 - **Connect with Friends**: Stay accountable by connecting with friends, sending friend requests, and sharing your fitness progress. Together, you can achieve your goals.
 
+- **ChatGPT4 generated WorkOut plan** Now you can get customized and more accurate work out plan.
+  
+- **ChatGPT4 generated diet plan** Now you can get customized and more accurate diet plan.
+
 and more:
 
  - User can keep a track of their calorie intake and output.
@@ -80,11 +84,12 @@ and more:
 # Table of Contents  
 
 - [Demo](https://github.com/tran4code/calorieApp_server/blob/main/README.md#demo-video)
+- [Burn Out 4 new features and improvements](https://github.com/tran4code/calorieApp_server/blob/main/README.md#burn-out-4-new-features-and-improvements)
 - [Successful usecases](https://github.com/tran4code/calorieApp_server/tree/main#successful-usecases)
 - [Tech Stack](#tech-stack)
 - [Setup](#environment-setup)
 - [Testing](#Testing)
-- [Core Functionalities:](#core-functionalities)
+- [Quick start guide(Core Functionalities):](#core-functionalities)
   - [Register](#register)
   - [Login](#login)
   - [Set User Profile](#set-user-profile)
@@ -108,7 +113,10 @@ and more:
 
 [Demo video showcasing the most recent updates and features of Burnout](https://drive.google.com/drive/folders/1M5vdCwH11C-MqK8X-Dkf5bPR0SaWA5Yc?usp=sharing)
 
-## Successful usecases
+# Burn Out 4 new features and improvements
+ Please refer to [Demo video](https://github.com/tran4code/calorieApp_server/blob/main/README.md#demo-video), [Documentation.md](https://github.com/tran4code/calorieApp_server/blob/main/docs/DOCUMENTATION.md) and [Changelog.md](https://github.com/tran4code/calorieApp_server/blob/main/docs/CHANGELOG.md) for checking out the new features and improvements in BurnOut 4.0.0.
+
+# Successful usecases
 
 🎉️ Successful Use Case: Fitness Journey with BurnOut - Emma
 
@@ -210,7 +218,7 @@ Note that coverage HTML is written to directory htmlcov in the same location the
 [Code Coverage Report](https://github.com/1360119047/calorieApp_server/suites/16763004722/artifacts/957298956)
 
 
-# Core Functionalities
+# Quick start guide(Core Functionalities)
  
 ### Register
  
@@ -250,7 +258,7 @@ Note that coverage HTML is written to directory htmlcov in the same location the
   
 # Roadmap and Future Ideas
 
-1. Remake frontend with a standard javascript framework for a sleeker, more modern look.
+1. Improve frontend even more.
 2. Improve user profile with more information and customizable options. Make profiles viewable to friends and other users.
 3. Provide user stats and trends for diet and activity.
 4. Improve the food and activity selection forms with a more efficient search tool for a better experience.
