@@ -4,7 +4,7 @@ services:
   flask-app:
     build: .  # use Dockerfile in current directory
     ports:
-      - "5000:5000"  # Map host port to container port for your Python app
+      - "5001:5000"  # Map host port to container port for your Python app
     environment:
       - FLASK_RUN_HOST=0.0.0.0
       - MONGO_URI=mongodb://mongo:27017/test
