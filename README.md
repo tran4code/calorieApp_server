@@ -80,7 +80,7 @@ and more:
 # Table of Contents  
 
 - [Demo](https://github.com/tran4code/calorieApp_server/blob/main/README.md#demo-video)
-- [Burn Out 4 new features and changes]()
+- [Burn Out 4 new features and improvements]()
 - [Successful usecases](https://github.com/tran4code/calorieApp_server/tree/main#successful-usecases)
 - [Tech Stack](#tech-stack)
 - [Setup](#environment-setup)
@@ -109,8 +109,8 @@ and more:
 
 [Demo video showcasing the most recent updates and features of Burnout](https://drive.google.com/drive/folders/1M5vdCwH11C-MqK8X-Dkf5bPR0SaWA5Yc?usp=sharing)
 
-# Burn Out 4 new features and changes
- Please refer to [Demo video](), [Documentation.md]() and [Changelog.md](https://github.com/tran4code/calorieApp_server/blob/main/docs/CHANGELOG.md)
+# Burn Out 4 new features and improvements
+ Please refer to [Demo video](), [Documentation.md]() and [Changelog.md](https://github.com/tran4code/calorieApp_server/blob/main/docs/CHANGELOG.md) for checking out the new features and improvements in BurnOut 4.0.0.
 
 # Successful usecases
 
