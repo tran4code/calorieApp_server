@@ -308,4 +308,4 @@ This project is licensed under the MIT License.
 # Other important links:
 
 - [Change Log](https://github.com/tran4code/calorieApp_server/blob/main/docs/CHANGELOG.md)
-- [Code of Conduct](docs/CODE_OF_CONDUCT.md)
+- [Code of Conduct](https://github.com/tran4code/calorieApp_server/blob/main/docs/CODE_OF_CONDUCT.md)
