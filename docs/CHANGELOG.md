@@ -17,8 +17,9 @@
 - Updated badges.
 - Improved Github Actions workflows for linting and code formatting.
 - Demo video and animation are now added.
-- sucess stories are now added.
+- Sucess stories are now added.
 - Chat channel is added.
+- milestones added.
   
 
 ## [3.0.0] - 2023-09-30
