@@ -20,9 +20,6 @@ We've made significant improvements to the overall user interface, ensuring a se
 ## setup.py file added:
 The inclusion of a setup.py file was crucial.Now it allows users to easily install and set up the BurnOut application with the necessary dependencies.
 
-User interface improved:
-
-Building upon the general UI improvements mentioned earlier, specific enhancements have been made to further refine the user interface. These changes contribute to a more user-friendly and visually appealing experience.
 
 ## Ticketing system added:
 
