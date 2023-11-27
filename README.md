@@ -122,7 +122,7 @@ Result: Alex successfully integrated BurnOut into his busy lifestyle. The app's 
 - [Future Scope](#future-scope)
 - [How to Contribute](#how-to-contribute)
 - [Team Members](#team-members)
-- [Contact us](#Contact-us(Contributors))
+- [Contact us](https://github.com/tran4code/calorieApp_server/blob/main/README.md#contact-uscontributors)
 - [License](#license)
 
 
