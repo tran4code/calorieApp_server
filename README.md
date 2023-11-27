@@ -250,7 +250,17 @@ Note that coverage HTML is written to directory htmlcov in the same location the
 5. Make goals more customizable. Add profile badges and other rewards for hitting goals.
 6. Add functionality to workout enrollment feature. Incorporate workout planner and other progress metrics.
 7. Implement a recommendation system for foods, activities, calorie goals, etc.
-   
+
+
+# How to Contribute  
+Please refer to [docs/CONTRIBUTING.md](https://github.com/deekay2310/calorieApp_server/blob/main/CONTRIBUTING.md) for instructions on how to contribute to BurnOut.
+
+<p align="center">
+  <a href="https://github.com/deekay2310/calorieApp_server/issues/new/choose">Report Bug</a>
+  /
+  <a href="https://github.com/deekay2310/calorieApp_server/issues/new/choose">Request Feature</a>
+</p>
+
 # Team Members
 <center>
   <table>
@@ -271,17 +281,6 @@ We are here to support you. Feel free to email us with any question or bug repor
 * Benyamin Tabarsi(btaghiz@ncsu.edu)
 * Kimia Fazeli(kfazeli@ncsu.edu)
 * Mohammed Faizan (mfaizan@ncsu.edu)
-
-
-# How to Contribute  
-Please refer to [docs/CONTRIBUTING.md](https://github.com/deekay2310/calorieApp_server/blob/main/CONTRIBUTING.md) for instructions on how to contribute to BurnOut.
-
-<p align="center">
-  <a href="https://github.com/deekay2310/calorieApp_server/issues/new/choose">Report Bug</a>
-  /
-  <a href="https://github.com/deekay2310/calorieApp_server/issues/new/choose">Request Feature</a>
-</p>
-
 ## Project's funding
 
 Our project is currently not funded, and we operate on a volunteer and open-source basis , and currently,improvement of the project solely relies on the dedication of our team and contributions from the open-source community.
@@ -296,6 +295,7 @@ You can cite us like this:
 
 BurnOut with ChatGPT. Version 4.0. Keith Tran,Benyamin Tabarsi, Kimia Fazeli, Mohammed Fazian. 2023. [BurnOut
 ](https://github.com/tran4code/calorieApp_server)
+
 # License
   
 This project is licensed under the MIT License.
