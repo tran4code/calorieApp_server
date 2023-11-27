@@ -16,8 +16,8 @@
 
 
 <!--Badges-->
-<a href="https://github.com/1360119047/calorieApp_server/fork" target="blank">
-<img src="https://img.shields.io/github/forks/1360119047/calorieApp_server?style=flat-square" alt="calorieApp_server forks"/>
+<a href="https://github.com/tran4code/calorieApp_server/fork" target="blank">
+<img src="https://img.shields.io/github/forks/tran4code/calorieApp_server?style=flat-square" alt="calorieApp_server forks"/>
 </a>
 <a href="https://github.com/1360119047/calorieApp_server/stargazers" target="blank">
 <img src="https://img.shields.io/github/stars/1360119047/calorieApp_server?style=flat-square" alt="calorieApp_server stars"/>
