@@ -273,7 +273,7 @@ Please refer to [docs/CONTRIBUTING.md](https://github.com/deekay2310/calorieApp_
   </table>
 </center>
 
-## Contact us(Contributors):
+# Contact us(Contributors):
 
 We are here to support you. Feel free to email us with any question or bug reports. We try our best to reply as soon as possible.
 
@@ -285,11 +285,11 @@ We are here to support you. Feel free to email us with any question or bug repor
 
 Our project is currently not funded, and we operate on a volunteer and open-source basis , and currently,improvement of the project solely relies on the dedication of our team and contributions from the open-source community.
 
-## Acknowledgements
+# Acknowledgements
 
 We have built this code on top of the stack from the project [BurnOut 3](https://github.com/1360119047/calorieApp_server)
 
-## Recommended citation
+# Recommended citation
 
 You can cite us like this:
 
