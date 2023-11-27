@@ -28,6 +28,7 @@ from forms import (
     ActivityForm,
     GoalForm,
 )
+from langchain.llms import OpenAI
 
 load_dotenv()
 
@@ -43,6 +44,8 @@ app.config["MAIL_USE_SSL"] = True
 app.config["MAIL_USERNAME"] = "bogusdummy123@gmail.com"
 app.config["MAIL_PASSWORD"] = "helloworld123!"
 mail = Mail(app)
+
+API_KEY = os.environ["API_KEY"]
 
 
 @app.route("/")
@@ -500,6 +503,75 @@ def calories():
             flash("form not update", "message")
     else:
         return jsonify({"message": "Invalid request method"})
+
+
+@app.route("/recipes")
+def recipes():
+    if session.get("email"):
+        prof = mongo.db.profile.find_one(
+            {"email": session.get("email")},
+            {"height": 1, "weight": 1, "goal": 1, "target_weight": 1},
+        )
+        height = prof["height"]
+        weight = prof["weight"]
+        target_weight = prof["target_weight"]
+        chatgpt_prompt = f"""\
+            Create a weekly diet plan in HTML with only Bootstrap for \
+            an individual with a height of {height} cm, weight of {weight} kg, \
+            and a target weight of {target_weight}. Include two persuasive, \
+            friendly long paragraphs on achieving weight goals including \
+            time estimation to reach target weight.\
+            Then, create a Bootstrap table for a 7-day plan, \
+            covering Monday to Sunday. Each day should include meals \
+            (breakfast, lunch, dinner, snacks), food items, serving sizes, \
+            and calories. Use striped rows, color coding, and 'rowspan' \
+            for days. Link to recipes or food info. \
+            DO NOT INCLUDE any titles/headings in your response.
+            """
+        llm = OpenAI(openai_api_key=API_KEY, max_tokens=-1)
+        response = llm.predict(chatgpt_prompt)
+        prof["diet_plan"] = response
+        prof["workout_plan"] = response
+        print("ChatGPT API Response:", response)
+
+        return render_template("recipes.html", prof=prof)
+    else:
+        return redirect(url_for("login"))
+
+
+@app.route("/workoutplan")
+def workoutplan():
+    if session.get("email"):
+        prof = mongo.db.profile.find_one(
+            {"email": session.get("email")},
+            {"height": 1, "weight": 1, "goal": 1, "target_weight": 1},
+        )
+        height = prof["height"]
+        weight = prof["weight"]
+        target_weight = prof["target_weight"]
+        chatgpt_prompt = f"""
+                        "Create a weekly workout plan in HTML with only Bootstrap\
+                         for an individual with a height of {height} cm, weight of \
+                        {weight} kg, and a target weight of {target_weight}. \
+                        Start with two persuasive, friendly paragraphs on achieving \
+                        fitness goals, including an estimated time to reach the \
+                        target weight through exercise. Then, design a Bootstrap \
+                        table for a 7-day workout schedule, covering Monday to \
+                        Sunday. Each day should list different types of exercises, their \
+                        descriptions, and the number of sets and reps (or duration). \
+                        Use striped rows and color coding, \
+                        with 'rowspan' for days to organize the plan. \
+                        Link to exercise tutorials or information. \
+                        DO NOT INCLUDE any titles/headings in your response.
+                        """
+        llm = OpenAI(openai_api_key=API_KEY, max_tokens=-1)
+        response = llm.predict(chatgpt_prompt)
+        prof["workout_plan"] = response
+        print("ChatGPT API Response:", response)
+
+        return render_template("workoutplan.html", prof=prof)
+    else:
+        return redirect(url_for("login"))
 
 
 @app.route("/update_profile", methods=["GET", "POST"])
@@ -1244,6 +1316,12 @@ def goals():
 
 
 if __name__ == "__main__":
+    print(os.environ.get("FLASK_RUN_HOST"), "<--- FLASK_RUN_HOST")
+    print(os.environ.get("MONGO_URI"), "<--- MONGO_URI")
+    app.run(host=os.environ.get("FLASK_RUN_HOST"), port=5000)
+
+
+def run_server():
     print(os.environ.get("FLASK_RUN_HOST"), "<--- FLASK_RUN_HOST")
     print(os.environ.get("MONGO_URI"), "<--- MONGO_URI")
     app.run(host=os.environ.get("FLASK_RUN_HOST"), port=5000)

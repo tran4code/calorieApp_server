@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+    <h2>Weekly Workout Plan</h2>
+    {{ prof.get("workout_plan")|safe if prof else "Not added" }}
+</div>
+{% endblock content %}

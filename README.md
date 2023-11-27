@@ -1,50 +1,50 @@
 
 
 
-[![GitHub license](https://img.shields.io/github/license/1360119047/calorieApp_server)](https://github.com/1360119047/calorieApp_server/blob/main/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/tran4code/calorieApp_server)](https://github.com/tran4code/calorieApp_server/blob/main/LICENSE)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10023549.svg)](https://zenodo.org/records/10023549)
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
 [![codecov](https://codecov.io/gh/deekay2310/calorieApp_server/branch/main/graph/badge.svg?token=IQW5PLLE22)](https://codecov.io/gh/deekay2310/calorieApp_server)
 
 [//]: # (Github Actions)
-[![github workflow](https://github.com/1360119047/calorieApp_server/actions/workflows/unit_test.yml/badge.svg)](https://github.com/1360119047/calorieApp_server/actions/workflows/unit_test.yml)
-[![github workflow](https://github.com/1360119047/calorieApp_server/actions/workflows/style_checker.yml/badge.svg)](https://github.com/1360119047/calorieApp_server/actions/workflows/style_checker.yml)
-[![github workflow](https://github.com/1360119047/calorieApp_server/actions/workflows/code_cov.yml/badge.svg)](https://github.com/1360119047/calorieApp_server/actions/workflows/code_cov.yml)
-[![github workflow](https://github.com/1360119047/calorieApp_server/actions/workflows/syntax_checker.yml/badge.svg)](https://github.com/1360119047/calorieApp_server/actions/workflows/syntax_checker.yml)
-[![github workflow](https://github.com/1360119047/calorieApp_server/actions/workflows/code_formatter.yml/badge.svg)](https://github.com/1360119047/calorieApp_server/actions/workflows/code_formatter.yml)
+[![github workflow](https://github.com/tran4code/calorieApp_server/actions/workflows/unit_test.yml/badge.svg)](https://github.com/tran4code/calorieApp_server/actions/workflows/unit_test.yml)
+[![github workflow](https://github.com/tran4code/calorieApp_server/actions/workflows/style_checker.yml/badge.svg)](https://github.com/tran4code/calorieApp_server/actions/workflows/style_checker.yml)
+[![github workflow](https://github.com/tran4code/calorieApp_server/actions/workflows/code_cov.yml/badge.svg)](https://github.com/tran4code/calorieApp_server/actions/workflows/code_cov.yml)
+[![github workflow](https://github.com/tran4code/calorieApp_server/actions/workflows/syntax_checker.yml/badge.svg)](https://github.com/tran4code/calorieApp_server/actions/workflows/syntax_checker.yml)
+[![github workflow](https://github.com/tran4code/calorieApp_server/actions/workflows/code_formatter.yml/badge.svg)](https://github.com/tran4code/calorieApp_server/actions/workflows/code_formatter.yml)
 
 
 <!--Badges-->
-<a href="https://github.com/1360119047/calorieApp_server/fork" target="blank">
-<img src="https://img.shields.io/github/forks/1360119047/calorieApp_server?style=flat-square" alt="calorieApp_server forks"/>
+<a href="https://github.com/tran4code/calorieApp_server/fork" target="blank">
+<img src="https://img.shields.io/github/forks/tran4code/calorieApp_server?style=flat-square" alt="calorieApp_server forks"/>
 </a>
-<a href="https://github.com/1360119047/calorieApp_server/stargazers" target="blank">
-<img src="https://img.shields.io/github/stars/1360119047/calorieApp_server?style=flat-square" alt="calorieApp_server stars"/>
+<a href="https://github.com/tran4code/calorieApp_server/stargazers" target="blank">
+<img src="https://img.shields.io/github/stars/tran4code/calorieApp_server?style=flat-square" alt="calorieApp_server stars"/>
 </a>
-<a href="https://github.com/1360119047/calorieApp_server/issues" target="blank" alt="Github Issues">
-<img src="https://img.shields.io/github/issues/1360119047/calorieApp_server?style=flat-square" alt="calorieApp_server issues"/>
+<a href="https://github.com/tran4code/calorieApp_server/issues" target="blank" alt="Github Issues">
+<img src="https://img.shields.io/github/issues/tran4code/calorieApp_server?style=flat-square" alt="calorieApp_server issues"/>
 </a>
-<a href="https://github.com/1360119047/calorieApp_server/issues" target="blank">
-<img src="https://img.shields.io/github/issues-closed/1360119047/calorieApp_server" alt="calorieApp_server issues closed"/>
+<a href="https://github.com/tran4code/calorieApp_server/issues" target="blank">
+<img src="https://img.shields.io/github/issues-closed/tran4code/calorieApp_server" alt="calorieApp_server issues closed"/>
 </a>
-<a href="https://github.com/1360119047/calorieApp_server/pulls" target="blank">
-<img src="https://img.shields.io/github/issues-pr/1360119047/calorieApp_server?style=flat-square" alt="cheapBuy pull-requests"/>
+<a href="https://github.com/tran4code/calorieApp_server/pulls" target="blank">
+<img src="https://img.shields.io/github/issues-pr/tran4code/calorieApp_server?style=flat-square" alt="cheapBuy pull-requests"/>
 </a>
-<a href="https://github.com/1360119047/calorieApp_server/graphs/contributors" alt="Contributors">
-<img src="https://img.shields.io/github/contributors/1360119047/calorieApp_server" /></a>
+<a href="https://github.com/tran4code/calorieApp_server/graphs/contributors" alt="Contributors">
+<img src="https://img.shields.io/github/contributors/tran4code/calorieApp_server" /></a>
 
-<a href="https://github.com/1360119047/calorieApp_server/milestones" alt="milestones">
-<img src="https://img.shields.io/github/milestones/all/1360119047/calorieApp_server" /></a> 
+<a href="https://github.com/tran4code/calorieApp_server/milestones" alt="milestones">
+<img src="https://img.shields.io/github/milestones/all/tran4code/calorieApp_server" /></a> 
 
-<a href="https://github.com/1360119047/calorieApp_server/graphs/commit-activity" alt="commit activity">
-<img src="https://img.shields.io/github/commit-activity/w/1360119047/calorieApp_server" /></a> 
+<a href="https://github.com/tran4code/calorieApp_server/graphs/commit-activity" alt="commit activity">
+<img src="https://img.shields.io/github/commit-activity/w/tran4code/calorieApp_server" /></a> 
 
-<a href="https://github.com/1360119047/calorieApp_server/discussions" alt="discussion">
-<img src="https://img.shields.io/github/discussions/1360119047/calorieApp_server" /></a> 
+<a href="https://github.com/tran4code/calorieApp_server/discussions" alt="discussion">
+<img src="https://img.shields.io/github/discussions/tran4code/calorieApp_server" /></a> 
 
-<a href="https://img.shields.io/github/repo-size/1360119047/calorieApp_server" alt="repo size">
-<img src="https://img.shields.io/github/repo-size/1360119047/calorieApp_server" /></a>
+<a href="https://img.shields.io/github/repo-size/tran4code/calorieApp_server" alt="repo size">
+<img src="https://img.shields.io/github/repo-size/tran4code/calorieApp_server" /></a>
 
 
 <img src="https://user-images.githubusercontent.com/25662536/135546154-cfae1d2e-439a-4edc-b0bb-57f693ef5a83.jpeg" width="500px">
@@ -77,10 +77,10 @@ and more:
  - Enrollment into a variety of workout programs.
  - Accessible to everyone and easy to use.
 
-
 # Table of Contents  
 
-- [Demo](#demo)
+- [Demo](https://github.com/tran4code/calorieApp_server/blob/main/README.md#demo-video)
+- [Successful usecases](https://github.com/tran4code/calorieApp_server/tree/main#successful-usecases)
 - [Tech Stack](#tech-stack)
 - [Setup](#environment-setup)
 - [Testing](#Testing)
@@ -94,14 +94,47 @@ and more:
   - [Adding Friends](#adding-friends)
   - [Enrolling into several programs](#enrolling-into-several-programs)
 - [Future Scope](#future-scope)
-- [Team Members](#team-members)
 - [How to Contribute](#how-to-contribute)
+- [Team Members](#team-members)
+- [Contact us](https://github.com/tran4code/calorieApp_server/blob/main/README.md#contact-uscontributors)
+- [Project's Funding](https://github.com/tran4code/calorieApp_server/blob/main/README.md#projects-funding)
+- [Acknowledgements](https://github.com/tran4code/calorieApp_server/blob/main/README.md#acknowledgements)
+- [Recommended citation](https://github.com/tran4code/calorieApp_server/blob/main/README.md#recommended-citation)
 - [License](#license)
+- [Other important links](https://github.com/tran4code/calorieApp_server/blob/main/README.md#other-important-links)
 
 
 # Demo Video
 
 [Demo video showcasing the most recent updates and features of Burnout](https://drive.google.com/drive/folders/1M5vdCwH11C-MqK8X-Dkf5bPR0SaWA5Yc?usp=sharing)
+
+## Successful usecases
+
+🎉️ Successful Use Case: Fitness Journey with BurnOut - Emma
+
+Background: Emma, a Computer Science professional with a busy schedule.
+
+Scenario:
+
+Emma decided to prioritize her health and fitness but found it challenging to keep track of her diet and exercise routine due to her demanding job.
+
+She started using BurnOut to create a personalized profile, set achievable fitness goals, and track her daily calorie intake and workouts effortlessly.
+
+Result: Emma experienced a positive transformation in her overall well-being. The detailed calorie logbook in BurnOut helped her make informed decisions about her diet. With the goal-setting feature, Emma successfully maintained a balance between weight loss and muscle gain. Additionally, she connected with her colleagues using BurnOut, creating a supportive fitness community. Emma now enjoys a healthier lifestyle while excelling in her computer science career.
+
+🎉️ Successful Use Case: BurnOut for Busy Professionals - Alex
+
+Background: Alex, Marketing professional with a hectic work schedule.
+
+Scenario:
+
+Alex, driven by the need to stay fit despite a demanding job, started using BurnOut to manage his fitness routine efficiently.
+
+He used the app to quickly input his meals and workouts, relying on the automatic calorie calculations to stay on top of his health goals.
+
+Result: Alex successfully integrated BurnOut into his busy lifestyle. The app's accessible and user-friendly interface allowed him to effortlessly track his calorie intake and output. The personalized profiles and goal-setting features streamlined his fitness journey, and the app's history tab provided a clear overview of his progress. Despite a busy schedule, Alex achieved his fitness goals and maintained a healthy work-life balance.
+
+
 
 # Tech Stack
 
@@ -224,7 +257,17 @@ Note that coverage HTML is written to directory htmlcov in the same location the
 5. Make goals more customizable. Add profile badges and other rewards for hitting goals.
 6. Add functionality to workout enrollment feature. Incorporate workout planner and other progress metrics.
 7. Implement a recommendation system for foods, activities, calorie goals, etc.
-   
+
+
+# How to Contribute  
+Please refer to [CONTRIBUTING.md](https://github.com/tran4code/calorieApp_server/blob/main/docs/CONTRIBUTING.md) for instructions on how to contribute to BurnOut.
+
+<p align="center">
+  <a href="https://github.com/tran4code/calorieApp_server/issues/new/choose">Report Bug</a>
+  /
+  <a href="https://github.com/tran4code/calorieApp_server/issues/new/choose">Request Feature</a>
+</p>
+
 # Team Members
 <center>
   <table>
@@ -237,15 +280,29 @@ Note that coverage HTML is written to directory htmlcov in the same location the
   </table>
 </center>
 
-# How to Contribute
-  
-Please refer to [docs/CONTRIBUTING.md](https://github.com/deekay2310/calorieApp_server/blob/main/CONTRIBUTING.md) for instructions on how to contribute to BurnOut.
+# Contact us(Contributors):
 
-<p align="center">
-  <a href="https://github.com/deekay2310/calorieApp_server/issues/new/choose">Report Bug</a>
-  /
-  <a href="https://github.com/deekay2310/calorieApp_server/issues/new/choose">Request Feature</a>
-</p>
+We are here to support you. Feel free to email us with any question or bug reports. We try our best to reply as soon as possible.
+
+* Keith Tran (ktran24@ncsu.edu)
+* Benyamin Tabarsi(btaghiz@ncsu.edu)
+* Kimia Fazeli(kfazeli@ncsu.edu)
+* Mohammed Faizan (mfaizan@ncsu.edu)
+  
+# Project's funding
+
+Our project is currently not funded, and we operate on a volunteer and open-source basis , and currently,improvement of the project solely relies on the dedication of our team and contributions from the open-source community.
+
+# Acknowledgements
+
+We have built this code on top of the stack from the project [BurnOut 3](https://github.com/1360119047/calorieApp_server)
+
+# Recommended citation
+
+You can cite us like this:
+
+BurnOut with ChatGPT. Version 4.0. Keith Tran,Benyamin Tabarsi, Kimia Fazeli, Mohammed Fazian. 2023. [BurnOut
+](https://github.com/tran4code/calorieApp_server)
 
 # License
   
@@ -253,5 +310,5 @@ This project is licensed under the MIT License.
 
 # Other important links:
 
-- [Change Log](docs/CHANGELOG.md)
-- [Code of Conduct](docs/CODE_OF_CONDUCT.md)
+- [Change Log](https://github.com/tran4code/calorieApp_server/blob/main/docs/CHANGELOG.md)
+- [Code of Conduct](https://github.com/tran4code/calorieApp_server/blob/main/docs/CODE_OF_CONDUCT.md)

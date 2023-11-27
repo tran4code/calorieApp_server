@@ -1,6 +1,5 @@
 black
 pytest
-pytest-dov
+pytest-cov
 coverage
 ruff
-

@@ -5,7 +5,7 @@ Consume one of these items ['Tamarind'] * 2 times
 Consume one of these items ['Beef Bouillon', 'Horseradish', 'Lychee', 'Lychees', 'Rambutan', 'Red Cabbage'] * 3 times
 Consume one of these items ['Brussels Sprouts', 'Maraschino Cherries', 'Prickly Pear'] * 2 times
 Consume one of these items ['Chard', 'Gherkin'] * 5 times
-Consume one of these items ['Chicken Bouillon', 'Green Onion', 'Iceberg Lettuce', 'Radishes', 'Shirataki Noodles', 'Wheat Gluten'] * 2 times
+Consume one of these items ['Chicken Bouillon', 'Yellow Onion', 'Iceberg Lettuce', 'Radishes', 'Shirataki Noodles', 'Wheat Gluten'] * 2 times
 Consume one of these items ['Rhubarb'] * 4 times
 Consume one of these items ['Capsicum', 'Collard Greens', 'Vegetable Broth', 'Vegetable Stock'] * 1 times
 Consume one of these items ['Collard Greens', 'Kumquat'] * 6 times

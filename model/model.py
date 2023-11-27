@@ -98,7 +98,7 @@ else:
     daily_target = int((goal_wt - cur_wt) * 7700 / 30) - int(
         (goal_wt - cur_wt) * 7700 * 0.8 / 30
     )
-# print(daily_target)
+# print(the daily_target)
 r = round((cur_wt - goal_wt) / 30, 2)
 
 for i in range(30):
