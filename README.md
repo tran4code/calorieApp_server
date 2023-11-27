@@ -120,8 +120,9 @@ Result: Alex successfully integrated BurnOut into his busy lifestyle. The app's 
   - [Adding Friends](#adding-friends)
   - [Enrolling into several programs](#enrolling-into-several-programs)
 - [Future Scope](#future-scope)
-- [Team Members](#team-members)
 - [How to Contribute](#how-to-contribute)
+- [Team Members](#team-members)
+- [Contact us](#Contact-us(Contributors))
 - [License](#license)
 
 
@@ -281,7 +282,8 @@ We are here to support you. Feel free to email us with any question or bug repor
 * Benyamin Tabarsi(btaghiz@ncsu.edu)
 * Kimia Fazeli(kfazeli@ncsu.edu)
 * Mohammed Faizan (mfaizan@ncsu.edu)
-## Project's funding
+  
+# Project's funding
 
 Our project is currently not funded, and we operate on a volunteer and open-source basis , and currently,improvement of the project solely relies on the dedication of our team and contributions from the open-source community.
 
