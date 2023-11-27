@@ -11,12 +11,11 @@ In the latest BurnOut release, users can now benefit from personalized nutrition
 ## New GPT-generated Workout Plan and a new designed webpage:
 BurnOut's newest feature includes GPT-generated workout plans designed to meet users' specific fitness needs. Whether focusing on cardio, strength training, or overall well-being, the AI-driven workout plans provide personalized recommendations. Each plan comes with its own dedicated webpage, allowing users to conveniently access and navigate through their tailored fitness routines for a more effective and enjoyable workout experience.
 
-## Theme and Logo Revamp
-All the previous groups used the same theme and logo which was not Aesthetically appealing, But in the latest version of BurnOut, we completely changed the previous one, matched all the colors used in the software, created a matching logo and gave the user interface a fresh and modern look by introducing a revamped theme and logo. The improved aesthetics provide a more engaging and visually appealing experience for users.
-
-## Updated User Interface
+## Updated User Interface sections
 We've made significant improvements to the overall user interface, ensuring a seamless and intuitive experience. The updated design not only enhances the visual appeal but also focuses on user-friendly navigation and adding new sections.
 
+## Theme and Logo Revamp
+All the previous groups used the same theme and logo which was not Aesthetically appealing, But in the latest version of BurnOut, we completely changed the previous one, matched all the colors used in the software, created a matching logo and gave the user interface a fresh and modern look by introducing a revamped theme and logo. The improved aesthetics provide a more engaging and visually appealing experience for users.
 
 ## Setup.py file added:
 The inclusion of a setup.py file was crucial. Now, it allows users to easily install and set up the BurnOut application with the necessary dependencies.
