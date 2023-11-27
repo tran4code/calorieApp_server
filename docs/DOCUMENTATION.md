@@ -25,11 +25,6 @@ The inclusion of a setup.py file was crucial. Now, it allows users to easily ins
 
 The introduction of a ticketing system enhances user support and issue tracking. Users can now submit tickets to report problems, request features, or seek assistance, streamlining communication between users and the development team.
 
-
-## Documentation.md added:
-
-Unfortunately non of the previous groups had the Doumentation related to new features. Now the documentation has been expanded to include (Documentation.md). These documents provide users and developers with detailed information on using the application and understanding its new features.
-
 ## Governance model added
  Unfortunately non of the previous groups had the Governance model. Now a governance model is added so that users and developers get to know the governance structure of BurnOut4.
  
@@ -66,8 +61,12 @@ The addition of a chat channel provides users with a direct communication platfo
 
 Miltesyones including the new features next group can work on is added to the repo.
 
+## Documentation.md added:
+
+Unfortunately non of the previous groups had the Doumentation related to new features. Now the documentation has been expanded to include (Documentation.md). These documents provide users and developers with detailed information on using the application and understanding its new features.
+
 ## New sections added to the readme.md
-Other New sections including Contact us part, project's funding, recmmended citation parts are now added.
+Other New sections including Contact us part, project's funding, recmmended citation are now added.
 
 ## Documentation Update
-We've revamped the documentation to provide users with clearer and more comprehensive guidance. The documentation now includes details on the new features, customization options, and step-by-step guides for an improved overall user experience.
+All in all we added many more parts and updated many parts related to documentation. We've revamped the documentation to provide users with clearer and more comprehensive guidance. The documentation now includes details on the new features, customization options, and step-by-step guides for an improved overall user experience.
