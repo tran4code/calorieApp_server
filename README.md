@@ -19,8 +19,8 @@
 <a href="https://github.com/tran4code/calorieApp_server/fork" target="blank">
 <img src="https://img.shields.io/github/forks/tran4code/calorieApp_server?style=flat-square" alt="calorieApp_server forks"/>
 </a>
-<a href="https://github.com/1360119047/calorieApp_server/stargazers" target="blank">
-<img src="https://img.shields.io/github/stars/1360119047/calorieApp_server?style=flat-square" alt="calorieApp_server stars"/>
+<a href="https://github.com/tran4code/calorieApp_server/stargazers" target="blank">
+<img src="https://img.shields.io/github/stars/tran4code/calorieApp_server?style=flat-square" alt="calorieApp_server stars"/>
 </a>
 <a href="https://github.com/1360119047/calorieApp_server/issues" target="blank" alt="Github Issues">
 <img src="https://img.shields.io/github/issues/1360119047/calorieApp_server?style=flat-square" alt="calorieApp_server issues"/>
