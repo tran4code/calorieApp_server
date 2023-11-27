@@ -18,7 +18,7 @@ All the previous groups used the same theme and logo which was not Aesthetically
 We've made significant improvements to the overall user interface, ensuring a seamless and intuitive experience. The updated design not only enhances the visual appeal but also focuses on user-friendly navigation and adding new sections.
 
 
-## setup.py file added:
+## Setup.py file added:
 The inclusion of a setup.py file was crucial. Now, it allows users to easily install and set up the BurnOut application with the necessary dependencies.
 
 
@@ -29,11 +29,14 @@ The introduction of a ticketing system enhances user support and issue tracking.
 
 ## Documentation.md and Governance model.md added:
 
-The documentation has been expanded to include specific files (Documentation.md and Governance model.md). These documents provide users and developers with detailed information on using the application and understanding its governance structure.
+Unfortunately non of the previous groups had the Doumentation related to new features. Now the documentation has been expanded to include (Documentation.md). These documents provide users and developers with detailed information on using the application and understanding its new features.
 
+## Governance model added
+ Unfortunately non of the previous groups had the Governance model. Now a governance model is added so that users and developers get to know the governance structure of BurnOut4.
+ 
 ## Third-party web addresses and licenses added:
 
-The inclusion of third-party web addresses and licenses ensures transparency regarding external resources and the licensing terms associated with them, promoting compliance and acknowledgment of external contributions.
+Unfortunately non of the previous groups added the information related to Third party dependancies. Also their code modules lacked licence and copywrite. Now, The inclusion of third-party web addresses and licenses ensures transparency regarding external resources and the licensing terms associated with them, promoting compliance and acknowledgment of external contributions.
 
 ## Refined requirements.txt file added:
 
@@ -65,7 +68,7 @@ The addition of a chat channel provides users with a direct communication platfo
 Miltesyones including the new features next group can work on is added to the repo.
 
 ## New sections added to the readme.md
-Contact us part, project's funding, recmmended citation parts are now added.
+Other New sections including Contact us part, project's funding, recmmended citation parts are now added.
 
 ## Documentation Update
 We've revamped the documentation to provide users with clearer and more comprehensive guidance. The documentation now includes details on the new features, customization options, and step-by-step guides for an improved overall user experience.
