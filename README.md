@@ -34,14 +34,14 @@
 <a href="https://github.com/tran4code/calorieApp_server/graphs/contributors" alt="Contributors">
 <img src="https://img.shields.io/github/contributors/tran4code/calorieApp_server" /></a>
 
-<a href="https://github.com/1360119047/calorieApp_server/milestones" alt="milestones">
-<img src="https://img.shields.io/github/milestones/all/1360119047/calorieApp_server" /></a> 
+<a href="https://github.com/tran4code/calorieApp_server/milestones" alt="milestones">
+<img src="https://img.shields.io/github/milestones/all/tran4code/calorieApp_server" /></a> 
 
-<a href="https://github.com/1360119047/calorieApp_server/graphs/commit-activity" alt="commit activity">
-<img src="https://img.shields.io/github/commit-activity/w/1360119047/calorieApp_server" /></a> 
+<a href="https://github.com/tran4code/calorieApp_server/graphs/commit-activity" alt="commit activity">
+<img src="https://img.shields.io/github/commit-activity/w/tran4code/calorieApp_server" /></a> 
 
-<a href="https://github.com/1360119047/calorieApp_server/discussions" alt="discussion">
-<img src="https://img.shields.io/github/discussions/1360119047/calorieApp_server" /></a> 
+<a href="https://github.com/tran4code/calorieApp_server/discussions" alt="discussion">
+<img src="https://img.shields.io/github/discussions/tran4code/calorieApp_server" /></a> 
 
 <a href="https://img.shields.io/github/repo-size/1360119047/calorieApp_server" alt="repo size">
 <img src="https://img.shields.io/github/repo-size/1360119047/calorieApp_server" /></a>
