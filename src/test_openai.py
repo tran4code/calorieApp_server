@@ -25,26 +25,27 @@ from langchain.llms import OpenAI
 from dotenv import load_dotenv
 import os
 
-#This script loads environment variables and prepares a request for generating Anki flashcards using the OpenAI API, with a prompt and format requirements for questions and answers related to principal components
+# This script loads environment variables and prepares a request for generating Anki flashcards using the OpenAI API, with a prompt and format requirements for questions and answers related to principal components
 
 load_dotenv()
 API_KEY = os.environ["API_KEY"]
 
 llm = OpenAI(openai_api_key=API_KEY)
 text = "Can you create 3 anki cards on topic of principal components?"
-dictionary_requirement = "Generate the anki cards in the following format. I will provide an example below. Make sure to have contain in the brackets '[]' " \
-                         "[{'Question': 'What do principal components mean?', 'Answer': 'Principal components " \
-                         "are new variables that are constructed as linear combinations or mixtures of the initial " \
-                         "variables.'}, " \
-                         "{'Question': 'What is principal component in PCA?', " \
-                         "'Answer': 'Principal component analysis, or PCA, is a dimensionality reduction method that is " \
-                         "often used to reduce the dimensionality of large data sets, by transforming a large set of " \
-                         "variables into a smaller one that still contains most of the information in the large set.'}, " \
-                         "{'Question': 'What is the principal component theory?', 'Answer': 'PCA is defined as an orthogonal " \
-                         "linear transformation that transforms the data to a new coordinate system such that the greatest " \
-                         "variance by some scalar projection of the data comes to lie on the first coordinate " \
-                         "(called the first principal component), the second greatest variance on the second coordinate, and so on.'}] " \
-
+dictionary_requirement = (
+    "Generate the anki cards in the following format. I will provide an example below. Make sure to have contain in the brackets '[]' "
+    "[{'Question': 'What do principal components mean?', 'Answer': 'Principal components "
+    "are new variables that are constructed as linear combinations or mixtures of the initial "
+    "variables.'}, "
+    "{'Question': 'What is principal component in PCA?', "
+    "'Answer': 'Principal component analysis, or PCA, is a dimensionality reduction method that is "
+    "often used to reduce the dimensionality of large data sets, by transforming a large set of "
+    "variables into a smaller one that still contains most of the information in the large set.'}, "
+    "{'Question': 'What is the principal component theory?', 'Answer': 'PCA is defined as an orthogonal "
+    "linear transformation that transforms the data to a new coordinate system such that the greatest "
+    "variance by some scalar projection of the data comes to lie on the first coordinate "
+    "(called the first principal component), the second greatest variance on the second coordinate, and so on.'}] "
+)
 chatgpt_prompt = text + dictionary_requirement
 
 # Uncomment this to run the the prompt in chatgpt
