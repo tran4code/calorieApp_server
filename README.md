@@ -80,7 +80,7 @@ and more:
 # Table of Contents  
 
 - [Demo](https://github.com/tran4code/calorieApp_server/blob/main/README.md#demo-video)
-- [Burn Out 4 new features and improvements]()
+- [Burn Out 4 new features and improvements](https://github.com/tran4code/calorieApp_server/blob/main/README.md#burn-out-4-new-features-and-improvements)
 - [Successful usecases](https://github.com/tran4code/calorieApp_server/tree/main#successful-usecases)
 - [Tech Stack](#tech-stack)
 - [Setup](#environment-setup)
