@@ -17,6 +17,9 @@ We've made significant improvements to the overall user interface, ensuring a se
 ## Theme and Logo Revamp
 All the previous groups used the same theme and logo which was not Aesthetically appealing, But in the latest version of BurnOut, we completely changed the previous one, matched all the colors used in the software, created a matching logo and gave the user interface a fresh and modern look by introducing a revamped theme and logo. The improved aesthetics provide a more engaging and visually appealing experience for users.
 
+## Log out button added and welcome message is now shown to users
+Previously there were no option for logging out. Now A button created for logging out of the account, also a welcome message is now shown to users upon logging in
+
 ## Setup.py file added:
 The inclusion of a setup.py file was crucial. Now, it allows users to easily install and set up the BurnOut application with the necessary dependencies.
 
