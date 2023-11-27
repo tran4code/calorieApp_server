@@ -55,28 +55,6 @@
                 <a class="nav-item nav-link">Welcome, {{ session.get("email") }}</a>
                 <a class="nav-item nav-link btn btn-link" href="{{ url_for('logout') }}">Log Out</a></div>
         {% endif %}
-    <!-- Navbar Right Side -->
-    {#            {% if not session.get("email"): %}#}
-    {#            <div class="navbar-nav ml-auto">#}
-    {#              <a class="nav-item nav-link" href="{{ url_for('login') }}" id="login">Login</a>#}
-    {#              <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>#}
-    {#            </div>#}
-    {#            {% else %}#}
-    {#            <div class="navbar-nav mr-4">#}
-    {#              <a class="nav-item nav-link" href="{{ url_for('calories') }}">Enter Calories</a>#}
-    {#              <a class="nav-item nav-link" href="{{ url_for('history') }}">History</a>#}
-    {#              <a class="nav-item nav-link" href="{{url_for('friends')}}">Friends</a>#}
-    {#              <a class="nav-item nav-link" href="{{url_for('goals')}}">Goals</a>#}
-    {#              <a class="nav-item nav-link" href="{{url_for('recipes')}}">Diet Plan</a>#}
-    {#              <a class="nav-item nav-link" href="{{url_for('workoutplan')}}">Workout Plan</a>#}
-    {#              <button class="nav-item nav-link btn btn-link" href="{{ url_for('user_profile') }}">Profile</button>#}
-    {#            </div>#}
-    {##}
-    {#            <div class="navbar-nav ml-auto">#}
-    {#              <a class="nav-item nav-link">Welcome, {{ session.get("email") }}</a>#}
-    {#              <button class="nav-item nav-link btn btn-link" onclick="logout()">Log Out</button>#}
-    {#            </div>#}
-    {#            {% endif %}#}
 
 </nav>
 
