@@ -67,5 +67,8 @@ The addition of a chat channel provides users with a direct communication platfo
 
 Miltesyones including the new features next group can work on is added to the repo.
 
+## New sections added to the readme.md
+Contact us part, project's funding, recmmended citation parts are now added.
+
 ## Documentation Update
 We've revamped the documentation to provide users with clearer and more comprehensive guidance. The documentation now includes details on the new features, customization options, and step-by-step guides for an improved overall user experience.
