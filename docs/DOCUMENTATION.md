@@ -49,7 +49,7 @@ The environment setup documentation has been updated to provide clearer instruct
 ## Updated badges:
 
 Badges, such as status indicators or version information, have been updated to reflect the current state of the application or its components.
-Improved GitHub Actions workflows:
+
 
 ## Demo video and animation added:
 
