@@ -123,6 +123,7 @@ Result: Alex successfully integrated BurnOut into his busy lifestyle. The app's 
 - [How to Contribute](#how-to-contribute)
 - [Team Members](#team-members)
 - [Contact us](https://github.com/tran4code/calorieApp_server/blob/main/README.md#contact-uscontributors)
+- [Project's Funding](https://github.com/tran4code/calorieApp_server/blob/main/README.md#projects-funding)
 - [License](#license)
 
 
