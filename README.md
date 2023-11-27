@@ -28,11 +28,11 @@
 <a href="https://github.com/tran4code/calorieApp_server/issues" target="blank">
 <img src="https://img.shields.io/github/issues-closed/tran4code/calorieApp_server" alt="calorieApp_server issues closed"/>
 </a>
-<a href="https://github.com/1360119047/calorieApp_server/pulls" target="blank">
-<img src="https://img.shields.io/github/issues-pr/1360119047/calorieApp_server?style=flat-square" alt="cheapBuy pull-requests"/>
+<a href="https://github.com/tran4code/calorieApp_server/pulls" target="blank">
+<img src="https://img.shields.io/github/issues-pr/tran4code/calorieApp_server?style=flat-square" alt="cheapBuy pull-requests"/>
 </a>
-<a href="https://github.com/1360119047/calorieApp_server/graphs/contributors" alt="Contributors">
-<img src="https://img.shields.io/github/contributors/1360119047/calorieApp_server" /></a>
+<a href="https://github.com/tran4code/calorieApp_server/graphs/contributors" alt="Contributors">
+<img src="https://img.shields.io/github/contributors/tran4code/calorieApp_server" /></a>
 
 <a href="https://github.com/1360119047/calorieApp_server/milestones" alt="milestones">
 <img src="https://img.shields.io/github/milestones/all/1360119047/calorieApp_server" /></a> 
