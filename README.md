@@ -43,8 +43,8 @@
 <a href="https://github.com/tran4code/calorieApp_server/discussions" alt="discussion">
 <img src="https://img.shields.io/github/discussions/tran4code/calorieApp_server" /></a> 
 
-<a href="https://img.shields.io/github/repo-size/1360119047/calorieApp_server" alt="repo size">
-<img src="https://img.shields.io/github/repo-size/1360119047/calorieApp_server" /></a>
+<a href="https://img.shields.io/github/repo-size/tran4code/calorieApp_server" alt="repo size">
+<img src="https://img.shields.io/github/repo-size/tran4code/calorieApp_server" /></a>
 
 
 <img src="https://user-images.githubusercontent.com/25662536/135546154-cfae1d2e-439a-4edc-b0bb-57f693ef5a83.jpeg" width="500px">
