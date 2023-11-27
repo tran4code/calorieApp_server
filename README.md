@@ -77,6 +77,36 @@ and more:
  - Enrollment into a variety of workout programs.
  - Accessible to everyone and easy to use.
 
+# Table of Contents  
+
+- [Demo](#demo)
+- [Successful usecases]()
+- [Tech Stack](#tech-stack)
+- [Setup](#environment-setup)
+- [Testing](#Testing)
+- [Core Functionalities:](#core-functionalities)
+  - [Register](#register)
+  - [Login](#login)
+  - [Set User Profile](#set-user-profile)
+  - [Enter Calories in and burnt](#enter-calories-in-and-burnt)
+  - [Check History](#check-history)
+  - [Daily Goal](#daily-goal)
+  - [Adding Friends](#adding-friends)
+  - [Enrolling into several programs](#enrolling-into-several-programs)
+- [Future Scope](#future-scope)
+- [How to Contribute](#how-to-contribute)
+- [Team Members](#team-members)
+- [Contact us](https://github.com/tran4code/calorieApp_server/blob/main/README.md#contact-uscontributors)
+- [Project's Funding](https://github.com/tran4code/calorieApp_server/blob/main/README.md#projects-funding)
+- [Acknowledgements](https://github.com/tran4code/calorieApp_server/blob/main/README.md#acknowledgements)
+- [Recommended citation](https://github.com/tran4code/calorieApp_server/blob/main/README.md#recommended-citation)
+- [License](#license)
+- [Other important links](https://github.com/tran4code/calorieApp_server/blob/main/README.md#other-important-links)
+
+
+# Demo Video
+
+[Demo video showcasing the most recent updates and features of Burnout](https://drive.google.com/drive/folders/1M5vdCwH11C-MqK8X-Dkf5bPR0SaWA5Yc?usp=sharing)
 
 ## Successful usecases
 
@@ -104,34 +134,7 @@ He used the app to quickly input his meals and workouts, relying on the automati
 
 Result: Alex successfully integrated BurnOut into his busy lifestyle. The app's accessible and user-friendly interface allowed him to effortlessly track his calorie intake and output. The personalized profiles and goal-setting features streamlined his fitness journey, and the app's history tab provided a clear overview of his progress. Despite a busy schedule, Alex achieved his fitness goals and maintained a healthy work-life balance.
 
-# Table of Contents  
 
-- [Demo](#demo)
-- [Tech Stack](#tech-stack)
-- [Setup](#environment-setup)
-- [Testing](#Testing)
-- [Core Functionalities:](#core-functionalities)
-  - [Register](#register)
-  - [Login](#login)
-  - [Set User Profile](#set-user-profile)
-  - [Enter Calories in and burnt](#enter-calories-in-and-burnt)
-  - [Check History](#check-history)
-  - [Daily Goal](#daily-goal)
-  - [Adding Friends](#adding-friends)
-  - [Enrolling into several programs](#enrolling-into-several-programs)
-- [Future Scope](#future-scope)
-- [How to Contribute](#how-to-contribute)
-- [Team Members](#team-members)
-- [Contact us](https://github.com/tran4code/calorieApp_server/blob/main/README.md#contact-uscontributors)
-- [Project's Funding](https://github.com/tran4code/calorieApp_server/blob/main/README.md#projects-funding)
-- [Acknowledgements](https://github.com/tran4code/calorieApp_server/blob/main/README.md#acknowledgements)
-- [Recommended citation](https://github.com/tran4code/calorieApp_server/blob/main/README.md#recommended-citation)
-- [License](#license)
-- [Other important links](https://github.com/tran4code/calorieApp_server/blob/main/README.md#other-important-links)
-
-# Demo Video
-
-[Demo video showcasing the most recent updates and features of Burnout](https://drive.google.com/drive/folders/1M5vdCwH11C-MqK8X-Dkf5bPR0SaWA5Yc?usp=sharing)
 
 # Tech Stack
 
