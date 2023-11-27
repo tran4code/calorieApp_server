@@ -80,7 +80,7 @@ and more:
 # Table of Contents  
 
 - [Demo](#demo)
-- [Successful usecases]()
+- [Successful usecases](https://github.com/tran4code/calorieApp_server/blob/main/README.md#successful-usecases)
 - [Tech Stack](#tech-stack)
 - [Setup](#environment-setup)
 - [Testing](#Testing)
