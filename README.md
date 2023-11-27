@@ -1,7 +1,7 @@
 
 
 
-[![GitHub license](https://img.shields.io/github/license/1360119047/calorieApp_server)](https://github.com/1360119047/calorieApp_server/blob/main/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/tran4code/calorieApp_server)](https://github.com/tran4code/calorieApp_server/blob/main/LICENSE)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10023549.svg)](https://zenodo.org/records/10023549)
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
