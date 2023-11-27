@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -74,331 +74,289 @@
 {#            </div>#}
 {#            {% endif %}#}
 
-    </nav>
-    <div style="background: #0a2f58">
+</nav>
+
+
+<div style="background: #0a2f58">
 
     <!-- slider section -->
-    <div class="100-px-wide">
 
-
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner">
-
-        <div class="carousel-item active">
-          <img class="d-block w-100" src="..." alt="First slide">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>ChatGPT Powered Receipt</h5>
-                <p>Let change how we eat! </p>
-            </div>
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" src="..." alt="Second slide">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Personalized workout</h5>
-                <p>...</p>
-            </div>
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" src="..." alt="Third slide">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>...</h5>
-                <p>...</p>
-            </div>
-        </div>
-
-      </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-
-    </div>
 
     <main role="main" class="container">
-      <div class="row">
-        <div class="col-md-12">
-          {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-              {% for category, message in messages %}
-                <div class="alert alert-{{ category }}">
-                  {{ message }}
-                </div>
-              {% endfor %}
-            {% endif %}
-          {% endwith %}
-          {% block content %}{% endblock %}
+        <div class="row">
+            <div class="col-md-12">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                {% block content %}{% endblock %}
+            </div>
         </div>
-      </div>
     </main>
 
-    <section class="product_section layout_padding">
-        <div class="container">
-          <div class="heading_container heading_center">
-            <h2>
-              New products
-            </h2>
-          </div>
-          <div class="product_container">
-            <div class="row">
-              <div class="col-sm-6 col-md-4 ">
-                <div class="box">
-                  <a href="" class="p_cart">
-                    <i class="fa fa-cart-plus" aria-hidden="true"></i>
-                  </a>
-                  <div class="img-box">
-                    <img src="images/p1.png" alt="">
-                  </div>
-                  <div class="detail-box">
-                    <span class="p_rating">
-                      <a href="">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </a>
-                      <a href="">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </a>
-                      <a href="">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </a>
-                      <a href="">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </a>
-                      <a href="">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </a>
-                    </span>
-                    <a href="" class="p_name">
-                      Gym Equipment
-                    </a>
-                    <h6 class="p_price">
-                      <span class="new_price">
-                        $140
-                      </span>
-                      <span class="old_price">
-                        $165
-                      </span>
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-4 ">
-                <div class="box">
-                  <a href="" class="p_cart">
-                    <i class="fa fa-cart-plus" aria-hidden="true"></i>
-                  </a>
-                  <div class="img-box">
-                    <img src="images/p2.png" alt="">
-                  </div>
-                  <div class="detail-box">
-                    <span class="p_rating">
-                      <a href="">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </a>
-                      <a href="">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </a>
-                      <a href="">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </a>
-                      <a href="">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </a>
-                      <a href="">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </a>
-                    </span>
-                    <a href="" class="p_name">
-                      Gym Equipment
-                    </a>
-                    <h6 class="p_price">
-                      <span class="new_price">
-                        $100
-                      </span>
-                      <span class="old_price">
-                        $120
-                      </span>
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-4 ">
-                <div class="box">
-                  <a href="" class="p_cart">
-                    <i class="fa fa-cart-plus" aria-hidden="true"></i>
-                  </a>
-                  <div class="img-box">
-                    <img src="images/p3.png" alt="">
-                  </div>
-                  <div class="detail-box">
-                    <span class="p_rating">
-                      <a href="">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </a>
-                      <a href="">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </a>
-                      <a href="">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </a>
-                      <a href="">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </a>
-                      <a href="">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </a>
-                    </span>
-                    <a href="" class="p_name">
-                      Gym Equipment
-                    </a>
-                    <h6 class="p_price">
-                      <span class="new_price">
-                        $110
-                      </span>
-                      <span class="old_price">
-                        $130
-                      </span>
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-4 ">
-                <div class="box">
-                  <a href="" class="p_cart">
-                    <i class="fa fa-cart-plus" aria-hidden="true"></i>
-                  </a>
-                  <div class="img-box">
-                    <img src="images/p4.png" alt="">
-                  </div>
-                  <div class="detail-box">
-                    <span class="p_rating">
-                      <a href="">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </a>
-                      <a href="">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </a>
-                      <a href="">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </a>
-                      <a href="">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </a>
-                      <a href="">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </a>
-                    </span>
-                    <a href="" class="p_name">
-                      Gym Equipment
-                    </a>
-                    <h6 class="p_price">
-                      <span class="new_price">
-                        $130
-                      </span>
-                      <span class="old_price">
-                        $135
-                      </span>
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-4 ">
-                <div class="box">
-                  <a href="" class="p_cart">
-                    <i class="fa fa-cart-plus" aria-hidden="true"></i>
-                  </a>
-                  <div class="img-box">
-                    <img src="images/p5.png" alt="">
-                  </div>
-                  <div class="detail-box">
-                    <span class="p_rating">
-                      <a href="">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </a>
-                      <a href="">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </a>
-                      <a href="">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </a>
-                      <a href="">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </a>
-                      <a href="">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </a>
-                    </span>
-                    <a href="" class="p_name">
-                      Gym Equipment
-                    </a>
-                    <h6 class="p_price">
-                      <span class="new_price">
-                        $150
-                      </span>
-                      <span class="old_price">
-                        $170
-                      </span>
-                    </h6>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-4 ">
-                <div class="box">
-                  <a href="" class="p_cart">
-                    <i class="fa fa-cart-plus" aria-hidden="true"></i>
-                  </a>
-                  <div class="img-box">
-                    <img src="images/p6.png" alt="">
-                  </div>
-                  <div class="detail-box">
-                    <span class="p_rating">
-                      <a href="">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </a>
-                      <a href="">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </a>
-                      <a href="">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </a>
-                      <a href="">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </a>
-                      <a href="">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                      </a>
-                    </span>
-                    <a href="" class="p_name">
-                      Gym Equipment
-                    </a>
-                    <h6 class="p_price">
-                      <span class="new_price">
-                        $135
-                      </span>
-                      <span class="old_price">
-                        $150
-                      </span>
-                    </h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="btn-box">
-            <a href="">
-              See More
-            </a>
-          </div>
-        </div>
-    </section>
+{#    <section class="product_section layout_padding">#}
+{#        <div class="container">#}
+{#            <div class="heading_container heading_center">#}
+{#                <h2>#}
+{#                    New products#}
+{#                </h2>#}
+{#            </div>#}
+{#            <div class="product_container">#}
+{#                <div class="row">#}
+{#                    <div class="col-sm-6 col-md-4 ">#}
+{#                        <div class="box">#}
+{#                            <a href="" class="p_cart">#}
+{#                                <i class="fa fa-cart-plus" aria-hidden="true"></i>#}
+{#                            </a>#}
+{#                            <div class="img-box">#}
+{#                                <img src="images/p1.png" alt="">#}
+{#                            </div>#}
+{#                            <div class="detail-box">#}
+{#                    <span class="p_rating">#}
+{#                      <a href="">#}
+{#                        <i class="fa fa-star" aria-hidden="true"></i>#}
+{#                      </a>#}
+{#                      <a href="">#}
+{#                        <i class="fa fa-star" aria-hidden="true"></i>#}
+{#                      </a>#}
+{#                      <a href="">#}
+{#                        <i class="fa fa-star" aria-hidden="true"></i>#}
+{#                      </a>#}
+{#                      <a href="">#}
+{#                        <i class="fa fa-star" aria-hidden="true"></i>#}
+{#                      </a>#}
+{#                      <a href="">#}
+{#                        <i class="fa fa-star" aria-hidden="true"></i>#}
+{#                      </a>#}
+{#                    </span>#}
+{#                                <a href="" class="p_name">#}
+{#                                    Gym Equipment#}
+{#                                </a>#}
+{#                                <h6 class="p_price">#}
+{#                      <span class="new_price">#}
+{#                        $140#}
+{#                      </span>#}
+{#                                    <span class="old_price">#}
+{#                        $165#}
+{#                      </span>#}
+{#                                </h6>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="col-sm-6 col-md-4 ">#}
+{#                        <div class="box">#}
+{#                            <a href="" class="p_cart">#}
+{#                                <i class="fa fa-cart-plus" aria-hidden="true"></i>#}
+{#                            </a>#}
+{#                            <div class="img-box">#}
+{#                                <img src="images/p2.png" alt="">#}
+{#                            </div>#}
+{#                            <div class="detail-box">#}
+{#                    <span class="p_rating">#}
+{#                      <a href="">#}
+{#                        <i class="fa fa-star" aria-hidden="true"></i>#}
+{#                      </a>#}
+{#                      <a href="">#}
+{#                        <i class="fa fa-star" aria-hidden="true"></i>#}
+{#                      </a>#}
+{#                      <a href="">#}
+{#                        <i class="fa fa-star" aria-hidden="true"></i>#}
+{#                      </a>#}
+{#                      <a href="">#}
+{#                        <i class="fa fa-star" aria-hidden="true"></i>#}
+{#                      </a>#}
+{#                      <a href="">#}
+{#                        <i class="fa fa-star" aria-hidden="true"></i>#}
+{#                      </a>#}
+{#                    </span>#}
+{#                                <a href="" class="p_name">#}
+{#                                    Gym Equipment#}
+{#                                </a>#}
+{#                                <h6 class="p_price">#}
+{#                      <span class="new_price">#}
+{#                        $100#}
+{#                      </span>#}
+{#                                    <span class="old_price">#}
+{#                        $120#}
+{#                      </span>#}
+{#                                </h6>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="col-sm-6 col-md-4 ">#}
+{#                        <div class="box">#}
+{#                            <a href="" class="p_cart">#}
+{#                                <i class="fa fa-cart-plus" aria-hidden="true"></i>#}
+{#                            </a>#}
+{#                            <div class="img-box">#}
+{#                                <img src="images/p3.png" alt="">#}
+{#                            </div>#}
+{#                            <div class="detail-box">#}
+{#                    <span class="p_rating">#}
+{#                      <a href="">#}
+{#                        <i class="fa fa-star" aria-hidden="true"></i>#}
+{#                      </a>#}
+{#                      <a href="">#}
+{#                        <i class="fa fa-star" aria-hidden="true"></i>#}
+{#                      </a>#}
+{#                      <a href="">#}
+{#                        <i class="fa fa-star" aria-hidden="true"></i>#}
+{#                      </a>#}
+{#                      <a href="">#}
+{#                        <i class="fa fa-star" aria-hidden="true"></i>#}
+{#                      </a>#}
+{#                      <a href="">#}
+{#                        <i class="fa fa-star" aria-hidden="true"></i>#}
+{#                      </a>#}
+{#                    </span>#}
+{#                                <a href="" class="p_name">#}
+{#                                    Gym Equipment#}
+{#                                </a>#}
+{#                                <h6 class="p_price">#}
+{#                      <span class="new_price">#}
+{#                        $110#}
+{#                      </span>#}
+{#                                    <span class="old_price">#}
+{#                        $130#}
+{#                      </span>#}
+{#                                </h6>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="col-sm-6 col-md-4 ">#}
+{#                        <div class="box">#}
+{#                            <a href="" class="p_cart">#}
+{#                                <i class="fa fa-cart-plus" aria-hidden="true"></i>#}
+{#                            </a>#}
+{#                            <div class="img-box">#}
+{#                                <img src="images/p4.png" alt="">#}
+{#                            </div>#}
+{#                            <div class="detail-box">#}
+{#                    <span class="p_rating">#}
+{#                      <a href="">#}
+{#                        <i class="fa fa-star" aria-hidden="true"></i>#}
+{#                      </a>#}
+{#                      <a href="">#}
+{#                        <i class="fa fa-star" aria-hidden="true"></i>#}
+{#                      </a>#}
+{#                      <a href="">#}
+{#                        <i class="fa fa-star" aria-hidden="true"></i>#}
+{#                      </a>#}
+{#                      <a href="">#}
+{#                        <i class="fa fa-star" aria-hidden="true"></i>#}
+{#                      </a>#}
+{#                      <a href="">#}
+{#                        <i class="fa fa-star" aria-hidden="true"></i>#}
+{#                      </a>#}
+{#                    </span>#}
+{#                                <a href="" class="p_name">#}
+{#                                    Gym Equipment#}
+{#                                </a>#}
+{#                                <h6 class="p_price">#}
+{#                      <span class="new_price">#}
+{#                        $130#}
+{#                      </span>#}
+{#                                    <span class="old_price">#}
+{#                        $135#}
+{#                      </span>#}
+{#                                </h6>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="col-sm-6 col-md-4 ">#}
+{#                        <div class="box">#}
+{#                            <a href="" class="p_cart">#}
+{#                                <i class="fa fa-cart-plus" aria-hidden="true"></i>#}
+{#                            </a>#}
+{#                            <div class="img-box">#}
+{#                                <img src="images/p5.png" alt="">#}
+{#                            </div>#}
+{#                            <div class="detail-box">#}
+{#                    <span class="p_rating">#}
+{#                      <a href="">#}
+{#                        <i class="fa fa-star" aria-hidden="true"></i>#}
+{#                      </a>#}
+{#                      <a href="">#}
+{#                        <i class="fa fa-star" aria-hidden="true"></i>#}
+{#                      </a>#}
+{#                      <a href="">#}
+{#                        <i class="fa fa-star" aria-hidden="true"></i>#}
+{#                      </a>#}
+{#                      <a href="">#}
+{#                        <i class="fa fa-star" aria-hidden="true"></i>#}
+{#                      </a>#}
+{#                      <a href="">#}
+{#                        <i class="fa fa-star" aria-hidden="true"></i>#}
+{#                      </a>#}
+{#                    </span>#}
+{#                                <a href="" class="p_name">#}
+{#                                    Gym Equipment#}
+{#                                </a>#}
+{#                                <h6 class="p_price">#}
+{#                      <span class="new_price">#}
+{#                        $150#}
+{#                      </span>#}
+{#                                    <span class="old_price">#}
+{#                        $170#}
+{#                      </span>#}
+{#                                </h6>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="col-sm-6 col-md-4 ">#}
+{#                        <div class="box">#}
+{#                            <a href="" class="p_cart">#}
+{#                                <i class="fa fa-cart-plus" aria-hidden="true"></i>#}
+{#                            </a>#}
+{#                            <div class="img-box">#}
+{#                                <img src="images/p6.png" alt="">#}
+{#                            </div>#}
+{#                            <div class="detail-box">#}
+{#                    <span class="p_rating">#}
+{#                      <a href="">#}
+{#                        <i class="fa fa-star" aria-hidden="true"></i>#}
+{#                      </a>#}
+{#                      <a href="">#}
+{#                        <i class="fa fa-star" aria-hidden="true"></i>#}
+{#                      </a>#}
+{#                      <a href="">#}
+{#                        <i class="fa fa-star" aria-hidden="true"></i>#}
+{#                      </a>#}
+{#                      <a href="">#}
+{#                        <i class="fa fa-star" aria-hidden="true"></i>#}
+{#                      </a>#}
+{#                      <a href="">#}
+{#                        <i class="fa fa-star" aria-hidden="true"></i>#}
+{#                      </a>#}
+{#                    </span>#}
+{#                                <a href="" class="p_name">#}
+{#                                    Gym Equipment#}
+{#                                </a>#}
+{#                                <h6 class="p_price">#}
+{#                      <span class="new_price">#}
+{#                        $135#}
+{#                      </span>#}
+{#                                    <span class="old_price">#}
+{#                        $150#}
+{#                      </span>#}
+{#                                </h6>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="btn-box">#}
+{#                <a href="">#}
+{#                    See More#}
+{#                </a>#}
+{#            </div>#}
+{#        </div>#}
+{#    </section>#}
 
     <footer class="w-100 py-4 flex-shrink-0 nav-color fixed">
         <div class="container py-4">
@@ -406,38 +364,40 @@
                 <div class="col-lg-6 col-md-6">
                     <h5 class="h1 text-white">BURNOUT</h5>
                     <p class="small text-white">Turning excuses into results.....</p>
-                    <p class="small text-white mb-0">&copy; Copyrights. All rights reserved. <!-- <a class="text-primary" href="#">Bootstrapious.com</a> --></p>
+                    <p class="small text-white mb-0">&copy; Copyrights. All rights reserved.
+                        <!-- <a class="text-primary" href="#">Bootstrapious.com</a> --></p>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <h5 class="text-white mb-3">Quick links</h5>
                     <!-- Navbar Right Side -->
                     {% if not session.get("email"): %}
-                    <div class="navbar-nav ml-auto">
-                        <ul class="list-unstyled text-muted">
-                        <li><a class="nav-item nav-link" href="{{ url_for('login') }}" id="login">Login</a></li>
-                        <li><a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a></li>
-                        </ul>
-                    </div>
+                        <div class="navbar-nav ml-auto">
+                            <ul class="list-unstyled text-muted">
+                                <li><a class="nav-item nav-link" href="{{ url_for('login') }}" id="login">Login</a></li>
+                                <li><a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a></li>
+                            </ul>
+                        </div>
                     {% else %}
-                    <div class="col-lg-6 col-md-6">
-                        <ul class="list-unstyled text-muted">
-                        <li><a class="nav-item nav-link" href="{{ url_for('calories') }}">Enter Calories</a></li>
-                        <li><a class="nav-item nav-link" href="{{ url_for('history') }}">History</a></li>
-                        <li><a class="nav-item nav-link" href="{{url_for('friends')}}">Friends</a></li>
-                        <li><a class="nav-item nav-link" href="{{ url_for('user_profile') }}">Profile</a></li>
-                        </ul>
-                    </div>
-                    </div>
+                        <div class="col-lg-6 col-md-6">
+                            <ul class="list-unstyled text-muted">
+                                <li><a class="nav-item nav-link" href="{{ url_for('calories') }}">Enter Calories</a>
+                                </li>
+                                <li><a class="nav-item nav-link" href="{{ url_for('history') }}">History</a></li>
+                                <li><a class="nav-item nav-link" href="{{ url_for('friends') }}">Friends</a></li>
+                                <li><a class="nav-item nav-link" href="{{ url_for('user_profile') }}">Profile</a></li>
+                            </ul>
+                        </div>
+                        </div>
                     {% endif %}
-                    <!--<div >
+                <!--<div >
 
-                        <ul class="list-unstyled text-muted">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Get started</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        </ul>
-                    </div> -->
+                    <ul class="list-unstyled text-muted">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Get started</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div> -->
                 <!-- <div class="col-lg-2 col-md-6">
                     <h5 class="text-white mb-3">Quick links</h5>
                     <ul class="list-unstyled text-muted">
@@ -460,7 +420,7 @@
             </div>
         </div>
     </footer>
-    </div>
+</div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
