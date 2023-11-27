@@ -260,9 +260,9 @@ Note that coverage HTML is written to directory htmlcov in the same location the
 Please refer to [CONTRIBUTING.md](https://github.com/tran4code/calorieApp_server/blob/main/docs/CONTRIBUTING.md) for instructions on how to contribute to BurnOut.
 
 <p align="center">
-  <a href="https://github.com/deekay2310/calorieApp_server/issues/new/choose">Report Bug</a>
+  <a href="https://github.com/tran4code/calorieApp_server/issues/new/choose">Report Bug</a>
   /
-  <a href="https://github.com/deekay2310/calorieApp_server/issues/new/choose">Request Feature</a>
+  <a href="https://github.com/tran4code/calorieApp_server/issues/new/choose">Request Feature</a>
 </p>
 
 # Team Members
