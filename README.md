@@ -219,15 +219,15 @@ Note that coverage HTML is written to directory htmlcov in the same location the
  
 ### Register
  
-<img src=https://github.com/deekay2310/calorieApp_server/blob/main/static/img/Screen%20Shot%202021-12-04%20at%206.41.18%20PM.png>
+<img src=https://github.com/deekay2310/calorieApp_server/blob/main/static/img/updated_register_page.png>
 
 ### Login
 
-<img src=https://github.com/deekay2310/calorieApp_server/blob/main/static/img/Screen%20Shot%202021-12-04%20at%206.30.27%20PM.png>
+<img src=https://github.com/deekay2310/calorieApp_server/blob/main/static/img/updated_login_page.png>
 
 ### Set User Profile
  
-<img src=https://github.com/deekay2310/calorieApp_server/blob/main/static/img/Screen%20Shot%202021-12-04%20at%206.35.05%20PM.png>
+<img src=https://github.com/deekay2310/calorieApp_server/blob/main/static/img/updated_user_profile.png>
 
 ### Enter Calories burnt and consumed
 - Data sources:
@@ -236,21 +236,13 @@ Note that coverage HTML is written to directory htmlcov in the same location the
 
 <img src=https://github.com/1360119047/calorieApp_server/blob/main/src/static/img/new_calories.png>
 
-### Check History
+### AI Generated Workout Plan
 
-<img src=https://github.com/1360119047/calorieApp_server/blob/main/src/static/img/newhistory.png>
+<img src=https://github.com/1360119047/calorieApp_server/blob/main/src/static/img/updated_workout_plan.png>
 
 ### Daily Goal
 
-<img src=https://github.com/1360119047/calorieApp_server/blob/main/src/static/img/goal.png>
-
-### Adding Friends
-
-<img src=https://github.com/deekay2310/calorieApp_server/blob/main/static/img/friends.png>
-
-### Enrolling into several programs
- 
-<img src=https://github.com/deekay2310/calorieApp_server/blob/main/static/img/Screen%20Shot%202021-12-04%20at%206.32.08%20PM.png>
+<img src=https://github.com/1360119047/calorieApp_server/blob/main/src/static/img/updated_diet_plan.png>
 
   
 # Roadmap and Future Ideas
