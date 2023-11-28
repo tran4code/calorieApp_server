@@ -11,7 +11,7 @@ In the latest BurnOut release, users can now benefit from personalized nutrition
 ## New GPT-generated Workout Plan and a new designed webpage:
 BurnOut's newest feature includes GPT-generated workout plans designed to meet users' specific fitness needs. Whether focusing on cardio, strength training, or overall well-being, the AI-driven workout plans provide personalized recommendations. Each plan comes with its own dedicated webpage, allowing users to conveniently access and navigate through their tailored fitness routines for a more effective and enjoyable workout experience.
 
-## Updated User Interface sections
+# Updated User Interface sections
 We've made significant improvements to the overall user interface, ensuring a seamless and intuitive experience. The updated design not only enhances the visual appeal but also focuses on user-friendly navigation and adding new sections.
 
 ## Logout Page Enhancement:
