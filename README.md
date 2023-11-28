@@ -219,7 +219,7 @@ Note that coverage HTML is written to directory htmlcov in the same location the
  
 ### Register
  
-<img src=https://github.com/tran4code/calorieApp_server/blob/main/static/img/updated_register_page.png>
+<img src=https://github.com/tran4code/calorieApp_server/blob/main/src/static/img/updated_register_page.png>
 
 ### Login
 
@@ -227,7 +227,7 @@ Note that coverage HTML is written to directory htmlcov in the same location the
 
 ### Set User Profile
  
-<img src=https://github.com/tran4code/calorieApp_server/blob/main/static/img/updated_user_profile.png>
+<img src=https://github.com/tran4code/calorieApp_server/blob/main/src/static/img/updated_user_profile.png>
 
 ### AI Generated Workout Plan
 
