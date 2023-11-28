@@ -21,7 +21,6 @@
 # SOFTWARE.
 
 
-
 import bcrypt
 import os
 import smtplib
