@@ -1,10 +1,10 @@
 {% extends "layout.html" %}
 {% block content %}
-    <div class="content-section">
+    <div class="content-section text-white">
         <form method="POST" action="" name="UserProfileForm()">
             {{ form.hidden_tag() }}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">User Profile</legend>
+                <legend class="border-bottom mb-4 text-white">User Profile</legend>
                 <div class="form-group">
                     {{ form.height.label(class="form-control-label") }} (cms)
                     {% if form.height.errors %}

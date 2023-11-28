@@ -1,24 +1,24 @@
 {% extends "layout.html" %}
 {% block content %}
-    <div class="content-section">
+    <div class="content-section text-white">
         <form method="POST" onSubmit="event.preventDefault(); return history(event)" name='historyForm'>
             {{ form.hidden_tag() }}
-            <fieldset class="form-group">
+            <fieldset class="form-group text-white">
                 <legend class="border-bottom mb-4">History</legend>
-                <div class="form-group">
+                <div class="form-group text-white">
                     <label class="form-control-label">Date</label>
                     <input type="date" name="date" required>
                 </div>
             </fieldset>
-            <div class="form-group">
+            <div class="form-group text-white">
                 {{ form.submit(class="btn btn-outline-info") }}
 
             </div>
         </form>
     </div>
-    <div id="history-data card">
-        <h5 class="card-header">History</h5>
-        <div class="card-body">
+    <div id="history-data card text-white">
+        <h5 class="card-header text-white">History</h5>
+        <div class="card-body text-white">
             <p class="border-bottom mb-4 h6" id="date_legend"></p>
             <p class="card-text" id="date"></p> <br>
             <p class="border-bottom mb-4 h6" id="foods_legend"></p>

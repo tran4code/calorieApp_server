@@ -2,9 +2,9 @@
 {% block content %}
 
 <details>
-    <summary>My Friends</summary>
+    <summary class="text-white">My Friends</summary>
     {% for friend in myFriends %}
-        <div>
+        <div >
             <span>{{friend.receiver}}</span>
         </div>
         <br>
@@ -12,12 +12,12 @@
 </details>
 <br>
 <details>
-    <summary>Add Friends</summary>
+    <summary class="text-white">Add Friends</summary>
     {% for friend in allUsers %}
         {% if friend.email != active and friend.email not in pendingReceivers and friend.email not in pendingApproves and friend.email not in myFriendsList %}
             <details style="margin: 5px; background:white;">
                 <summary>{{friend.name}}</summary>
-                <p class="article-content" name="friend">{{friend.email}}</p>
+                <p class="article-content text-white" name="friend">{{friend.email}}</p>
                 <button type="button" class="btn btn-primary" onclick="return sendRequest(event,this.id)" id="{{friend.email}}">Send Request</button>
             </details>
         {% endif %}
@@ -25,9 +25,9 @@
 </details>
 <br>
 <details>
-    <summary>Sent Requests</summary>
+    <summary class="text-white">Sent Requests</summary>
     {% for req in pendingRequests %}
-        <div>
+        <div class="text-white">
             <span>{{req.receiver}}</span>
             <button onclick="return cancelRequest(event,this.id)" id="{{req.receiver}}" class="btn btn-danger inline ml-5" >Cancel Request</button>
         </div>
@@ -37,9 +37,9 @@
 
 <br>
 <details>
-    <summary>Pending Approvals</summary>
+    <summary class="text-white">Pending Approvals</summary>
     {% for req in pendingApproves %}
-        <div>
+        <div class="text-white">
             <span>{{req}}</span>
             <button onclick="return approveRequest(event,this.id)" id="{{req}}" class="btn btn-success inline ml-5" >Approve</button>
         </div>
@@ -48,9 +48,9 @@
 </details>
 <br>
 <details>
-    <summary>Share data with Friends (Type friend's email ID comma separated)</summary>
+    <summary class="text-white">Share data with Friends (Type friend's email ID comma separated)</summary>
     
-        <div>
+        <div class="text-white">
             
 				<form method="POST" action="/send_email">
 				<textarea id="share" name="share" rows="4" cols="50"></textarea>
