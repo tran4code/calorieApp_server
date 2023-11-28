@@ -8,9 +8,9 @@
 [![codecov](https://codecov.io/gh/deekay2310/calorieApp_server/branch/main/graph/badge.svg?token=IQW5PLLE22)](https://codecov.io/gh/deekay2310/calorieApp_server)
 
 [//]: # (Github Actions)
-[![github workflow](https://github.com/1360119047/calorieApp_server/actions/workflows/unit_test.yml/badge.svg)](https://github.com/1360119047/calorieApp_server/actions/workflows/unit_test.yml)
+[![github workflow](https://github.com/tran4code/calorieApp_server/actions/workflows/unit_test.yml/badge.svg)](https://github.com/tran4code/calorieApp_server/actions/workflows/unit_test.yml)
 [![github workflow](https://github.com/tran4code/calorieApp_server/actions/workflows/style_checker.yml/badge.svg)](https://github.com/tran4code/calorieApp_server/actions/workflows/style_checker.yml)
-[![github workflow](https://github.com/tran4code/calorieApp_server/actions/workflows/code_cov.yml/badge.svg)](https://github.com/tran4code/calorieApp_server/actions/workflows/code_cov.yml)
+[![github workflow](https://github.com/1360119047/calorieApp_server/actions/workflows/code_cov.yml/badge.svg)](https://github.com/1360119047/calorieApp_server/actions/workflows/code_cov.yml)
 [![github workflow](https://github.com/tran4code/calorieApp_server/actions/workflows/syntax_checker.yml/badge.svg)](https://github.com/tran4code/calorieApp_server/actions/workflows/syntax_checker.yml)
 [![github workflow](https://github.com/tran4code/calorieApp_server/actions/workflows/code_formatter.yml/badge.svg)](https://github.com/tran4code/calorieApp_server/actions/workflows/code_formatter.yml)
 
@@ -111,7 +111,7 @@ and more:
 
 # Demo Video
 
-[Demo video showcasing the most recent updates and features of Burnout](https://drive.google.com/drive/folders/1M5vdCwH11C-MqK8X-Dkf5bPR0SaWA5Yc?usp=sharing)
+[Demo video showcasing the most recent updates and features of Burnout]([https://youtu.be/mRnTjdv3bZA](https://youtu.be/mRnTjdv3bZA))
 
 # Burn Out 4 new features and improvements
  Please refer to [Demo video](https://github.com/tran4code/calorieApp_server/blob/main/README.md#demo-video), [Documentation.md](https://github.com/tran4code/calorieApp_server/blob/main/docs/DOCUMENTATION.md) and [Changelog.md](https://github.com/tran4code/calorieApp_server/blob/main/docs/CHANGELOG.md) for checking out the new features and improvements in BurnOut 4.0.0.
