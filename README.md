@@ -219,30 +219,23 @@ Note that coverage HTML is written to directory htmlcov in the same location the
  
 ### Register
  
-<img src=https://github.com/deekay2310/calorieApp_server/blob/main/static/img/updated_register_page.png>
+<img src=https://github.com/tran4code/calorieApp_server/blob/main/static/img/updated_register_page.png>
 
 ### Login
 
-<img src=https://github.com/deekay2310/calorieApp_server/blob/main/static/img/updated_login_page.png>
+<img src=https://github.com/tran4code/calorieApp_server/blob/main/static/img/updated_login_page.png>
 
 ### Set User Profile
  
-<img src=https://github.com/deekay2310/calorieApp_server/blob/main/static/img/updated_user_profile.png>
-
-### Enter Calories burnt and consumed
-- Data sources:
-  - [Foods](https://www.kaggle.com/datasets/trolukovich/nutritional-values-for-common-foods-and-products/data)
-  - [Activities](https://www.kaggle.com/datasets/aadhavvignesh/calories-burned-during-exercise-and-activities)
-
-<img src=https://github.com/1360119047/calorieApp_server/blob/main/src/static/img/new_calories.png>
+<img src=https://github.com/tran4code/calorieApp_server/blob/main/static/img/updated_user_profile.png>
 
 ### AI Generated Workout Plan
 
-<img src=https://github.com/1360119047/calorieApp_server/blob/main/src/static/img/updated_workout_plan.png>
+<img src=https://github.com/tran4code/calorieApp_server/blob/main/src/static/img/updated_workout_plan.png>
 
 ### Daily Goal
 
-<img src=https://github.com/1360119047/calorieApp_server/blob/main/src/static/img/updated_diet_plan.png>
+<img src=https://github.com/tran4code/calorieApp_server/blob/main/src/static/img/updated_diet_plan.png>
 
   
 # Roadmap and Future Ideas
