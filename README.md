@@ -8,7 +8,7 @@
 [![codecov](https://codecov.io/gh/deekay2310/calorieApp_server/branch/main/graph/badge.svg?token=IQW5PLLE22)](https://codecov.io/gh/deekay2310/calorieApp_server)
 
 [//]: # (Github Actions)
-[![github workflow](https://github.com/1360119047/calorieApp_server/actions/workflows/unit_test.yml/badge.svg)](https://github.com/1360119047/calorieApp_server/actions/workflows/unit_test.yml)
+[![github workflow](https://github.com/tran4code/calorieApp_server/actions/workflows/unit_test.yml/badge.svg)](https://github.com/tran4code/calorieApp_server/actions/workflows/unit_test.yml)
 [![github workflow](https://github.com/tran4code/calorieApp_server/actions/workflows/style_checker.yml/badge.svg)](https://github.com/tran4code/calorieApp_server/actions/workflows/style_checker.yml)
 [![github workflow](https://github.com/tran4code/calorieApp_server/actions/workflows/code_cov.yml/badge.svg)](https://github.com/tran4code/calorieApp_server/actions/workflows/code_cov.yml)
 [![github workflow](https://github.com/tran4code/calorieApp_server/actions/workflows/syntax_checker.yml/badge.svg)](https://github.com/tran4code/calorieApp_server/actions/workflows/syntax_checker.yml)
