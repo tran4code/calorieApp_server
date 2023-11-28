@@ -21,7 +21,6 @@
 # SOFTWARE.
 
 
-
 import random
 
 from flask_mail import Message
