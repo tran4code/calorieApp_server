@@ -77,7 +77,6 @@ and more:
  - User just needs to input the food they've eaten or an activity they've done,and  calories get calculated automatically.
  - Displays a record of calories in and calories burnt out day wise in History tab.
  - Helps user to figure out how much to eat/exercise according to their desired goal(weight loss/gain).
- - Users can connect with their friends and keep track of each other's progress
  - Enrollment into a variety of workout programs.
  - Accessible to everyone and easy to use.
 
