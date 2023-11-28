@@ -21,9 +21,6 @@
 # SOFTWARE.
 
 
-
-
-
 from apps import App
 import csv
 
