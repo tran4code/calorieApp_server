@@ -4,7 +4,7 @@
 
 
 
-## score cards
+## Score cards
 
 
 - Column1 has all the following points PLUS all the points from the
