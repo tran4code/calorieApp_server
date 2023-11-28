@@ -226,7 +226,7 @@ Note that coverage HTML is written to directory htmlcov in the same location the
 
 ### Login
 
-<img src=https://github.com/tran4code/calorieApp_server/blob/main/static/img/updated_login_page.png>
+<img src=https://github.com/tran4code/calorieApp_server/blob/main/src/static/img/updated_login_page.png>
 
 ### Set User Profile
  
