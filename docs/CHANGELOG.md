@@ -2,25 +2,44 @@
 
 ## [4.0.0] - 2023-11-27
 ###
--ChatGPT 4 API added:
--New GPT-generated Diet Plan and a new designed webpage:
--New GPT-generated Workout Plan and a new designed webpage:
+-ChatGPT 4 API added
+
+-New GPT-generated Diet Plan and a new designed webpage
+
+-New GPT-generated Workout Plan and a new designed webpage
+
 -Updated User Interface sections
+
 -Theme and Logo Revamp
+
 -Log out button added and welcome message is now shown to users
+
 -Setup.py file added
+
 -Ticketing system added
+
 -Governance model added
--Third-party web addresses and licenses added:
--Refined requirements.txt file added:
--Updated environment setup documentation and initial description:
+
+-Third-party web addresses and licenses added
+
+-Refined requirements.txt file added
+
+-Updated environment setup documentation and initial description
+
 -Updated badges
+
 -Demo video and animation added
+
 -Success stories added
--Chat channel added:
+
+-Chat channel added
+
 -Milestones added
--Documentation.md added:
+
+-Documentation.md added
+
 -New sections added to the readme.md
+
 -Documentation Update
 
   
