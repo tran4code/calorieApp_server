@@ -2,6 +2,8 @@
 
 ## [4.0.0] - 2023-11-27
 ###
+
+
 -ChatGPT 4 API added
 
 -New GPT-generated Diet Plan and a new designed webpage
@@ -10,9 +12,17 @@
 
 -Updated User Interface sections
 
--Theme and Logo Revamp
+-Logout Page Enhancement:
+
+-UI Redesign with Color Schematics, Theme and Logo Revamp
 
 -Log out button added and welcome message is now shown to users
+
+-CSS File Optimization with Design Library
+
+-Dashboard Card Recreation
+
+-Links to youtube workout videos and diet plans
 
 -Setup.py file added
 
