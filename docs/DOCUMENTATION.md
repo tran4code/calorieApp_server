@@ -50,7 +50,7 @@ The introduction of a ticketing system enhances user support and issue tracking.
 
 Unfortunately non of the previous groups added the information related to Third party dependancies. Also their code modules lacked licence and copywrite. Now, The inclusion of third-party web addresses and licenses ensures transparency regarding external resources and the licensing terms associated with them, promoting compliance and acknowledgment of external contributions.
 
-## Refined requirements.txt file added:
+# Refined requirements.txt file added:
 
 The requirements.txt file has been refined to specify the dependencies and versions needed for the BurnOut application. This ensures consistency and reproducibility in the development environment.
 
