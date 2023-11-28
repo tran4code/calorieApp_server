@@ -111,7 +111,7 @@ and more:
 
 # Demo Video
 
-[Demo video showcasing the most recent updates and features of Burnout](https://drive.google.com/drive/folders/1M5vdCwH11C-MqK8X-Dkf5bPR0SaWA5Yc?usp=sharing)
+[Demo video showcasing the most recent updates and features of Burnout]([https://drive.google.com/drive/folders/1M5vdCwH11C-MqK8X-Dkf5bPR0SaWA5Yc?usp=sharing](https://youtu.be/mRnTjdv3bZA))
 
 # Burn Out 4 new features and improvements
  Please refer to [Demo video](https://github.com/tran4code/calorieApp_server/blob/main/README.md#demo-video), [Documentation.md](https://github.com/tran4code/calorieApp_server/blob/main/docs/DOCUMENTATION.md) and [Changelog.md](https://github.com/tran4code/calorieApp_server/blob/main/docs/CHANGELOG.md) for checking out the new features and improvements in BurnOut 4.0.0.
